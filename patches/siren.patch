@@ -1,0 +1,206 @@
+--- a/dataio.py
++++ b/dataio.py
+@@ -575,7 +575,7 @@
+ 
+ 
+ class Implicit2DWrapper(torch.utils.data.Dataset):
+-    def __init__(self, dataset, sidelength=None, compute_diff=None):
++    def __init__(self, dataset, sidelength=None, compute_diff=None, pixel_samples=False):
+ 
+         if isinstance(sidelength, int):
+             sidelength = (sidelength, sidelength)
+@@ -590,11 +590,22 @@
+         self.compute_diff = compute_diff
+         self.dataset = dataset
+         self.mgrid = get_mgrid(sidelength)
+-
+-    def __len__(self):
+-        return len(self.dataset)
+-
+-    def __getitem__(self, idx):
++        self.pixel_samples = False
++        if pixel_samples:
++            # Reuse the official transform once; DataLoader shuffles pixels.
++            self.pixels = self[0][1]['img']
++        self.pixel_samples = pixel_samples
++
++    def __len__(self):
++        return len(self.mgrid) if self.pixel_samples else len(self.dataset)
++
++    def __getitems__(self, indices):
++        # Fetch an entire pixel batch at once instead of looping in Python.
++        return self[indices] if self.pixel_samples else [self[i] for i in indices]
++
++    def __getitem__(self, idx):
++        if self.pixel_samples:
++            return {'coords': self.mgrid[idx]}, {'img': self.pixels[idx]}
+         img = self.transform(self.dataset[idx])
+ 
+         if self.compute_diff == 'gradients':
+--- a/experiment_scripts/train_img.py
++++ b/experiment_scripts/train_img.py
+@@ -8,6 +8,8 @@
+ from torch.utils.data import DataLoader
+ import configargparse
+ from functools import partial
++import torch
++import numpy as np
+ 
+ p = configargparse.ArgumentParser()
+ p.add('-c', '--config_filepath', required=False, is_config_file=True, help='Path to config file.')
+@@ -33,18 +35,32 @@
+                     'and in the future: "mixed" (first layer sine, other layers tanh)')
+ 
+ p.add_argument('--checkpoint_path', default=None, help='Checkpoint to trained model.')
++p.add_argument('--input', help='Fit an original-size RGB image with pixel minibatches')
++p.add_argument('--hidden_features', type=int, default=256)
++p.add_argument('--seed', type=int, default=3407)
+ opt = p.parse_args()
+ 
+-img_dataset = dataio.Camera()
+-coord_dataset = dataio.Implicit2DWrapper(img_dataset, sidelength=512, compute_diff='all')
+-image_resolution = (512, 512)
++if opt.input:
++    torch.manual_seed(opt.seed)
++    np.random.seed(opt.seed)
++    img_dataset = dataio.ImageFile(opt.input)
++    img_dataset.img = img_dataset.img.convert('RGB')
++    img_dataset.img_channels = 3
++    image_resolution = (img_dataset.img.height, img_dataset.img.width)
++else:
++    img_dataset = dataio.Camera()
++    image_resolution = (512, 512)
++coord_dataset = dataio.Implicit2DWrapper(img_dataset, sidelength=image_resolution,
++                                       compute_diff=None if opt.input else 'all', pixel_samples=bool(opt.input))
+ 
+-dataloader = DataLoader(coord_dataset, shuffle=True, batch_size=opt.batch_size, pin_memory=True, num_workers=0)
++dataloader = DataLoader(coord_dataset, shuffle=True, batch_size=opt.batch_size, pin_memory=True, num_workers=0,
++                        collate_fn=(lambda batch: batch) if opt.input else None)
+ 
+ # Define the model.
+ if opt.model_type == 'sine' or opt.model_type == 'relu' or opt.model_type == 'tanh' or opt.model_type == 'selu' or opt.model_type == 'elu'\
+         or opt.model_type == 'softplus':
+-    model = modules.SingleBVPNet(type=opt.model_type, mode='mlp', sidelength=image_resolution)
++    model = modules.SingleBVPNet(type=opt.model_type, mode='mlp', sidelength=image_resolution,
++                                  out_features=img_dataset.img_channels, hidden_features=opt.hidden_features)
+ elif opt.model_type == 'rbf' or opt.model_type == 'nerf':
+     model = modules.SingleBVPNet(type='relu', mode=opt.model_type, sidelength=image_resolution)
+ else:
+@@ -55,7 +71,7 @@
+ 
+ # Define the loss
+ loss_fn = partial(loss_functions.image_mse, None)
+-summary_fn = partial(utils.write_image_summary, image_resolution)
++summary_fn = None if opt.input else partial(utils.write_image_summary, image_resolution)
+ 
+ training.train(model=model, train_dataloader=dataloader, epochs=opt.num_epochs, lr=opt.lr,
+                steps_til_summary=opt.steps_til_summary, epochs_til_checkpoint=opt.epochs_til_ckpt,
+--- a/torchmeta/__init__.py
++++ b/torchmeta/__init__.py
+@@ -1,7 +1,11 @@
+-from torchmeta import datasets
+ from torchmeta import modules
+-from torchmeta import toy
+-from torchmeta import transforms
+-from torchmeta import utils
+ 
+ from torchmeta.version import VERSION as __version__
++
++def __getattr__(name):
++    if name in ('datasets', 'toy', 'transforms', 'utils'):
++        import importlib
++        value = importlib.import_module('torchmeta.' + name)
++        globals()[name] = value
++        return value
++    raise AttributeError(name)
+--- a/training.py
++++ b/training.py
+@@ -9,12 +9,16 @@
+ import numpy as np
+ import os
+ import shutil
++import json
++from PIL import Image
+ 
+ 
+ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_checkpoint, model_dir, loss_fn,
+           summary_fn, val_dataloader=None, double_precision=False, clip_grad=False, use_lbfgs=False, loss_schedules=None):
+ 
+     optim = torch.optim.Adam(lr=lr, params=model.parameters())
++    dataset = train_dataloader.dataset
++    pixel_fit = getattr(dataset, 'pixel_samples', False)
+ 
+     # copy settings from Raissi et al. (2019) and here 
+     # https://github.com/maziarraissi/PINNs
+@@ -41,7 +45,7 @@
+     with tqdm(total=len(train_dataloader) * epochs) as pbar:
+         train_losses = []
+         for epoch in range(epochs):
+-            if not epoch % epochs_til_checkpoint and epoch:
++            if not pixel_fit and not epoch % epochs_til_checkpoint and epoch:
+                 torch.save(model.state_dict(),
+                            os.path.join(checkpoints_dir, 'model_epoch_%04d.pth' % epoch))
+                 np.savetxt(os.path.join(checkpoints_dir, 'train_losses_epoch_%04d.txt' % epoch),
+@@ -87,9 +91,10 @@
+                 writer.add_scalar("total_train_loss", train_loss, total_steps)
+ 
+                 if not total_steps % steps_til_summary:
+-                    torch.save(model.state_dict(),
+-                               os.path.join(checkpoints_dir, 'model_current.pth'))
+-                    summary_fn(model, model_input, gt, model_output, writer, total_steps)
++                    if not pixel_fit:
++                        torch.save(model.state_dict(), os.path.join(checkpoints_dir, 'model_current.pth'))
++                    if summary_fn:
++                        summary_fn(model, model_input, gt, model_output, writer, total_steps)
+ 
+                 if not use_lbfgs:
+                     optim.zero_grad()
+@@ -123,8 +128,25 @@
+ 
+                 total_steps += 1
+ 
+-        torch.save(model.state_dict(),
+-                   os.path.join(checkpoints_dir, 'model_final.pth'))
++            if pixel_fit and epoch+1 == epochs:
++                model.eval()
++                with torch.no_grad():
++                    prediction = torch.cat([model({'coords': c.cuda()[None]})['model_out'][0].cpu()
++                                            for c in dataset.mgrid.split(train_dataloader.batch_size)])
++                count = sum(p.numel() for p in model.parameters())
++                torch.save(dict(state_dict=model.state_dict(), shape_hw=dataset.sidelength,
++                    parameter_count=count, checkpoint='latest', epoch=epoch+1),
++                    os.path.join(model_dir, 'model_latest.pt'))
++                rgb = prediction.reshape(*dataset.sidelength, -1).numpy()/2+.5
++                Image.fromarray(np.rint(np.clip(rgb, 0, 1)*255).astype(np.uint8)).save(
++                    os.path.join(model_dir, 'reconstruction.png'))
++                with open(os.path.join(model_dir, 'metrics.json'), 'w') as stream:
++                    json.dump(dict(epoch=epoch+1, optimizer_steps=total_steps,
++                                   parameter_count=count, checkpoint='latest'), stream, indent=2)
++                model.train()
++
++        if not pixel_fit:
++            torch.save(model.state_dict(), os.path.join(checkpoints_dir, 'model_final.pth'))
+         np.savetxt(os.path.join(checkpoints_dir, 'train_losses_final.txt'),
+                    np.array(train_losses))
+ 
+--- a/utils.py
++++ b/utils.py
+@@ -6,6 +6,7 @@
+ import diff_operators
+ from torchvision.utils import make_grid, save_image
+ import skimage.measure
++import skimage.metrics
+ import cv2
+ import meta_modules
+ import scipy.io.wavfile as wavfile
+@@ -583,8 +584,8 @@
+ 
+         trgt = (trgt / 2.) + 0.5
+ 
+-        ssim = skimage.measure.compare_ssim(p, trgt, multichannel=True, data_range=1)
+-        psnr = skimage.measure.compare_psnr(p, trgt, data_range=1)
++        ssim = skimage.metrics.structural_similarity(p, trgt, channel_axis=2, data_range=1)
++        psnr = skimage.metrics.peak_signal_noise_ratio(p, trgt, data_range=1)
+ 
+         psnrs.append(psnr)
+         ssims.append(ssim)

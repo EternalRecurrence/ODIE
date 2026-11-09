@@ -1,0 +1,8 @@
+{
+  "epoch": 3000,
+  "optimizer_steps": 3000,
+  "parameter_count": 700192,
+  "checkpoint": "latest",
+  "training_loop_seconds": 43.22564525809139,
+  "training_time_scope": "Complete internal training loop; excludes setup and post-loop export"
+}

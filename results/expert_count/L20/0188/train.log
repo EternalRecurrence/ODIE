@@ -1,0 +1,76 @@
+Starting train: <runtime-home>/projects/miner/.venv-tcnn-grid/bin/python -u -m odie run --input data/div2k/0188.png --config results/expert_count/L20/0188/config.json --output results/expert_count/L20/0188
+Epoch 1/50 | steps 49/2450 | experts 14/20 | loss 0.0795579 | elapsed 0.1s | ETA 5.9s
+Expert 15: selected coverage 82.36% | selection 0.986s
+{"dynamic_selection": "B2", "completed_epoch": 1, "opening_epoch": 2, "new_prefix": 15, "live_psnr_before_opening": 18.82856714127113, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 66941, "closure_nodes": 67968, "node_capacity": 67968, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 67968, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 66941, "cuda_end_to_end_seconds": 0.5696042361669242, "launches": 131, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 0.9861844033002853}
+Opened expert 15/20 at epoch 2
+Epoch 2/50 | steps 98/2450 | experts 15/20 | loss 0.00953133 | elapsed 1.2s | ETA 29.8s
+Expert 16: selected coverage 46.85% | selection 0.703s
+{"dynamic_selection": "B2", "completed_epoch": 2, "opening_epoch": 3, "new_prefix": 16, "live_psnr_before_opening": 21.414719774875557, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 63237, "closure_nodes": 67968, "node_capacity": 67968, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 67968, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 63237, "cuda_end_to_end_seconds": 0.5285833678208292, "launches": 124, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 0.7028843369334936}
+Opened expert 16/20 at epoch 3
+Epoch 3/50 | steps 147/2450 | experts 16/20 | loss 0.00599333 | elapsed 2.1s | ETA 32.7s
+Expert 17: selected coverage 26.72% | selection 0.688s
+{"dynamic_selection": "B2", "completed_epoch": 3, "opening_epoch": 4, "new_prefix": 17, "live_psnr_before_opening": 23.083454675662146, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 59560, "closure_nodes": 67968, "node_capacity": 67968, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 67968, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 59560, "cuda_end_to_end_seconds": 0.5063892509788275, "launches": 117, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 0.6875028903596103}
+Opened expert 17/20 at epoch 4
+Epoch 4/50 | steps 196/2450 | experts 17/20 | loss 0.00420997 | elapsed 2.9s | ETA 33.5s
+Expert 18: selected coverage 14.77% | selection 0.675s
+{"dynamic_selection": "B2", "completed_epoch": 4, "opening_epoch": 5, "new_prefix": 18, "live_psnr_before_opening": 24.512965329600803, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 54374, "closure_nodes": 67968, "node_capacity": 67968, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 67968, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 54374, "cuda_end_to_end_seconds": 0.4845459288917482, "launches": 107, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 0.6753677777014673}
+Opened expert 18/20 at epoch 5
+Epoch 5/50 | steps 245/2450 | experts 18/20 | loss 0.00306222 | elapsed 3.7s | ETA 33.6s
+Expert 19: selected coverage 8.45% | selection 0.683s
+{"dynamic_selection": "B2", "completed_epoch": 5, "opening_epoch": 6, "new_prefix": 19, "live_psnr_before_opening": 25.826509218396584, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 51799, "closure_nodes": 67968, "node_capacity": 67968, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 67968, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 51799, "cuda_end_to_end_seconds": 0.4825466158799827, "launches": 102, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 0.6825953111983836}
+Opened expert 19/20 at epoch 6
+Epoch 6/50 | steps 294/2450 | experts 19/20 | loss 0.00221301 | elapsed 4.6s | ETA 33.4s
+Expert 20: selected coverage 4.83% | selection 0.680s
+{"dynamic_selection": "B2", "completed_epoch": 6, "opening_epoch": 7, "new_prefix": 20, "live_psnr_before_opening": 27.361120638340463, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 48381, "closure_nodes": 67984, "node_capacity": 67984, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 67984, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 48381, "cuda_end_to_end_seconds": 0.4703778172843158, "launches": 95, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 1, "normalize_by_cost": true}, "selection_seconds": 0.6804753011092544}
+Opened expert 20/20 at epoch 7
+Epoch 7/50 | steps 343/2450 | experts 20/20 | loss 0.00156275 | elapsed 5.4s | ETA 33.1s
+Epoch 8/50 | steps 392/2450 | experts 20/20 | loss 0.00115375 | elapsed 5.5s | ETA 28.8s
+Epoch 9/50 | steps 441/2450 | experts 20/20 | loss 0.000908314 | elapsed 5.6s | ETA 25.4s
+Eval epoch 10 | PSNR 31.52707176459368 dB
+Epoch 10/50 | steps 490/2450 | experts 20/20 | loss 0.000759334 | elapsed 5.7s | ETA 22.9s
+Epoch 11/50 | steps 539/2450 | experts 20/20 | loss 0.000658157 | elapsed 5.8s | ETA 20.6s
+Epoch 12/50 | steps 588/2450 | experts 20/20 | loss 0.000591968 | elapsed 5.9s | ETA 18.7s
+Epoch 13/50 | steps 637/2450 | experts 20/20 | loss 0.000541673 | elapsed 6.0s | ETA 17.1s
+Epoch 14/50 | steps 686/2450 | experts 20/20 | loss 0.000504077 | elapsed 6.1s | ETA 15.7s
+Epoch 15/50 | steps 735/2450 | experts 20/20 | loss 0.000473216 | elapsed 6.2s | ETA 14.5s
+Epoch 16/50 | steps 784/2450 | experts 20/20 | loss 0.00044953 | elapsed 6.3s | ETA 13.4s
+Epoch 17/50 | steps 833/2450 | experts 20/20 | loss 0.000425847 | elapsed 6.4s | ETA 12.4s
+Epoch 18/50 | steps 882/2450 | experts 20/20 | loss 0.00040737 | elapsed 6.5s | ETA 11.5s
+Epoch 19/50 | steps 931/2450 | experts 20/20 | loss 0.000391523 | elapsed 6.6s | ETA 10.7s
+Eval epoch 20 | PSNR 34.3104432979847 dB
+Epoch 20/50 | steps 980/2450 | experts 20/20 | loss 0.000377577 | elapsed 6.7s | ETA 10.1s
+Epoch 21/50 | steps 1029/2450 | experts 20/20 | loss 0.000366069 | elapsed 6.8s | ETA 9.4s
+Epoch 22/50 | steps 1078/2450 | experts 20/20 | loss 0.000354947 | elapsed 6.9s | ETA 8.8s
+Epoch 23/50 | steps 1127/2450 | experts 20/20 | loss 0.000344962 | elapsed 7.0s | ETA 8.2s
+Epoch 24/50 | steps 1176/2450 | experts 20/20 | loss 0.000335298 | elapsed 7.1s | ETA 7.7s
+Epoch 25/50 | steps 1225/2450 | experts 20/20 | loss 0.00032702 | elapsed 7.2s | ETA 7.2s
+Epoch 26/50 | steps 1274/2450 | experts 20/20 | loss 0.000318788 | elapsed 7.3s | ETA 6.7s
+Epoch 27/50 | steps 1323/2450 | experts 20/20 | loss 0.000311659 | elapsed 7.4s | ETA 6.3s
+Epoch 28/50 | steps 1372/2450 | experts 20/20 | loss 0.000305086 | elapsed 7.5s | ETA 5.9s
+Epoch 29/50 | steps 1421/2450 | experts 20/20 | loss 0.000300251 | elapsed 7.6s | ETA 5.5s
+Eval epoch 30 | PSNR 35.31932020466829 dB
+Epoch 30/50 | steps 1470/2450 | experts 20/20 | loss 0.000295106 | elapsed 7.7s | ETA 5.1s
+Epoch 31/50 | steps 1519/2450 | experts 20/20 | loss 0.000288796 | elapsed 7.9s | ETA 4.8s
+Epoch 32/50 | steps 1568/2450 | experts 20/20 | loss 0.000282023 | elapsed 8.0s | ETA 4.5s
+Epoch 33/50 | steps 1617/2450 | experts 20/20 | loss 0.000274218 | elapsed 8.1s | ETA 4.2s
+Epoch 34/50 | steps 1666/2450 | experts 20/20 | loss 0.000267952 | elapsed 8.3s | ETA 3.9s
+Epoch 35/50 | steps 1715/2450 | experts 20/20 | loss 0.000259498 | elapsed 8.4s | ETA 3.6s
+Epoch 36/50 | steps 1764/2450 | experts 20/20 | loss 0.000250544 | elapsed 8.6s | ETA 3.3s
+Epoch 37/50 | steps 1813/2450 | experts 20/20 | loss 0.000243053 | elapsed 8.7s | ETA 3.1s
+Epoch 38/50 | steps 1862/2450 | experts 20/20 | loss 0.000234994 | elapsed 8.8s | ETA 2.8s
+Epoch 39/50 | steps 1911/2450 | experts 20/20 | loss 0.000226462 | elapsed 9.0s | ETA 2.5s
+Eval epoch 40 | PSNR 36.62450219323738 dB
+Epoch 40/50 | steps 1960/2450 | experts 20/20 | loss 0.000219712 | elapsed 9.2s | ETA 2.3s
+Epoch 41/50 | steps 2009/2450 | experts 20/20 | loss 0.00021432 | elapsed 9.3s | ETA 2.0s
+Epoch 42/50 | steps 2058/2450 | experts 20/20 | loss 0.000208345 | elapsed 9.4s | ETA 1.8s
+Epoch 43/50 | steps 2107/2450 | experts 20/20 | loss 0.00020307 | elapsed 9.6s | ETA 1.6s
+Epoch 44/50 | steps 2156/2450 | experts 20/20 | loss 0.000198081 | elapsed 9.7s | ETA 1.3s
+Epoch 45/50 | steps 2205/2450 | experts 20/20 | loss 0.000194314 | elapsed 9.9s | ETA 1.1s
+Epoch 46/50 | steps 2254/2450 | experts 20/20 | loss 0.000192014 | elapsed 10.0s | ETA 0.9s
+Epoch 47/50 | steps 2303/2450 | experts 20/20 | loss 0.000189489 | elapsed 10.1s | ETA 0.6s
+Epoch 48/50 | steps 2352/2450 | experts 20/20 | loss 0.000187658 | elapsed 10.3s | ETA 0.4s
+Epoch 49/50 | steps 2401/2450 | experts 20/20 | loss 0.000185961 | elapsed 10.4s | ETA 0.2s
+Eval epoch 50 | PSNR 37.334081863412194 dB
+Epoch 50/50 | steps 2450/2450 | experts 20/20 | loss 0.00018541 | elapsed 10.6s | ETA 0.0s
+{"run_id": "DIV2K_0188_L20", "checkpoint": "latest", "psnr": 37.334081863412194, "seconds": 11.45615046704188}
+RGB8 evaluation: PSNR 37.35612881120525 dB | SSIM 0.9759289814517244

@@ -1,0 +1,97 @@
+{
+  "method": "ingp",
+  "experiment_group": "div2k-png50-50e",
+  "input_sha256": "20fcb9d1d5656076152c45069eb9c11b7ff39ffd5f953ad285be34e8ecd36d4d",
+  "shape_hw": [
+    1536,
+    2040
+  ],
+  "parameter_count": 954016,
+  "capacity_verified": true,
+  "capacity_basis": "parameter_payload_bytes",
+  "target_bytes": 1933895,
+  "allocation": {
+    "base_resolution": 15,
+    "log2_hashmap_size": 16,
+    "per_level_scale": 1.3248516801703365,
+    "parameter_count": 954016,
+    "capacity_verified": true,
+    "target_bytes": 1933895,
+    "package_bytes": 1909307
+  },
+  "upstream_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+  "parameter_bytes": 1908032,
+  "native_module_sha256": "1afed8e01a176250c6df1ac98358c851f89e9f407a9ba39b519ea6327a163c8c",
+  "native_module": "code/vendor/ingp/build/pyngp.cpython-310-x86_64-linux-gnu.so",
+  "package_bytes": 1909307,
+  "calibration": {
+    "status": "calibrated",
+    "selected": {
+      "config": {
+        "loss": {
+          "otype": "L2"
+        },
+        "optimizer": {
+          "otype": "ExponentialDecay",
+          "decay_start": 1371,
+          "decay_interval": 686,
+          "decay_base": 0.33,
+          "nested": {
+            "otype": "Adam",
+            "learning_rate": 0.01,
+            "beta1": 0.9,
+            "beta2": 0.99,
+            "epsilon": 1e-15,
+            "l2_reg": 1e-06
+          }
+        },
+        "encoding": {
+          "otype": "HashGrid",
+          "n_levels": 16,
+          "n_features_per_level": 2,
+          "log2_hashmap_size": 16,
+          "base_resolution": 15
+        },
+        "network": {
+          "otype": "FullyFusedMLP",
+          "activation": "ReLU",
+          "output_activation": "None",
+          "n_neurons": 64,
+          "n_hidden_layers": 2
+        }
+      },
+      "parameter_count": 954016,
+      "parameter_bytes": 1908032,
+      "encoding_parameters": 946848,
+      "params_type": "__half",
+      "package_bytes": 1909307,
+      "optimizer_state": false,
+      "compression": false,
+      "required_sidecar": "image_metadata.json; dimensions and official Image color settings"
+    },
+    "shape_hwc": [
+      1536,
+      2040,
+      3
+    ],
+    "source_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+    "input_sha256": "20fcb9d1d5656076152c45069eb9c11b7ff39ffd5f953ad285be34e8ecd36d4d",
+    "quality_based_selection": false,
+    "cpu_estimate": {
+      "base_resolution": 15,
+      "log2_hashmap_size": 16,
+      "per_level_scale": 1.3248516801703365,
+      "parameter_count": 954016,
+      "capacity_verified": false,
+      "target_bytes": 1933895
+    },
+    "native_probes": [
+      {
+        "base_resolution": 15,
+        "parameter_count": 954016,
+        "package_bytes": 1909307
+      }
+    ],
+    "resolution_policy": "official Image automatic max(H,W)/2; no per_level_scale input"
+  }
+}

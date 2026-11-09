@@ -1,0 +1,403 @@
+{
+  "method": "neural_experts",
+  "plan": {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "experiment_group": "div2k-png50-50e",
+    "input": "data/div2k/0337.png",
+    "input_sha256": "5aef9cb469fda0f0e25b35d033eea6d70b69cb571323913c4063e940d8aaaa36",
+    "shape_hw": [
+      2040,
+      1632
+    ],
+    "input_bytes": 4421157,
+    "requested_config": {
+      "experiment_group": "div2k-png50-50e",
+      "capacity": {
+        "budget": "png:0.5",
+        "basis": "parameter_payload_bytes",
+        "scope": "dataset_mean",
+        "image_ids": [
+          "0028",
+          "0036",
+          "0063",
+          "0188",
+          "0337",
+          "0374",
+          "0394",
+          "0460",
+          "0545",
+          "0767"
+        ]
+      },
+      "training": {
+        "epochs": 50,
+        "batch_size": 65536,
+        "seed": 1729
+      },
+      "evaluation": {
+        "interval": 5
+      }
+    },
+    "official_defaults": {
+      "entry": "configs/config_RGB.yaml",
+      "config": {
+        "seed": 0,
+        "wandb_project": "inr_moe_rgb",
+        "MODEL": {
+          "model_name": "inr_moe_rgb",
+          "in_dim": 2,
+          "out_dim": 3,
+          "decoder_hidden_dim": 128,
+          "decoder_n_hidden_layers": 2,
+          "decoder_input_encoding": "learned_128_2_sine_siren_none",
+          "decoder_nl": "sine",
+          "decoder_init_type": "siren",
+          "decoder_pt_path": "../pretrained_models/horizontal_line_4_32_softplus_1000zls_1000sdf_1eik_20k_iters.pth",
+          "n_experts": 4,
+          "outermost_linear": true,
+          "decoder_init_r": 0.5,
+          "decoder_freqs": 30.0,
+          "decoder_trainable_freqs": false,
+          "top_k": 1,
+          "manager_hidden_dim": 128,
+          "manager_n_hidden_layers": 2,
+          "manager_input_encoding": "learned_128_2_sine_siren_none",
+          "manager_nl": "sine",
+          "manager_init": "siren",
+          "centroid_type": "random",
+          "manager_type": "standard",
+          "manager_bias": "none",
+          "experts_bias_std": 0.1,
+          "experts_bias_weight": 1.0,
+          "pointnet_n_points": 1024,
+          "manager_init_r": 1.0,
+          "manager_softmax_temperature": 1.0,
+          "manager_softmax_temp_trainable": false,
+          "manager_use_lipschitz": false,
+          "manager_q_activation": "softmax",
+          "manager_smoothsoftmax_alpha": 0.5,
+          "manager_clamp_q": 0.0,
+          "manager_noisy_gating": false,
+          "manager_conditioning": "cat",
+          "manager_mixing": false,
+          "manager_do": false,
+          "manager_pt_path": "../pretrained_managers/pt_inr_moe_kodim19_e4_128_2_sine_downscale4.pth",
+          "load_pt_manager": true,
+          "shared_encoder": false,
+          "gaussian_std": 0.05,
+          "prob_std": 0.2,
+          "manager_gt_input_sanitycheck": false,
+          "manager_aux_branch_hidden_dim": 1,
+          "grid_patch_size": 4096,
+          "encoder_type": "none",
+          "encoder_hidden_dim": 8,
+          "latent_size": 0,
+          "sphere_init_params": [
+            1.6,
+            0.1
+          ],
+          "planar_init_params": {
+            "centroids": null,
+            "normals": null,
+            "idx": null,
+            "dim": null
+          },
+          "use_hashtable": false,
+          "aux_type": "img"
+        },
+        "LOSS": {
+          "div_metric_type": "l1",
+          "normal_metric_type": "cos",
+          "eikonal_metric_type": "l1",
+          "appxsdf_metric_type": "l2",
+          "div_clamp": 50,
+          "sdf_clamp": 1.0,
+          "div_decay_type": "linear",
+          "div_decay_params": [
+            100,
+            0.2,
+            100,
+            0.4,
+            0.0,
+            0.0
+          ],
+          "scale_by_q_grad": false,
+          "loss_type": "1000rgbrecon",
+          "sample_bias_correction": false,
+          "appxsdf_threshold": 0.01,
+          "entropy_metric": "kl",
+          "segmentation_type": "both",
+          "rgbrecon_metric": "l2"
+        },
+        "DATA": {
+          "dataset_path": "../data/rgb_img",
+          "name": "RGBINR",
+          "downsample_factor": 4,
+          "segmentation_type": "random_balanced",
+          "grid_patch_size": 1,
+          "kmeansspace": "rgb",
+          "n_segments": 4,
+          "get_dino": false,
+          "copy_to_gpu": false,
+          "sam_model_type": "vit_h",
+          "sam_checkpoint": "<runtime-home>/PycharmProjects/pt_models/sam/sam_vit_h_4b8939.pth"
+        },
+        "TRAINING": {
+          "n_points": 10000,
+          "nonmnfld_sample_type": "combined",
+          "grid_res": 256,
+          "lr": 1e-05,
+          "lr_gamma": 0.9999,
+          "lr_scheduler": "ExponentialLR",
+          "num_epochs": 30000,
+          "batch_size": 1,
+          "num_workers": 0,
+          "refine_epoch": 0,
+          "grad_clip_norm": 10.0,
+          "normalize_normal_loss": false,
+          "unsigned_n": true,
+          "unsigned_d": false,
+          "export_vis": false,
+          "manager_freeze_fraction": 0.15,
+          "n_loss_type": "cos",
+          "inter_loss_type": "exp",
+          "sampler_prob": "none",
+          "refine_q_boundaries": false,
+          "refine_q_boundaries_every": 10,
+          "save_reconstructed_imgs": false,
+          "stages": [
+            {
+              "end_iteration_frac": 0.8,
+              "params": "all",
+              "loss_type": "1000rgbrecon"
+            },
+            {
+              "end_iteration_frac": 1.0,
+              "params": "experts",
+              "loss_type": "1000rgbrecon"
+            }
+          ]
+        },
+        "TESTING": {
+          "epoch_n_eval": [
+            0,
+            30000,
+            500
+          ],
+          "plot_second_derivs": false,
+          "batch_size": 1,
+          "num_workers": 1,
+          "n_points": 256,
+          "n_samples": 1,
+          "grid_res": 128,
+          "nonmnfld_sample_type": "grid",
+          "plot_q_grad": false
+        }
+      }
+    },
+    "upstream_commit": "5ff5b59184db6cdeb2f7902e18786380c8652ba2",
+    "output": "results/div2k_50/0337/neural_experts",
+    "training": {
+      "epochs": 50,
+      "batch_size": 65536,
+      "seed": 1729
+    },
+    "evaluation": {
+      "interval": 5
+    },
+    "vendor_root": "code/vendor",
+    "capacity_basis": "parameter_payload_bytes",
+    "capacity_reference": {
+      "scope": "dataset_mean",
+      "images": [
+        {
+          "input": "data/div2k/0028.png",
+          "bytes": 6221622,
+          "sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867"
+        },
+        {
+          "input": "data/div2k/0036.png",
+          "bytes": 3867791,
+          "sha256": "20fcb9d1d5656076152c45069eb9c11b7ff39ffd5f953ad285be34e8ecd36d4d"
+        },
+        {
+          "input": "data/div2k/0063.png",
+          "bytes": 7774286,
+          "sha256": "7ea1957be776d54b8eab579d7c59e9d7b6f8f667cc96da9498e39bfa29340df3"
+        },
+        {
+          "input": "data/div2k/0188.png",
+          "bytes": 4035285,
+          "sha256": "20758ead8003c01a119650dfadcc5aee334e1b4e5059c972bfc2a0cc1d347283"
+        },
+        {
+          "input": "data/div2k/0337.png",
+          "bytes": 4421157,
+          "sha256": "5aef9cb469fda0f0e25b35d033eea6d70b69cb571323913c4063e940d8aaaa36"
+        },
+        {
+          "input": "data/div2k/0374.png",
+          "bytes": 4681655,
+          "sha256": "3b9d7edbaa6a7c18ff384f45904a119102401425cd1f2800a8b985f5bc40488b"
+        },
+        {
+          "input": "data/div2k/0394.png",
+          "bytes": 5057222,
+          "sha256": "b70207f2b306a8afb3840af0a65e2decbce9122e975f68da21586962f09d38cf"
+        },
+        {
+          "input": "data/div2k/0460.png",
+          "bytes": 6936383,
+          "sha256": "6454e494f736e463bef6baeca9c0a9c30bf2724afc09c324339b8a5fcb19fbaa"
+        },
+        {
+          "input": "data/div2k/0545.png",
+          "bytes": 9087262,
+          "sha256": "0946aeab167f83bfd80af99d1f813e382cebc3cb0c8dee924c2e43d71cec5e8e"
+        },
+        {
+          "input": "data/div2k/0767.png",
+          "bytes": 4032218,
+          "sha256": "0bab2ec4906b275e52073167820e1efc599d50baadd36ee3c39ce084e45375a9"
+        }
+      ],
+      "mean_input_bytes": 5611488.1,
+      "mean_parameter_budget_bytes": 2805744
+    },
+    "capacity_input": "png:0.5",
+    "model": {
+      "expert_width": 227,
+      "encoders_router_width": 128,
+      "n_experts": 4
+    },
+    "pretraining": {
+      "input": "code/vendor/neural_experts/data/rgb_img/kodim19.png",
+      "input_sha256": "b7450b264b1b0a411390d8931b112c27905a992520fc90569dc4b920aa32bbdc",
+      "output": "results/shared-pretraining",
+      "excluded_from_fitting_time": true
+    },
+    "allocation": {
+      "expert_width": 227,
+      "parameter_count": 700192,
+      "target_bytes": 2805744,
+      "capacity_verified": false
+    },
+    "expected_updates": 2550,
+    "automatic_retry": false
+  },
+  "source": {
+    "files": {
+      "scripts/_common/cache.py": "c0f65a7b8735ce599aea801129903c242d3c89e2a8c73426d52f94f651a5cb27",
+      "scripts/_common/defaults.py": "f7c7746d5a1471a0801707e14ae1e6f9241373ac278e00dc3447964d10f04923",
+      "scripts/_common/io.py": "d6762ac1e5b1c3aabcde0b64ff437a01a1d1db566868d4000c80e1602a9f96fd",
+      "scripts/_common/capacity.py": "8a9165936541b83dc01d01fc164baf6bf37245a3a35f7520cf83f4164ed4c303",
+      "scripts/_common/run.py": "c16aadf081321321040c9bea16bf6c40ff2d8fac76ff3b42bf69d0b540e4a908",
+      "scripts/_common/__init__.py": "366c4cf234bc69386477fdf0494f04789cc57fd5c5cdc0bc79a1fdd5b0aaff7b",
+      "scripts/_common/vendor.py": "0aaad88117d6503af701a088131608a0caca69024fa29f3fdcb4fcfea12b28c1",
+      "scripts/_common/native_baselines.py": "4533abdd451047453c19586e19ce40db6274d2d8fe492e95fa4062176b17329a",
+      "scripts/_common/odie.py": "62a2ccfac0c48e542f3b4acc7fd09d480997ddb32129afea9548c906ee8fed21",
+      "scripts/_common/execute.py": "b681a008de66a2af278a745773417d4bb8bc10e6c3d3c94976111183e34b4fd7",
+      "scripts/run_baselines.py": "c2ed9dbd6412ee6e12e8ffc14a7f677e363eb2c58aeee7c1ccfab2767c442e15",
+      "scripts/plot_router_ablation.py": "3a3d37270c7c75d45d97e94af320baa19eb80463db44fdae0a589226dc3e5215",
+      "scripts/run_ingp_div2k.py": "a5c9d4c9fa5af080397b13eab55bc852dd23bf7c54c23f6f0ae85933212f089f",
+      "scripts/make_region_ablation_error_figure.py": "79a10a38431bfea579866110b040d994c587e80fd760b277c9d43653e1246b92",
+      "scripts/run_odie_gigapixel.py": "529e01a3d235f42bfb722f5ec8e29346a7bb9021e2556c947145ed7d6ae12609",
+      "scripts/run_finer_div2k.py": "e421b4484f5fa319313068fb978f36fe4396f3d8804b6935c6272794140b5651",
+      "scripts/make_reconstruction_error_figure.py": "e7275215c67447863cd2b03610f401337702c4e96efd2359e0e649e3e40874fb",
+      "scripts/reconstruct.py": "8f6f486feb645bbb9df574cab5a4839bdc141b358b37e756846228e24d024dcc",
+      "scripts/make_support_error_print_figure.py": "b41268bac082204bbc7d21d6d68f933ba45324949dd46f82c3fb88029a6243ff",
+      "scripts/run_ablations.py": "9ede67052f8f82034eadf254fd8df76a10d690103310311c073097b184a8e201",
+      "scripts/evaluate_reconstruction.py": "3e6657029460bc6a9d5ccd38e7c22b9060d4c6bee14d4e57309c0d749557373f",
+      "scripts/run_miner_div2k.py": "3617bb2b71b3501530bd1ffd8f5c5469d82e77ac5e30c684d8a113e29cad088a",
+      "scripts/run_ingp_gigapixel.py": "ee4c64263c76563637fadeeb285201b5aee442cd4f1cd789b624697f4b22cca7",
+      "scripts/run_siren_div2k.py": "559b82036989b5c2553fb2659943b8c7b0bc0ddc065a72f4ccc79a9e5e9c97a7",
+      "scripts/run_odie_div2k.py": "f6da6c4143426ae2561c3fcd21684cb6d9988d386cab0357dc40708495e991ce",
+      "scripts/run_odie_ablation.py": "309c5a7a776fedf09ec1b4f8cf38b85da9bf054b35b1ff8f75386a63127f1cb6",
+      "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scripts/run_ingp_gigapixel_50mib.py": "32884f3974429c7b48f52c8043c94aaaf46008d2467384610407c54b85d05d5c",
+      "scripts/build_native.py": "514cf6d4c465c4ef4f3c80263b5a31b9a24275b3f0990a1b212951d9f42ee51b",
+      "scripts/run_neural_experts_div2k.py": "ed1c388f0b6458c30f5ef7af17bd70cc213cf55d92e9d0ae1b7aac280137e405",
+      "scripts/prepare_vendor.py": "b852c813c47ab2d77c300356e6f0b85be14c77796da3cdb86be291099f8670d8",
+      "scripts/run_odie_gigapixel_50mib.py": "5d875c25c70a5e96c61671676fe150a8a29272d6af152e6838074026a0897448"
+    },
+    "argv": [
+      "code/scripts/run_neural_experts_div2k.py",
+      "--vendor-root",
+      "code/vendor",
+      "--input",
+      "data/div2k/0337.png",
+      "--config",
+      "code/configs/baselines/neural_experts_div2k.json",
+      "--output",
+      "results/div2k_50/0337/neural_experts",
+      "--pretraining-input",
+      "code/vendor/neural_experts/data/rgb_img/kodim19.png",
+      "--pretraining-output",
+      "results/shared-pretraining",
+      "--budget-input-dir",
+      "data/div2k"
+    ],
+    "python": "<runtime-home>/projects/baseline-upstreams/.venv-div2k-20261020/bin/python",
+    "upstream_commit": "5ff5b59184db6cdeb2f7902e18786380c8652ba2"
+  },
+  "created_at": "2026-11-06T12:45:07.765022+00:00",
+  "state": "completed",
+  "pid": 28867,
+  "vendor": {
+    "upstream_commit": "5ff5b59184db6cdeb2f7902e18786380c8652ba2",
+    "url": "https://github.com/sitzikbs/Neural-Experts.git",
+    "patches": {
+      "neural_experts.patch": "5b17b8b6cd5dd9a93dfae5ae842e0dfa2e260b06064a6386e80c76d9cefa0a26"
+    },
+    "implementation_files": {
+      "datasets/RGBImages.py": "3cefe34132fae01ed4f0657cb8c9b1755d599c3a47657b9f406dff1dee9148dc",
+      "datasets/__init__.py": "922ebde125ec424404104ac99140eb8461bb53eefcf2cb9866995617b99042b8",
+      "image_reconstruction/train_rgbimage.py": "227608af369ef17c26847c46fb6107c81daed8f44a3306f87e504afab5726689"
+    }
+  },
+  "commands": {
+    "pretrain": {
+      "argv": [
+        "<runtime-home>/projects/baseline-upstreams/.venv-div2k-20261020/bin/python",
+        "-u",
+        "code/vendor/neural_experts/image_reconstruction/train_rgbimage.py",
+        "--config",
+        "results/shared-pretraining/requested-config.yaml",
+        "--logdir",
+        "<runtime-home>/projects/miner/results/neural-experts-shared-pngmean50-50e-20261106",
+        "--identifier",
+        "shared-pretraining",
+        "--image_id",
+        "kodim19.png"
+      ],
+      "cwd": "code/vendor/neural_experts/image_reconstruction",
+      "reused": true
+    },
+    "train": {
+      "argv": [
+        "<runtime-home>/projects/baseline-upstreams/.venv-div2k-20261020/bin/python",
+        "-u",
+        "code/vendor/neural_experts/image_reconstruction/train_rgbimage.py",
+        "--config",
+        "results/div2k_50/0337/neural_experts/config.yaml",
+        "--logdir",
+        "results/div2k_50/0337/neural_experts",
+        "--identifier",
+        ".training",
+        "--image_id",
+        "0337.png"
+      ],
+      "cwd": "code/vendor/neural_experts/image_reconstruction",
+      "returncode": 0
+    }
+  },
+  "entry": "image_reconstruction/train_rgbimage.py",
+  "patch_sha256": "5b17b8b6cd5dd9a93dfae5ae842e0dfa2e260b06064a6386e80c76d9cefa0a26",
+  "finished_at": "2026-11-06T12:51:41.328745+00:00",
+  "serial": {
+    "returncode": 0,
+    "cache_absent": true,
+    "finished_at": "2026-11-06T12:51:41.662625+00:00"
+  }
+}

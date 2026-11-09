@@ -1,0 +1,24 @@
+{
+  "input": "code/vendor/neural_experts/data/rgb_img/kodim19.png",
+  "input_sha256": "b7450b264b1b0a411390d8931b112c27905a992520fc90569dc4b920aa32bbdc",
+  "output": "results/shared-pretraining",
+  "excluded_from_fitting_time": true,
+  "identity": {
+    "input_sha256": "b7450b264b1b0a411390d8931b112c27905a992520fc90569dc4b920aa32bbdc",
+    "config_sha256": "a6db7d7e1e902877d2edeb6925c21e3d8b2f1f1342ac4d2a5b3a156e95fc8dfb",
+    "upstream_commit": "5ff5b59184db6cdeb2f7902e18786380c8652ba2",
+    "patch_sha256": "5b17b8b6cd5dd9a93dfae5ae842e0dfa2e260b06064a6386e80c76d9cefa0a26",
+    "parameter_count": 700192
+  },
+  "path": "results/shared-pretraining/trained_models/inr_moe_rgb_model_2999.pth",
+  "status": "completed",
+  "official_config": "configs/configs4paper/ablation_pretraining/done/combined_CE_pretraining.yaml",
+  "official_config_sha256": "af45ab0c468fe1205e2054321018e7bc23dbe6b5ae1bed64410229d00cce4d36",
+  "rgb_defaults_sha256": "15f8754b236de7fc7911a0fc9a94db5d912651790d6af30d10d6ffcdfe5e0ad7",
+  "epochs": 3000,
+  "sha256": "2ba2cf587313d681dccddb53366cf718c7ef4350e209d5fd48560e2ee0d249de",
+  "load_scope": "Complete official model state, including both encoders, router and RGB experts",
+  "loaded_parameter_count": 700192,
+  "training_loop_seconds": 43.22564525809139,
+  "reused": false
+}

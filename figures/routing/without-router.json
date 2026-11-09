@@ -1,0 +1,247 @@
+{
+  "region": "C",
+  "box_xyxy": [
+    23424,
+    17280,
+    23808,
+    17664
+  ],
+  "shape_hw": [
+    384,
+    384
+  ],
+  "checkpoint": "results/tokyo_components/no_router/model_latest_fp16.pt",
+  "checkpoint_sha256": "7bab6cb05e1d15b141f25fc0571afa61c82682ac83d98a818e1aaebe9ca480f8",
+  "epoch": 50,
+  "source": "code",
+  "model_source_sha256": "0fabeebae58750caf4bdc693d282fbaa52b85fbf25d6d77e45520be9e0afb758",
+  "resolutions": [
+    8,
+    13,
+    20,
+    32,
+    51,
+    81,
+    128,
+    203,
+    323,
+    512,
+    813,
+    1290,
+    2048,
+    3251,
+    5161,
+    8192
+  ],
+  "features": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "router_enabled": false,
+  "gate_activation": "constant_one",
+  "gate_coarse_levels_K": 0,
+  "rgb8_matches_paper_crop": true,
+  "expected_rgb8_pixels_sha256": "1d57629e4fd46b231cb43cfb796ba031078b4d57a14d9b216f26a87651ce69ef",
+  "actual_rgb8_pixels_sha256": "1d57629e4fd46b231cb43cfb796ba031078b4d57a14d9b216f26a87651ce69ef",
+  "semantics": "Effective = gate * spatial visibility * active-level flag; gate is independent sigmoid with router, constant one without router",
+  "gate_min": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "gate_max": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "gate_mean": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "visibility_fraction": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.2910563151041667,
+    0.03651258680555555,
+    0.0,
+    0.0
+  ],
+  "activation_comparison": [
+    {
+      "expert": 1,
+      "resolution": 8,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 2,
+      "resolution": 13,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 3,
+      "resolution": 20,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 4,
+      "resolution": 32,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 5,
+      "resolution": 51,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 6,
+      "resolution": 81,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 7,
+      "resolution": 128,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 8,
+      "resolution": 203,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 9,
+      "resolution": 323,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 10,
+      "resolution": 512,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 11,
+      "resolution": 813,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 12,
+      "resolution": 1290,
+      "with_router_fraction": 1.0,
+      "without_router_fraction": 1.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 13,
+      "resolution": 2048,
+      "with_router_fraction": 0.3087497287326389,
+      "without_router_fraction": 0.2910563151041667,
+      "changed_pixel_fraction": 0.0715671115451389
+    },
+    {
+      "expert": 14,
+      "resolution": 3251,
+      "with_router_fraction": 0.025763617621527776,
+      "without_router_fraction": 0.03651258680555555,
+      "changed_pixel_fraction": 0.03292507595486111
+    },
+    {
+      "expert": 15,
+      "resolution": 5161,
+      "with_router_fraction": 0.0,
+      "without_router_fraction": 0.0,
+      "changed_pixel_fraction": 0.0
+    },
+    {
+      "expert": 16,
+      "resolution": 8192,
+      "with_router_fraction": 0.0,
+      "without_router_fraction": 0.0,
+      "changed_pixel_fraction": 0.0
+    }
+  ]
+}

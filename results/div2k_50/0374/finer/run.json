@@ -1,0 +1,169 @@
+{
+  "method": "finer",
+  "plan": {
+    "method": "finer",
+    "scene": "div2k",
+    "experiment_group": "div2k-png50-50e",
+    "input": "data/div2k/0374.png",
+    "input_sha256": "3b9d7edbaa6a7c18ff384f45904a119102401425cd1f2800a8b985f5bc40488b",
+    "shape_hw": [
+      2040,
+      1632
+    ],
+    "input_bytes": 4681655,
+    "requested_config": {
+      "experiment_group": "div2k-png50-50e",
+      "capacity": {
+        "budget": "png:0.5",
+        "basis": "parameter_payload_bytes"
+      },
+      "training": {
+        "epochs": 50,
+        "batch_size": 65536,
+        "seed": 3407
+      },
+      "evaluation": {
+        "interval": 10
+      }
+    },
+    "official_defaults": {
+      "entry": "run_finer.sh -> train_image.py",
+      "model": {
+        "hidden_layers": 3,
+        "first_omega_0": 30,
+        "hidden_omega_0": 30,
+        "first_bias_scale": null,
+        "scale_req_grad": false
+      },
+      "training": {
+        "lr": 0.0005,
+        "epochs": 5000
+      }
+    },
+    "upstream_commit": "07a9a922e5bc20323d080ba382f71d333e9c7482",
+    "output": "results/div2k_50/0374/finer",
+    "training": {
+      "lr": 0.0005,
+      "epochs": 50,
+      "batch_size": 65536,
+      "seed": 3407
+    },
+    "evaluation": {
+      "interval": 10
+    },
+    "vendor_root": "code/vendor",
+    "capacity_basis": "parameter_payload_bytes",
+    "capacity_input": "png:0.5",
+    "model": {
+      "hidden_layers": 3,
+      "first_omega_0": 30,
+      "hidden_omega_0": 30,
+      "first_bias_scale": null,
+      "scale_req_grad": false,
+      "in_features": 2,
+      "out_features": 3,
+      "hidden_features": 440
+    },
+    "allocation": {
+      "width": 440,
+      "parameter_count": 584763,
+      "target_bytes": 2340827,
+      "capacity_verified": false
+    },
+    "expected_updates": 2550,
+    "automatic_retry": false
+  },
+  "source": {
+    "files": {
+      "scripts/_common/cache.py": "c0f65a7b8735ce599aea801129903c242d3c89e2a8c73426d52f94f651a5cb27",
+      "scripts/_common/defaults.py": "f7c7746d5a1471a0801707e14ae1e6f9241373ac278e00dc3447964d10f04923",
+      "scripts/_common/io.py": "d6762ac1e5b1c3aabcde0b64ff437a01a1d1db566868d4000c80e1602a9f96fd",
+      "scripts/_common/capacity.py": "1c87c32edfcff363cd61eeb139c4011ffbc4095c7e5f95661ed8e548637446f0",
+      "scripts/_common/run.py": "249b68ae288ae1962eb82e510e82aa28bb68d5f0ce13a02ab10cf9ce23087874",
+      "scripts/_common/__init__.py": "366c4cf234bc69386477fdf0494f04789cc57fd5c5cdc0bc79a1fdd5b0aaff7b",
+      "scripts/_common/vendor.py": "0aaad88117d6503af701a088131608a0caca69024fa29f3fdcb4fcfea12b28c1",
+      "scripts/_common/native_baselines.py": "e2a9e109c30e9e9acc321cfc232cd3a5f339c862293539cabfe72c66ffa7265b",
+      "scripts/_common/odie.py": "e66977e2857d6836d7f6913cb2ad1086b93a70d403c72ba1219eb1078bc11c80",
+      "scripts/_common/execute.py": "e190301e9d53430102f46864dbf334546600ec1c3534c77890a5793ea121da00",
+      "scripts/run_baselines.py": "e8e1863fb5112c6931797f8668dd9cfe7c34cd55707c8801b3c774546590d521",
+      "scripts/run_ingp_div2k.py": "a5c9d4c9fa5af080397b13eab55bc852dd23bf7c54c23f6f0ae85933212f089f",
+      "scripts/run_odie_gigapixel.py": "529e01a3d235f42bfb722f5ec8e29346a7bb9021e2556c947145ed7d6ae12609",
+      "scripts/run_finer_div2k.py": "e421b4484f5fa319313068fb978f36fe4396f3d8804b6935c6272794140b5651",
+      "scripts/reconstruct.py": "8f6f486feb645bbb9df574cab5a4839bdc141b358b37e756846228e24d024dcc",
+      "scripts/run_ablations.py": "cc380043e471bc142f3630272eadc96830b4d2a3be593198f585f1612f381b79",
+      "scripts/evaluate_reconstruction.py": "98712f565b61d5dada82ad36b2bd99c3f3a7eef2a970a0b3371eaa5b010737b2",
+      "scripts/run_miner_div2k.py": "3617bb2b71b3501530bd1ffd8f5c5469d82e77ac5e30c684d8a113e29cad088a",
+      "scripts/run_ingp_gigapixel.py": "ee4c64263c76563637fadeeb285201b5aee442cd4f1cd789b624697f4b22cca7",
+      "scripts/run_siren_div2k.py": "559b82036989b5c2553fb2659943b8c7b0bc0ddc065a72f4ccc79a9e5e9c97a7",
+      "scripts/run_odie_div2k.py": "f6da6c4143426ae2561c3fcd21684cb6d9988d386cab0357dc40708495e991ce",
+      "scripts/run_odie_ablation.py": "309c5a7a776fedf09ec1b4f8cf38b85da9bf054b35b1ff8f75386a63127f1cb6",
+      "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scripts/run_ingp_gigapixel_50mib.py": "32884f3974429c7b48f52c8043c94aaaf46008d2467384610407c54b85d05d5c",
+      "scripts/build_native.py": "514cf6d4c465c4ef4f3c80263b5a31b9a24275b3f0990a1b212951d9f42ee51b",
+      "scripts/run_neural_experts_div2k.py": "ed1c388f0b6458c30f5ef7af17bd70cc213cf55d92e9d0ae1b7aac280137e405",
+      "scripts/prepare_vendor.py": "b852c813c47ab2d77c300356e6f0b85be14c77796da3cdb86be291099f8670d8",
+      "scripts/run_odie_gigapixel_50mib.py": "5d875c25c70a5e96c61671676fe150a8a29272d6af152e6838074026a0897448"
+    },
+    "argv": [
+      "code/scripts/run_finer_div2k.py",
+      "--vendor-root",
+      "code/vendor",
+      "--input",
+      "data/div2k/0374.png",
+      "--config",
+      "code/configs/baselines/finer_div2k.json",
+      "--output",
+      "results/div2k_50/0374/finer"
+    ],
+    "python": "<runtime-home>/projects/baseline-upstreams/.venv-div2k-20261020/bin/python",
+    "upstream_commit": "07a9a922e5bc20323d080ba382f71d333e9c7482"
+  },
+  "created_at": "2026-10-24T15:17:17.910609+00:00",
+  "state": "completed",
+  "pid": 16059,
+  "vendor": {
+    "upstream_commit": "07a9a922e5bc20323d080ba382f71d333e9c7482",
+    "url": "https://github.com/liuzhen0212/FINER.git",
+    "patches": {
+      "finer.patch": "63bee6c5655817476a41588e5c0a47edd4b1c3cb459c65b5f98eee0c2ebf984f"
+    },
+    "implementation_files": {
+      "run_finer.sh": "bf66abb115d14f869a8ba4d395aee49fd57537399c6314f649e16247ebbaf449",
+      "train_image.py": "ddb47534014bbde9a90cd943f985bdca8e6dc4cde0959b86220cc145f5e30e8b"
+    }
+  },
+  "entry": "run_finer.sh",
+  "patch_sha256": "63bee6c5655817476a41588e5c0a47edd4b1c3cb459c65b5f98eee0c2ebf984f",
+  "commands": {
+    "train": {
+      "argv": [
+        "bash",
+        "code/vendor/finer/run_finer.sh",
+        "--input",
+        "data/div2k/0374.png",
+        "--logdir",
+        "results/div2k_50/0374/finer",
+        "--exp_name",
+        ".training",
+        "--num_epochs",
+        "50",
+        "--batch_size",
+        "65536",
+        "--seed",
+        "3407",
+        "--hidden_features",
+        "440",
+        "--steps_til_summary",
+        "10"
+      ],
+      "cwd": "code/vendor/finer",
+      "returncode": 0
+    }
+  },
+  "finished_at": "2026-10-24T15:20:20.373171+00:00",
+  "serial": {
+    "returncode": 0,
+    "cache_absent": true,
+    "finished_at": "2026-10-24T15:20:20.547148+00:00"
+  }
+}

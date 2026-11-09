@@ -1,0 +1,15 @@
+{
+  "experiment_group": "gigapixel-50mib-50e",
+  "capacity": {
+    "budget": "50MiB",
+    "basis": "parameter_payload_bytes",
+    "max_base": 128
+  },
+  "training": {
+    "epochs": 50,
+    "batch_size": 65536
+  },
+  "evaluation": {
+    "interval": 5
+  }
+}

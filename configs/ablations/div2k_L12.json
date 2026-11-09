@@ -1,0 +1,45 @@
+{
+  "experiment_group": "div2k-png50-50e",
+  "capacity": {
+    "basis": "ingp_parameters"
+  },
+  "model": {
+    "layers": 12,
+    "base_resolution": 8,
+    "max_resolution": "half_long_edge",
+    "features": 2,
+    "finest_features": 1
+  },
+  "training": {
+    "backend": "native",
+    "epochs": 50,
+    "batch_size": 65536,
+    "seed": 1729,
+    "epochs_per_stage": 1,
+    "learning_rates": {
+      "grid": 0.01,
+      "router": 0.001,
+      "decoder": 0.001
+    },
+    "lr_schedule": {
+      "type": "late_cosine",
+      "constant_through_epoch": 30,
+      "minimum_factor": 0.1
+    }
+  },
+  "regions": {
+    "selection": "error_per_parameter",
+    "backend": "cuda_device"
+  },
+  "evaluation": {
+    "interval": 10,
+    "batch_size": 131072,
+    "save_npy": false,
+    "ssim": "off"
+  },
+  "data": {
+    "sampling": "stratified",
+    "target_storage": "uint8"
+  },
+  "ablation": "expert_count"
+}

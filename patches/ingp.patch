@@ -1,0 +1,124 @@
+--- a/scripts/convert_image.py
++++ b/scripts/convert_image.py
+@@ -18,6 +18,7 @@
+ 	parser = argparse.ArgumentParser(description="Convert image into a different format. By default, converts to our binary fp16 '.bin' format, which helps quickly load large images.")
+ 	parser.add_argument("--input", default="", help="Path to the image to convert.")
+ 	parser.add_argument("--output", default="", help="Path to the output. Defaults to <input>.bin")
++	parser.add_argument('--stripe_rows', type=int, default=0)
+ 	args = parser.parse_args()
+ 	return args
+ 
+@@ -25,6 +26,28 @@
+ 	args = parse_args()
+ 	PIL.Image.MAX_IMAGE_PIXELS = 10000000000
+ 	print(f"Loading {args.input}")
++	if args.stripe_rows:
++		# Gigapixel conversion otherwise creates full-size float RGB/RGBA arrays.
++		# Process rows to limit temporary NumPy allocations; the source decoder
++		# may still retain a full decoded image in memory.
++		# Preserve official RGB8 -> linear half4 math and the .bin layout.
++		# Input preparation only: no resizing, filtering, or training changes.
++		import struct
++		from PIL import Image
++		if args.stripe_rows < 1 or not args.output.endswith('.bin'):
++			raise ValueError('Stripe conversion requires positive rows and .bin output')
++		with Image.open(args.input) as source:
++			if source.mode != 'RGB':
++				raise ValueError('Stripe conversion expects original RGB8 input')
++			width, height = source.size
++			with open(args.output, 'xb') as stream:
++				stream.write(struct.pack('<ii', height, width))
++				for y in range(0, height, args.stripe_rows):
++					rgb = np.asarray(source.crop((0, y, width, min(y+args.stripe_rows, height))), dtype=np.float32)/255.
++					rgba = np.ones((*rgb.shape[:2], 4), dtype=np.float16)
++					rgba[..., :3] = common.srgb_to_linear(rgb).astype(np.float16)
++					stream.write(rgba.tobytes())
++		raise SystemExit(0)
+ 	img = common.read_image(args.input)
+ 	print(f"{img.shape[1]}x{img.shape[0]} pixels, {img.shape[2]} channels")
+ 
+--- a/scripts/run.py
++++ b/scripts/run.py
+@@ -75,6 +75,7 @@
+ 	parser.add_argument("--sharpen", default=0, help="Set amount of sharpening applied to NeRF training images. Range 0.0 to 1.0.")
+ 
+ 
++	parser.add_argument("--training_batch_size", type=int, default=0, help="Override the native training_batch_size property")
+ 	return parser.parse_args()
+ 
+ def get_scene(scene):
+@@ -200,6 +201,16 @@
+ 	original_train_mode = ngp.TrainMode(testbed.nerf.training.train_mode)
+ 	prev_train_mode = original_train_mode
+ 	use_training_schedule = True
++
++	if args.training_batch_size:
++		testbed.training_batch_size = args.training_batch_size
++	if testbed.mode == ngp.TestbedMode.Image and args.screenshot_dir:
++		if args.gui or min(args.width, args.height) < 1:
++			raise ValueError("Image export requires headless mode and original dimensions")
++		os.makedirs(args.screenshot_dir, exist_ok=True)
++		testbed.snap_to_pixel_centers = True
++		testbed.jit_fusion = False  # Disable JIT fusion for PTX compatibility.
++		image_started = time.monotonic()
+ 
+ 	tqdm_last_update = 0
+ 	if n_steps > 0:
+@@ -250,6 +261,12 @@
+ 
+ 				prev_train_mode = ngp.TrainMode(testbed.nerf.training.train_mode)
+ 
++	if testbed.mode == ngp.TestbedMode.Image and args.screenshot_dir:
++		with open(os.path.join(args.screenshot_dir, 'metrics.json'), 'w') as stream:
++			json.dump(dict(checkpoint='latest', parameter_count=testbed.n_params(), optimizer_steps=testbed.training_step,
++				training_batch_size=testbed.training_batch_size,
++				elapsed_seconds=time.monotonic()-image_started), stream, indent=2)
++
+ 	if args.save_snapshot:
+ 		os.makedirs(os.path.dirname(args.save_snapshot), exist_ok=True)
+ 		testbed.save_snapshot(args.save_snapshot, False)
+@@ -351,12 +368,38 @@
+ 			os.makedirs(os.path.dirname(outname), exist_ok=True)
+ 			write_image(outname, image)
+ 	elif args.screenshot_dir:
+-		outname = os.path.join(args.screenshot_dir, args.scene + "_" + network_stem)
+-		print(f"Rendering {outname}.png")
+-		image = testbed.render(args.width or 1920, args.height or 1080, args.screenshot_spp, True)
+-		if os.path.dirname(outname) != "":
+-			os.makedirs(os.path.dirname(outname), exist_ok=True)
+-		write_image(outname + ".png", image)
++		if testbed.mode == ngp.TestbedMode.Image:
++			# Render native pixels in stripes; quantize RGB without a full FP32 image.
++			from PIL import Image
++			temporary = os.path.join(args.screenshot_dir, 'reconstruction.rgb8.tmp')
++			raw = np.memmap(temporary, mode='w+', dtype=np.uint8, shape=(args.height, args.width, 3))
++			for y in range(0, args.height, 32):
++				rows = min(32, args.height-y)
++				testbed.reset_camera()
++				camera = np.asarray(testbed.camera_matrix).copy()
++				camera[1, 3] = 1.0 - (y+rows/2.0)/args.height
++				testbed.camera_matrix = camera
++				testbed.relative_focal_length = np.array([args.height/rows]*2, dtype=np.float32)
++				testbed.reset_accumulation()
++				# Match official write_image: unpremultiply alpha, convert to sRGB, then quantize.
++				image = testbed.render(args.width, rows, args.screenshot_spp, True)
++				rgb = np.divide(image[..., :3], image[..., 3:4],
++					out=np.zeros_like(image[..., :3]), where=image[..., 3:4] != 0)
++				raw[y:y+rows] = (np.clip(linear_to_srgb(rgb), 0.0, 1.0)*255.0+0.5).astype(np.uint8)
++			raw.flush()
++			Image.fromarray(raw).save(os.path.join(args.screenshot_dir, 'reconstruction.png'))
++			del raw
++			os.remove(temporary)
++			with open(os.path.join(args.screenshot_dir, 'image_metadata.json'), 'w') as stream:
++				json.dump(dict(width=args.width, height=args.height,
++					linear_colors=testbed.image.training.linear_colors, snap_to_pixel_centers=True), stream)
++		else:
++			outname = os.path.join(args.screenshot_dir, args.scene + "_" + network_stem)
++			print(f"Rendering {outname}.png")
++			image = testbed.render(args.width or 1920, args.height or 1080, args.screenshot_spp, True)
++			if os.path.dirname(outname) != "":
++				os.makedirs(os.path.dirname(outname), exist_ok=True)
++			write_image(outname + ".png", image)
+ 
+ 	if args.video_camera_path:
+ 		testbed.load_camera_path(args.video_camera_path)

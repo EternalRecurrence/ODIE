@@ -1,0 +1,52 @@
+{
+  "training": {
+    "epoch": 50,
+    "optimizer_steps": 2450,
+    "parameter_count": 700192,
+    "checkpoint": "latest",
+    "training_loop_seconds": 257.9561594929546,
+    "training_time_scope": "Complete internal training loop; excludes setup and post-loop export"
+  },
+  "evaluation": {
+    "schema": "shared-image-evaluation-v1",
+    "checkpoint": "latest",
+    "input": "data/div2k/0767.png",
+    "prediction": "results/div2k_50/0767/neural_experts/reconstruction.png",
+    "input_sha256": "0bab2ec4906b275e52073167820e1efc599d50baadd36ee3c39ce084e45375a9",
+    "prediction_sha256": "0469e30ff4e4abee6dd7bbcbe3086fef7dd8c553430867cea91bacf8b0d89bc3",
+    "shape_hwc": [
+      1572,
+      2040,
+      3
+    ],
+    "prediction_layout": "HWC",
+    "prediction_format": "rgb8",
+    "psnr_pixel_format": "rgb8",
+    "ssim_pixel_format": "rgb8",
+    "preprocessing": "RGB8: clip floating RGB to [0,1], rint(x*255) to uint8; original resolution; no resize, filtering or antialiasing",
+    "ssim_definition": "RGB channel mean; uniform window min(7, largest valid odd size); sample covariance; data_range=1",
+    "mse": 0.0009085049360412,
+    "psnr_db": 30.416727087636165,
+    "perfect_reconstruction": false,
+    "ssim": 0.7938410020530912,
+    "ssim_window": 7,
+    "compression": {
+      "inference_files": [
+        {
+          "path": "results/div2k_50/0767/neural_experts/model_latest.pt",
+          "bytes": 2812970,
+          "sha256": "5fedd6f11930840b559a90731a3f62dd281a3053ac9a5d86ff7d95e3dea9b658"
+        }
+      ],
+      "complete_file_bytes": 2812970,
+      "source_file_bytes": 4032218,
+      "raw_rgb8_bytes": 9620640,
+      "cr_source_file": 1.43343796769962,
+      "cr_raw_rgb8": 3.4201004632114813,
+      "storage_fraction_source": 0.6976234915870124,
+      "storage_fraction_raw_rgb8": 0.29238907182890117,
+      "definition": "CR = original bytes / complete inference bytes; larger is better",
+      "accounting": "One checkpoint plus all decode-required sidecars; exclude logs, reconstructions, caches and optimizer state"
+    }
+  }
+}

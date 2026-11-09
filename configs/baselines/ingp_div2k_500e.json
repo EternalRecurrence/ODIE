@@ -1,0 +1,14 @@
+{
+  "experiment_group": "div2k-png50-500e",
+  "capacity": {
+    "budget": "png:0.5",
+    "basis": "parameter_payload_bytes"
+  },
+  "training": {
+    "epochs": 500,
+    "batch_size": 65536
+  },
+  "evaluation": {
+    "interval": 10
+  }
+}

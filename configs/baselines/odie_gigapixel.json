@@ -1,0 +1,43 @@
+{
+  "experiment_group": "gigapixel-100mib-50e",
+  "capacity": {
+    "basis": "ingp_parameters"
+  },
+  "model": {
+    "layers": 16,
+    "base_resolution": 8,
+    "max_resolution": 8192,
+    "features": 2,
+    "finest_features": 2
+  },
+  "data": {
+    "sampling": "stratified",
+    "target_storage": "uint8"
+  },
+  "training": {
+    "epochs": 50,
+    "batch_size": 65536,
+    "seed": 1729,
+    "epochs_per_stage": 1,
+    "learning_rates": {
+      "grid": 0.01,
+      "router": 0.001,
+      "decoder": 0.001
+    },
+    "lr_schedule": {
+      "type": "late_cosine",
+      "constant_through_epoch": 30,
+      "minimum_factor": 0.1
+    },
+    "backend": "native"
+  },
+  "evaluation": {
+    "interval": 5,
+    "batch_size": 131072,
+    "save_npy": false,
+    "ssim": "off"
+  },
+  "regions": {
+    "backend": "cuda_device"
+  }
+}

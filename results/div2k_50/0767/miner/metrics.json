@@ -1,0 +1,70 @@
+{
+  "training": {
+    "parameter_count": 658203,
+    "checkpoint": "best",
+    "prediction": "official best native reconstruction",
+    "snapshot_equivalence": "Not asserted; native reconstruction is not re-decoded from final weights"
+  },
+  "evaluation": {
+    "schema": "shared-image-evaluation-v1",
+    "checkpoint": "best",
+    "input": "data/div2k/0767.png",
+    "prediction": "results/div2k_50/0767/miner/reconstruction.png",
+    "input_sha256": "0bab2ec4906b275e52073167820e1efc599d50baadd36ee3c39ce084e45375a9",
+    "prediction_sha256": "5de81d2c868b023cccb038ac3b6fad82985a11bcc656025cab31042f602368f6",
+    "shape_hwc": [
+      1572,
+      2040,
+      3
+    ],
+    "prediction_layout": "HWC",
+    "prediction_format": "rgb8",
+    "psnr_pixel_format": "rgb8",
+    "ssim_pixel_format": "rgb8",
+    "preprocessing": "RGB8: clip floating RGB to [0,1], rint(x*255) to uint8; original resolution; no resize, filtering or antialiasing",
+    "ssim_definition": "RGB channel mean; uniform window min(7, largest valid odd size); sample covariance; data_range=1",
+    "mse": 0.0004838372614594637,
+    "psnr_db": 33.15300688634138,
+    "perfect_reconstruction": false,
+    "ssim": 0.8679819896050773,
+    "ssim_window": 7,
+    "compression": {
+      "inference_files": [
+        {
+          "path": "results/div2k_50/0767/miner/scales/scale0.pt",
+          "bytes": 397807,
+          "sha256": "3c112697dfe30d9a9b225b1e30f30ad81dae5862269405c8713a3a9440e31707"
+        },
+        {
+          "path": "results/div2k_50/0767/miner/scales/scale1.pt",
+          "bytes": 118383,
+          "sha256": "20b5b06bccd9081be0b4654e9390825a5d68cd7ec0e317f9f38103dcbd853f7f"
+        },
+        {
+          "path": "results/div2k_50/0767/miner/scales/scale2.pt",
+          "bytes": 462511,
+          "sha256": "4eaf9aa7c6a999324cc01d88d95383f98555537afdcfeffa577caa2ead9379dc"
+        },
+        {
+          "path": "results/div2k_50/0767/miner/scales/scale3.pt",
+          "bytes": 1674159,
+          "sha256": "669af9cc7f338e9abbba389588f482fc0edf33a4e901ef995d777f420db7dbb0"
+        },
+        {
+          "path": "results/div2k_50/0767/miner/settings.json",
+          "bytes": 707,
+          "sha256": "03feab40d1c36fccdec1a7edeef45cb59da8eca743dad27a863e36449e6ed51e"
+        }
+      ],
+      "complete_file_bytes": 2653567,
+      "source_file_bytes": 4032218,
+      "raw_rgb8_bytes": 9620640,
+      "cr_source_file": 1.519546331409759,
+      "cr_raw_rgb8": 3.625550061483279,
+      "storage_fraction_source": 0.658091154793714,
+      "storage_fraction_raw_rgb8": 0.27582021570290544,
+      "definition": "CR = original bytes / complete inference bytes; larger is better",
+      "accounting": "One checkpoint plus all decode-required sidecars; exclude logs, reconstructions, caches and optimizer state"
+    }
+  }
+}

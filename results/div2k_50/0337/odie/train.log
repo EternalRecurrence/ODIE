@@ -1,0 +1,70 @@
+Starting train: <runtime-home>/projects/miner/.venv-tcnn-grid/bin/python -u -m odie run --input data/div2k/0337.png --config results/div2k_50/0337/odie/config.json --output results/div2k_50/0337/odie
+Epoch 1/50 | steps 51/2550 | experts 12/16 | loss 0.123196 | elapsed 0.1s | ETA 5.0s
+Expert 13: selected coverage 69.96% | selection 1.338s
+{"dynamic_selection": "B2", "completed_epoch": 1, "opening_epoch": 2, "new_prefix": 13, "live_psnr_before_opening": 19.4743192843588, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 104276, "closure_nodes": 108928, "node_capacity": 108928, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 108928, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 104276, "cuda_end_to_end_seconds": 0.9086936661042273, "launches": 204, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 1.3379827816970646}
+Opened expert 13/16 at epoch 2
+Epoch 2/50 | steps 102/2550 | experts 13/16 | loss 0.00508709 | elapsed 1.6s | ETA 37.4s
+Expert 14: selected coverage 35.36% | selection 1.067s
+{"dynamic_selection": "B2", "completed_epoch": 2, "opening_epoch": 3, "new_prefix": 14, "live_psnr_before_opening": 26.550040202944864, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 100356, "closure_nodes": 108928, "node_capacity": 108928, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 108928, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 100356, "cuda_end_to_end_seconds": 0.8785852356813848, "launches": 197, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 1.0671102697961032}
+Opened expert 14/16 at epoch 3
+Epoch 3/50 | steps 153/2550 | experts 14/16 | loss 0.00150049 | elapsed 2.7s | ETA 43.0s
+Expert 15: selected coverage 16.54% | selection 1.034s
+{"dynamic_selection": "B2", "completed_epoch": 3, "opening_epoch": 4, "new_prefix": 15, "live_psnr_before_opening": 29.822807124500898, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 88167, "closure_nodes": 108928, "node_capacity": 108928, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 108928, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 88167, "cuda_end_to_end_seconds": 0.8343941699713469, "launches": 173, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 1.033570182044059}
+Opened expert 15/16 at epoch 4
+Epoch 4/50 | steps 204/2550 | experts 15/16 | loss 0.000814667 | elapsed 3.9s | ETA 44.9s
+Expert 16: selected coverage 7.83% | selection 1.016s
+{"dynamic_selection": "B2", "completed_epoch": 4, "opening_epoch": 5, "new_prefix": 16, "live_psnr_before_opening": 32.08945285666079, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 78232, "closure_nodes": 108960, "node_capacity": 108960, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 108960, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 78232, "cuda_end_to_end_seconds": 0.8007728098891675, "launches": 153, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 1, "normalize_by_cost": true}, "selection_seconds": 1.0159089248627424}
+Opened expert 16/16 at epoch 5
+Epoch 5/50 | steps 255/2550 | experts 16/16 | loss 0.000511396 | elapsed 5.0s | ETA 45.4s
+Epoch 6/50 | steps 306/2550 | experts 16/16 | loss 0.000365474 | elapsed 5.1s | ETA 37.5s
+Epoch 7/50 | steps 357/2550 | experts 16/16 | loss 0.00028805 | elapsed 5.2s | ETA 31.9s
+Epoch 8/50 | steps 408/2550 | experts 16/16 | loss 0.000251664 | elapsed 5.3s | ETA 27.7s
+Epoch 9/50 | steps 459/2550 | experts 16/16 | loss 0.000229388 | elapsed 5.3s | ETA 24.4s
+Eval epoch 10 | PSNR 36.76793350371691 dB
+Epoch 10/50 | steps 510/2550 | experts 16/16 | loss 0.000215912 | elapsed 5.5s | ETA 21.9s
+Epoch 11/50 | steps 561/2550 | experts 16/16 | loss 0.000206021 | elapsed 5.5s | ETA 19.7s
+Epoch 12/50 | steps 612/2550 | experts 16/16 | loss 0.000198962 | elapsed 5.6s | ETA 17.8s
+Epoch 13/50 | steps 663/2550 | experts 16/16 | loss 0.000192486 | elapsed 5.7s | ETA 16.2s
+Epoch 14/50 | steps 714/2550 | experts 16/16 | loss 0.00018706 | elapsed 5.8s | ETA 14.8s
+Epoch 15/50 | steps 765/2550 | experts 16/16 | loss 0.000182727 | elapsed 5.8s | ETA 13.6s
+Epoch 16/50 | steps 816/2550 | experts 16/16 | loss 0.000179181 | elapsed 5.9s | ETA 12.6s
+Epoch 17/50 | steps 867/2550 | experts 16/16 | loss 0.000175591 | elapsed 6.0s | ETA 11.6s
+Epoch 18/50 | steps 918/2550 | experts 16/16 | loss 0.00017203 | elapsed 6.1s | ETA 10.8s
+Epoch 19/50 | steps 969/2550 | experts 16/16 | loss 0.000168859 | elapsed 6.2s | ETA 10.0s
+Eval epoch 20 | PSNR 37.81092348148625 dB
+Epoch 20/50 | steps 1020/2550 | experts 16/16 | loss 0.000166764 | elapsed 6.3s | ETA 9.4s
+Epoch 21/50 | steps 1071/2550 | experts 16/16 | loss 0.000163835 | elapsed 6.3s | ETA 8.8s
+Epoch 22/50 | steps 1122/2550 | experts 16/16 | loss 0.000161317 | elapsed 6.4s | ETA 8.2s
+Epoch 23/50 | steps 1173/2550 | experts 16/16 | loss 0.000159093 | elapsed 6.5s | ETA 7.6s
+Epoch 24/50 | steps 1224/2550 | experts 16/16 | loss 0.000156882 | elapsed 6.6s | ETA 7.1s
+Epoch 25/50 | steps 1275/2550 | experts 16/16 | loss 0.000154664 | elapsed 6.7s | ETA 6.7s
+Epoch 26/50 | steps 1326/2550 | experts 16/16 | loss 0.000152995 | elapsed 6.7s | ETA 6.2s
+Epoch 27/50 | steps 1377/2550 | experts 16/16 | loss 0.000151808 | elapsed 6.8s | ETA 5.8s
+Epoch 28/50 | steps 1428/2550 | experts 16/16 | loss 0.000149851 | elapsed 6.9s | ETA 5.4s
+Epoch 29/50 | steps 1479/2550 | experts 16/16 | loss 0.000147521 | elapsed 7.0s | ETA 5.0s
+Eval epoch 30 | PSNR 38.368346765823254 dB
+Epoch 30/50 | steps 1530/2550 | experts 16/16 | loss 0.000146581 | elapsed 7.1s | ETA 4.7s
+Epoch 31/50 | steps 1581/2550 | experts 16/16 | loss 0.000144583 | elapsed 7.2s | ETA 4.4s
+Epoch 32/50 | steps 1632/2550 | experts 16/16 | loss 0.000142917 | elapsed 7.3s | ETA 4.1s
+Epoch 33/50 | steps 1683/2550 | experts 16/16 | loss 0.00014091 | elapsed 7.4s | ETA 3.8s
+Epoch 34/50 | steps 1734/2550 | experts 16/16 | loss 0.000138683 | elapsed 7.6s | ETA 3.6s
+Epoch 35/50 | steps 1785/2550 | experts 16/16 | loss 0.000135875 | elapsed 7.7s | ETA 3.3s
+Epoch 36/50 | steps 1836/2550 | experts 16/16 | loss 0.000133711 | elapsed 7.8s | ETA 3.0s
+Epoch 37/50 | steps 1887/2550 | experts 16/16 | loss 0.000131034 | elapsed 7.9s | ETA 2.8s
+Epoch 38/50 | steps 1938/2550 | experts 16/16 | loss 0.000128613 | elapsed 8.0s | ETA 2.5s
+Epoch 39/50 | steps 1989/2550 | experts 16/16 | loss 0.000125422 | elapsed 8.1s | ETA 2.3s
+Eval epoch 40 | PSNR 39.11983645789035 dB
+Epoch 40/50 | steps 2040/2550 | experts 16/16 | loss 0.000123298 | elapsed 8.3s | ETA 2.1s
+Epoch 41/50 | steps 2091/2550 | experts 16/16 | loss 0.000120991 | elapsed 8.4s | ETA 1.8s
+Epoch 42/50 | steps 2142/2550 | experts 16/16 | loss 0.000118821 | elapsed 8.5s | ETA 1.6s
+Epoch 43/50 | steps 2193/2550 | experts 16/16 | loss 0.000117027 | elapsed 8.7s | ETA 1.4s
+Epoch 44/50 | steps 2244/2550 | experts 16/16 | loss 0.000114782 | elapsed 8.8s | ETA 1.2s
+Epoch 45/50 | steps 2295/2550 | experts 16/16 | loss 0.000113579 | elapsed 8.9s | ETA 1.0s
+Epoch 46/50 | steps 2346/2550 | experts 16/16 | loss 0.000111963 | elapsed 9.0s | ETA 0.8s
+Epoch 47/50 | steps 2397/2550 | experts 16/16 | loss 0.00011092 | elapsed 9.1s | ETA 0.6s
+Epoch 48/50 | steps 2448/2550 | experts 16/16 | loss 0.000110147 | elapsed 9.2s | ETA 0.4s
+Epoch 49/50 | steps 2499/2550 | experts 16/16 | loss 0.000109488 | elapsed 9.4s | ETA 0.2s
+Eval epoch 50 | PSNR 39.63323176100569 dB
+Epoch 50/50 | steps 2550/2550 | experts 16/16 | loss 0.000109144 | elapsed 9.5s | ETA 0.0s
+{"run_id": "odie", "checkpoint": "latest", "psnr": 39.63323176100569, "seconds": 10.601799965836108}
+RGB8 evaluation: PSNR 39.60229622311638 dB | SSIM 0.9675976901723206

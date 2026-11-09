@@ -1,0 +1,7 @@
+# Missing Python dependencies for the pinned official scripts/run.py and common.py.
+# Install into the existing pyngp environment; this does not rebuild the CUDA engine.
+commentjson==0.9.0
+imageio==2.38.0
+scipy==1.15.3
+tqdm==4.70.1
+scikit-image==0.25.2

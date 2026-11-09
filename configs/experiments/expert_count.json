@@ -1,0 +1,242 @@
+[
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0028.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0028",
+    "ingp_run": "../../reruns/div2k_50/0028/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0028.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0028",
+    "ingp_run": "../../reruns/div2k_50/0028/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0028.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0028",
+    "ingp_run": "../../reruns/div2k_50/0028/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0036.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0036",
+    "ingp_run": "../../reruns/div2k_50/0036/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0036.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0036",
+    "ingp_run": "../../reruns/div2k_50/0036/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0036.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0036",
+    "ingp_run": "../../reruns/div2k_50/0036/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0063.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0063",
+    "ingp_run": "../../reruns/div2k_50/0063/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0063.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0063",
+    "ingp_run": "../../reruns/div2k_50/0063/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0063.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0063",
+    "ingp_run": "../../reruns/div2k_50/0063/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0188.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0188",
+    "ingp_run": "../../reruns/div2k_50/0188/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0188.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0188",
+    "ingp_run": "../../reruns/div2k_50/0188/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0188.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0188",
+    "ingp_run": "../../reruns/div2k_50/0188/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0337.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0337",
+    "ingp_run": "../../reruns/div2k_50/0337/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0337.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0337",
+    "ingp_run": "../../reruns/div2k_50/0337/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0337.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0337",
+    "ingp_run": "../../reruns/div2k_50/0337/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0374.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0374",
+    "ingp_run": "../../reruns/div2k_50/0374/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0374.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0374",
+    "ingp_run": "../../reruns/div2k_50/0374/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0374.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0374",
+    "ingp_run": "../../reruns/div2k_50/0374/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0394.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0394",
+    "ingp_run": "../../reruns/div2k_50/0394/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0394.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0394",
+    "ingp_run": "../../reruns/div2k_50/0394/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0394.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0394",
+    "ingp_run": "../../reruns/div2k_50/0394/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0460.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0460",
+    "ingp_run": "../../reruns/div2k_50/0460/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0460.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0460",
+    "ingp_run": "../../reruns/div2k_50/0460/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0460.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0460",
+    "ingp_run": "../../reruns/div2k_50/0460/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0545.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0545",
+    "ingp_run": "../../reruns/div2k_50/0545/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0545.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0545",
+    "ingp_run": "../../reruns/div2k_50/0545/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0545.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0545",
+    "ingp_run": "../../reruns/div2k_50/0545/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0767.png",
+    "config": "../ablations/div2k_L12.json",
+    "output": "../../reruns/expert_count/L12/0767",
+    "ingp_run": "../../reruns/div2k_50/0767/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0767.png",
+    "config": "../ablations/div2k_L20.json",
+    "output": "../../reruns/expert_count/L20/0767",
+    "ingp_run": "../../reruns/div2k_50/0767/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/div2k/0767.png",
+    "config": "../ablations/div2k_L8.json",
+    "output": "../../reruns/expert_count/L8/0767",
+    "ingp_run": "../../reruns/div2k_50/0767/ingp"
+  }
+]

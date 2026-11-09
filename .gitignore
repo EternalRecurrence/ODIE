@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+*.so
+*.o
+*.a
+*.egg-info/
+.venv/
+.cache/
+build/
+dist/
+.cuda-build/
+# Keep data preparation instructions/script, not downloaded images.
+/data/*
+!/data/README.md
+!/data/prepare_data.py
+# Curated paper records are text only; large training products stay ignored.
+/results/**
+!/results/**/
+!/results/**/*.json
+!/results/**/*.yaml
+!/results/**/*.yml
+!/results/**/*.log
+!/results/**/*.txt
+!/results/**/*.ini
+/reruns/
+/figures/**/generated*
+/figures/**/print.*
+vendor/*

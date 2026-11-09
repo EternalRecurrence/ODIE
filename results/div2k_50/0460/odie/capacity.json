@@ -1,0 +1,21 @@
+{
+  "method": "odie",
+  "experiment_group": "div2k-png50-50e",
+  "input_sha256": "6454e494f736e463bef6baeca9c0a9c30bf2724afc09c324339b8a5fcb19fbaa",
+  "shape_hw": [
+    2040,
+    1944
+  ],
+  "parameter_count": 1721104,
+  "capacity_verified": true,
+  "capacity_basis": "ingp_parameters",
+  "target_bytes": 3442208,
+  "allocation": {
+    "parameter_count": 1721104,
+    "target_bytes": 3442208,
+    "capacity_verified": false
+  },
+  "upstream_commit": null,
+  "reference_parameters": 1721104,
+  "alignment_slack": 0
+}

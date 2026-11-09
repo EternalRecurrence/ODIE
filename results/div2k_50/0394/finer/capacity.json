@@ -1,0 +1,21 @@
+{
+  "method": "finer",
+  "experiment_group": "div2k-png50-50e",
+  "input_sha256": "b70207f2b306a8afb3840af0a65e2decbce9122e975f68da21586962f09d38cf",
+  "shape_hw": [
+    1536,
+    2040
+  ],
+  "parameter_count": 630663,
+  "capacity_verified": true,
+  "capacity_basis": "parameter_payload_bytes",
+  "target_bytes": 2528611,
+  "allocation": {
+    "width": 457,
+    "parameter_count": 630663,
+    "target_bytes": 2528611,
+    "capacity_verified": false
+  },
+  "upstream_commit": "07a9a922e5bc20323d080ba382f71d333e9c7482",
+  "parameter_bytes": 2522652
+}

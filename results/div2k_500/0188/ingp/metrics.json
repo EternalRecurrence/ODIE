@@ -1,0 +1,56 @@
+{
+  "training": {
+    "checkpoint": "latest",
+    "parameter_count": 1002496,
+    "optimizer_steps": 24500,
+    "training_batch_size": 65536,
+    "elapsed_seconds": 21.216561388224363
+  },
+  "evaluation": {
+    "schema": "shared-image-evaluation-v1",
+    "checkpoint": "latest",
+    "input": "data/div2k/0188.png",
+    "prediction": "results/div2k_500/0188/ingp/reconstruction.png",
+    "input_sha256": "20758ead8003c01a119650dfadcc5aee334e1b4e5059c972bfc2a0cc1d347283",
+    "prediction_sha256": "a67f22cc9fb5ffb3b39a1c32244c2e6914619c6fa6c1dbb2e564502244c0f687",
+    "shape_hwc": [
+      1548,
+      2040,
+      3
+    ],
+    "prediction_layout": "HWC",
+    "prediction_format": "rgb8",
+    "psnr_pixel_format": "rgb8",
+    "ssim_pixel_format": "rgb8",
+    "preprocessing": "RGB8: clip floating RGB to [0,1], rint(x*255) to uint8; original resolution; no resize, filtering or antialiasing",
+    "ssim_definition": "RGB channel mean; uniform window min(7, largest valid odd size); sample covariance; data_range=1",
+    "mse": 9.51431073998682e-05,
+    "psnr_db": 40.21622668508112,
+    "perfect_reconstruction": false,
+    "ssim": 0.9842357057819874,
+    "ssim_window": 7,
+    "compression": {
+      "inference_files": [
+        {
+          "path": "results/div2k_500/0188/ingp/model_latest.msgpack",
+          "bytes": 2006093,
+          "sha256": "c9acc7971f5748da4bafa9e8b051b7d1e1fa579c2e1594ba74fa93c1a6b47476"
+        },
+        {
+          "path": "results/div2k_500/0188/ingp/image_metadata.json",
+          "bytes": 86,
+          "sha256": "248cfe53368e9750b9550dcb966b12b6153f29ac2f8904fe8b5cad5006aa26cb"
+        }
+      ],
+      "complete_file_bytes": 2006179,
+      "source_file_bytes": 4035285,
+      "raw_rgb8_bytes": 9473760,
+      "cr_source_file": 2.0114281925989657,
+      "cr_raw_rgb8": 4.722290483551069,
+      "storage_fraction_source": 0.497159184543347,
+      "storage_fraction_raw_rgb8": 0.21176164479573054,
+      "definition": "CR = original bytes / complete inference bytes; larger is better",
+      "accounting": "One checkpoint plus all decode-required sidecars; exclude logs, reconstructions, caches and optimizer state"
+    }
+  }
+}

@@ -1,0 +1,192 @@
+--- a/datasets/RGBImages.py
++++ b/datasets/RGBImages.py
+@@ -41,7 +41,7 @@
+                                int(self.sidelength[1] / self.downsample_factor))
+             self.img = self.img.resize(self.sidelength, resample=Image.LANCZOS)
+ 
+-        if not self.sidelength[0] == self.sidelength[1]:
++        if not data_cfg.get('keep_original_shape', False) and not self.sidelength[0] == self.sidelength[1]:
+             # crop the img around the center
+             min_side = min(self.sidelength)
+             self.img = self.img.crop((int((self.sidelength[0] - min_side) / 2),
+@@ -71,6 +71,8 @@
+                 Normalize(torch.Tensor([0.5]), torch.Tensor([0.5]))
+             ])
+ 
++        if data_cfg.get('keep_original_shape', False):
++            self.sidelength = (self.img.shape[0], self.img.shape[1])
+         self.mgrid = get_mgrid(self.sidelength)
+ 
+         # compute segmentation
+@@ -118,6 +120,11 @@
+                 self.segments = torch.tensor(self.segments).to('cuda')
+             if self.dino is not None:
+                 self.dino = self.dino.to('cuda')
++
++        self.pixel_samples = False
++        if data_cfg.get('pixel_samples', False):
++            self.pixels = self[0]['gt_img']
++        self.pixel_samples = data_cfg.get('pixel_samples', False)
+ 
+     def apply_bandlimit(self, img):
+         img = np.array(img)
+@@ -337,9 +344,16 @@
+         return segments.flatten()[None, :]
+ 
+     def __len__(self):
+-        return 1 # single image
++        return len(self.mgrid) if self.pixel_samples else 1 # single image
++
++    def __getitems__(self, indices):
++        return self[indices] if self.pixel_samples else [self[i] for i in indices]
+ 
+     def __getitem__(self, idx):
++        if self.pixel_samples:
++            return dict(coords=self.mgrid[idx][None], gt_img=self.pixels[idx][None],
++                segments=torch.as_tensor(self.segments[...,idx])[None] if self.segments is not None else torch.tensor(0),
++                dino=torch.tensor(0))
+         img = self.transform(self.img)
+         img = img.permute(1, 2, 0).reshape(-1, self.img_channels) # flatten the image to match coordinates
+         if self.segments is None:
+--- a/datasets/__init__.py
++++ b/datasets/__init__.py
+@@ -1,15 +1,15 @@
+ import torch
+ from torch.utils.data import DataLoader
+ from .RGBImages import RGBINRDataset
+-from .dataset3dSDF import SDFdataset3D
+-from .Audio import AudioINRDataset
+ 
+ def build_dataset(cfg, file_id, training=True):
+     if cfg['DATA'].get('name') == 'RGBINR':
+         dataset = RGBINRDataset(cfg['DATA'], file_id)
+     elif cfg['DATA'].get('name') == 'sdf_3d':
++        from .dataset3dSDF import SDFdataset3D
+         dataset = SDFdataset3D(cfg, file_id)
+     elif cfg['DATA'].get('name') == 'Audio':
++        from .Audio import AudioINRDataset
+         dataset = AudioINRDataset(cfg['DATA'], file_id)
+     else:
+         raise NotImplementedError
+@@ -20,6 +20,7 @@
+     split = 'TRAINING' if training else 'TESTING'
+     dataset = build_dataset(cfg, file_id, training)
+     dataloader = DataLoader(dataset=dataset, num_workers=0, pin_memory=False,
+-                            batch_size=cfg[split]['batch_size'], shuffle=False)
++                            batch_size=cfg[split]['batch_size'], shuffle=getattr(dataset, 'pixel_samples', False),
++                            collate_fn=(lambda batch: batch) if getattr(dataset, 'pixel_samples', False) else None)
+ 
+     return dataloader, dataset
+\ No newline at end of file
+--- a/image_reconstruction/train_rgbimage.py
++++ b/image_reconstruction/train_rgbimage.py
+@@ -11,6 +11,8 @@
+ import yaml
+ import wandb
+ import shutil
++import json
++import time
+ from models import build_model
+ from models.stage_handler import TrainingStageHandler
+ from datasets import build_dataloader
+@@ -81,6 +83,10 @@
+ 
+     # get data loaders
+     train_dataloader, train_set = build_dataloader(cfg, args.image_id, training=True)
++    pixel_fit = getattr(train_set, 'pixel_samples', False)
++    if pixel_fit:
++        cfg['TRAINING']['n_samples'] *= len(train_dataloader)
++    updates = 0
+     cfg['MODEL']['out_dim'] = train_set.img_channels
+     cfg['MODEL']['dino_dim'] = train_set.dino_dim
+ 
+@@ -125,11 +131,10 @@
+ 
+     ########################   Train the rgb image implicit neural representation #############################
+ 
+-    # copy data to GPU once since it does not change throughout training.
+-    data = next(iter(train_dataloader))
+-    coords, gt_img, segments, dino = (data['coords'].to(device), data['gt_img'].to(device),
+-                                      data['segments'].to(device), data['dino'].to(device))
+-    gt_aux = {'img': gt_img, 'dino': dino}
++    # Time the complete loop, excluding setup and final export.
++    if device.type == 'cuda':
++        torch.cuda.synchronize(device)
++    training_started = time.perf_counter()
+     # Train
+     for epoch in range(cfg['TRAINING']['num_epochs']):
+         if epoch <= cfg['TRAINING']['refine_epoch'] and refine_flag and not cfg['TRAINING']['refine_epoch'] == 0:
+@@ -140,7 +145,7 @@
+ 
+         for batch_idx, data in enumerate(train_dataloader):
+             # save model before update
+-            if epoch % 100 == 0:
++            if not pixel_fit and epoch % 100 == 0:
+                 # utils.log_string("saving model to file :{}".format('%s_model_%d.pth' % (model_name, epoch)),
+                 #                  log_file)
+                 torch.save(SINR.state_dict(),
+@@ -149,6 +154,9 @@
+             SINR.zero_grad()
+             SINR.train()
+ 
++            coords, gt_img, segments, dino = (data['coords'].to(device), data['gt_img'].to(device),
++                                              data['segments'].to(device), data['dino'].to(device))
++            gt_aux = {'img': gt_img, 'dino': dino}
+             coords.requires_grad = True
+             output_pred = SINR(coords,  dino=dino, img=gt_img)
+             loss_dict = criterion(output_pred=output_pred,  coords=coords, gt={'img': gt_img, 'segment': segments,
+@@ -168,8 +176,9 @@
+ 
+             loss_dict["loss"].backward()
+             optimizer.step()
+-
+-            if epoch % 100 == 0 and cfg['TRAINING']['save_reconstructed_imgs']:
++            updates += 1
++
++            if not pixel_fit and epoch % 100 == 0 and cfg['TRAINING']['save_reconstructed_imgs']:
+                 # log and save the image
+                 if 'moe' in model_name:
+                     I = output_pred['selected_nonmanifold_pnts_pred'].detach().cpu().numpy().reshape(train_set.sidelength[0], train_set.sidelength[1], -1)
+@@ -192,7 +201,7 @@
+                     wandb.log(log_dict)
+ 
+             # save last model
+-            if epoch == cfg['TRAINING']['num_epochs'] - 1:
++            if not pixel_fit and epoch == cfg['TRAINING']['num_epochs'] - 1:
+                 utils.log_string('Epoch: {} [{:4d}/{} ({:.0f}%)] Loss: {:.5f}'.format(
+                     epoch, batch_idx * cfg['TRAINING']['batch_size'],
+                     len(train_set), 100. * batch_idx / len(train_dataloader), loss_dict["loss"].item()), log_file)
+@@ -201,11 +210,32 @@
+                 torch.save(SINR.state_dict(),
+                            os.path.join(model_outdir, '%s_model_%d.pth' % (model_name, epoch)))
+ 
+-            if epoch > training_stage_handler.get_end_iteration():
++            stage_end = training_stage_handler.get_end_iteration()
++            if ((updates >= round(stage_end) if pixel_fit else epoch > stage_end)
++                    and training_stage_handler.current_stage_idx+1 < len(training_stage_handler.stages_list)):
+                 print("Moved to the next training stage...")
+                 training_stage_handler.move_to_the_next_training_stage(optimizer, scheduler)
+                 criterion = training_stage_handler.criterion
+             scheduler.step()
++    if device.type == 'cuda':
++        torch.cuda.synchronize(device)
++    training_loop_seconds = time.perf_counter() - training_started
++    print(f'Training loop seconds: {training_loop_seconds:.6f}', flush=True)
++    if pixel_fit:
++        SINR.eval()
++        with torch.no_grad():
++            prediction = torch.cat([SINR(c[None].to(device))['selected_nonmanifold_pnts_pred'].cpu().reshape(-1,3)
++                for c in train_set.mgrid.split(cfg['TRAINING']['batch_size'])])
++        torch.save(dict(state_dict=SINR.state_dict(), shape_hw=train_set.sidelength,
++            parameter_count=n_parameters, checkpoint='latest', epoch=epoch+1), os.path.join(args.logdir, 'model_latest.pt'))
++        rgb = prediction.reshape(*train_set.sidelength,3).numpy()/2+.5
++        Image.fromarray(np.rint(np.clip(rgb, 0, 1)*255).astype(np.uint8)).save(
++            os.path.join(args.logdir, 'reconstruction.png'))
++    with open(os.path.join(args.logdir, 'metrics.json'), 'w') as stream:
++        json.dump(dict(epoch=epoch+1, optimizer_steps=updates,
++            parameter_count=n_parameters, checkpoint='latest',
++            training_loop_seconds=training_loop_seconds,
++            training_time_scope='Complete internal training loop; excludes setup and post-loop export'), stream, indent=2)
+ 
+ 
+ def parse_args():

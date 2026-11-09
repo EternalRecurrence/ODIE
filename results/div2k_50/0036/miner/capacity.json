@@ -1,0 +1,29 @@
+{
+  "method": "miner",
+  "experiment_group": "div2k-png50-50e",
+  "input_sha256": "20fcb9d1d5656076152c45069eb9c11b7ff39ffd5f953ad285be34e8ecd36d4d",
+  "shape_hw": [
+    1536,
+    2040
+  ],
+  "parameter_count": 413343,
+  "capacity_verified": true,
+  "capacity_basis": "parameter_payload_bytes",
+  "target_bytes": 1933895,
+  "allocation": {
+    "ksize": 85,
+    "stride": 85,
+    "parameter_upper_bound": 699543,
+    "target_parameters": 483473,
+    "full_allocation_factor": 1.5,
+    "full_allocation_limit": 725209,
+    "capacity_verified": false,
+    "policy": "smallest block size within full-allocation allowance; report actual count after training",
+    "target_bytes": 1933895
+  },
+  "upstream_commit": "f8f6ed442048f883cf70541117f0754ad437cc69",
+  "parameter_bytes": 1653372,
+  "capacity_policy": "approximate",
+  "within_target": true,
+  "target_difference_fraction": -0.1450559621902947
+}
