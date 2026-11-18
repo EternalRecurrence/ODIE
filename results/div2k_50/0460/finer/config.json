@@ -1,0 +1,21 @@
+{
+  "model": {
+    "hidden_layers": 3,
+    "first_omega_0": 30,
+    "hidden_omega_0": 30,
+    "first_bias_scale": null,
+    "scale_req_grad": false,
+    "in_features": 2,
+    "out_features": 3,
+    "hidden_features": 536
+  },
+  "training": {
+    "lr": 0.0005,
+    "epochs": 50,
+    "batch_size": 65536,
+    "seed": 3407
+  },
+  "evaluation": {
+    "interval": 10
+  }
+}

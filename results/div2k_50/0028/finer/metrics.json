@@ -1,0 +1,50 @@
+{
+  "training": {
+    "epoch": 50,
+    "checkpoint": "latest",
+    "parameter_count": 775713,
+    "optimizer_steps": 3150
+  },
+  "evaluation": {
+    "schema": "shared-image-evaluation-v1",
+    "checkpoint": "latest",
+    "input": "data/div2k/0028.png",
+    "prediction": "results/div2k_50/0028/finer/reconstruction.png",
+    "input_sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867",
+    "prediction_sha256": "3d4c51268f71b2cb881faaa3c77a6e277120fab34f55da7092d85dafd3e372d6",
+    "shape_hwc": [
+      1992,
+      2040,
+      3
+    ],
+    "prediction_layout": "HWC",
+    "prediction_format": "rgb8",
+    "psnr_pixel_format": "rgb8",
+    "ssim_pixel_format": "rgb8",
+    "preprocessing": "RGB8: clip floating RGB to [0,1], rint(x*255) to uint8; original resolution; no resize, filtering or antialiasing",
+    "ssim_definition": "RGB channel mean; uniform window min(7, largest valid odd size); sample covariance; data_range=1",
+    "mse": 0.0009070782065989755,
+    "psnr_db": 30.423552672616744,
+    "perfect_reconstruction": false,
+    "ssim": 0.8543133330632363,
+    "ssim_window": 7,
+    "compression": {
+      "inference_files": [
+        {
+          "path": "results/div2k_50/0028/finer/model_latest.pt",
+          "bytes": 3106686,
+          "sha256": "e979bda8ed0356d22ff6b2b5bde5ef59db35126efbaefc0ba8f87950345da0cf"
+        }
+      ],
+      "complete_file_bytes": 3106686,
+      "source_file_bytes": 6221622,
+      "raw_rgb8_bytes": 12191040,
+      "cr_source_file": 2.0026555628731066,
+      "cr_raw_rgb8": 3.9241300858857318,
+      "storage_fraction_source": 0.4993369896146053,
+      "storage_fraction_raw_rgb8": 0.2548335498858178,
+      "definition": "CR = original bytes / complete inference bytes; larger is better",
+      "accounting": "One checkpoint plus all decode-required sidecars; exclude logs, reconstructions, caches and optimizer state"
+    }
+  }
+}

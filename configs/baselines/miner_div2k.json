@@ -1,0 +1,16 @@
+{
+  "experiment_group": "div2k-png50-50e",
+  "capacity": {
+    "budget": "png:0.5",
+    "basis": "parameter_payload_bytes",
+    "full_allocation_factor": 1.5
+  },
+  "training": {
+    "epochs": 50,
+    "scales": 4,
+    "seed": 1729
+  },
+  "evaluation": {
+    "interval": 1
+  }
+}

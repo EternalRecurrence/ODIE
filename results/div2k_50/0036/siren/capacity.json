@@ -1,0 +1,21 @@
+{
+  "method": "siren",
+  "experiment_group": "div2k-png50-50e",
+  "input_sha256": "20fcb9d1d5656076152c45069eb9c11b7ff39ffd5f953ad285be34e8ecd36d4d",
+  "shape_hw": [
+    1536,
+    2040
+  ],
+  "parameter_count": 481197,
+  "capacity_verified": true,
+  "capacity_basis": "parameter_payload_bytes",
+  "target_bytes": 1933895,
+  "allocation": {
+    "width": 399,
+    "parameter_count": 481197,
+    "target_bytes": 1933895,
+    "capacity_verified": false
+  },
+  "upstream_commit": "4df34baee3f0f9c8f351630992c1fe1f69114b5f",
+  "parameter_bytes": 1924788
+}

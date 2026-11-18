@@ -1,0 +1,6 @@
+# Extra imports used by the pinned official CLI entries.
+# Install into the existing baseline environment; retain its Torch/NumPy/CUDA.
+configargparse==1.7.1
+scikit-video==1.1.11
+cmapy==0.6.6
+tensorboard==2.20.0

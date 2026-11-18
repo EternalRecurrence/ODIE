@@ -1,0 +1,139 @@
+--- a/miner_image.py
++++ b/miner_image.py
+@@ -4,6 +4,9 @@
+ import importlib
+ import time
+ import os
++import argparse
++import json
++from PIL import Image
+ 
+ import numpy as np
+ from scipy import io
+@@ -32,20 +35,38 @@
+     target_mse = 1e-4   # Per-block stopping criterion
+     nscales = 4                 # Number of MINER scales
+     
++    parser = argparse.ArgumentParser()
++    parser.add_argument('--input', help='Original-size image to fit')
++    parser.add_argument('--config', default=configname)
++    parser.add_argument('--output', default='results/fit')
++    parser.add_argument('--scales', type=int, default=nscales)
++    parser.add_argument('--seed', type=int, default=1729)
++    args = parser.parse_args()
++    configname, nscales = args.config, args.scales
++    if args.input:
++        torch.manual_seed(args.seed)
++        np.random.seed(args.seed)
++
+     # Read configuration
+     config = miner.load_config(configname)
+     config.signaltype = 'image'
+ 
+     # Load image and scale
+-    im = cv2.imread('data/%s.jpg'%expname).astype(np.float32)/255.0
+-    im = cv2.resize(im, None, fx=scale, fy=scale)
++    im = cv2.imread(args.input or 'data/%s.jpg'%expname).astype(np.float32)/255.0
++    shape_hw = im.shape[:2]
++    if not args.input:
++        im = cv2.resize(im, None, fx=scale, fy=scale)
+     # Clipping image ensures there are a whole number of blocks
+     clip_size = (config.stride*pow(2, nscales-1),
+                  config.stride*pow(2, nscales-1))
+-    im = utils.moduloclip(im, clip_size)
++    if args.input:
++        im = np.pad(im, ((0,(-im.shape[0])%clip_size[0]),(0,(-im.shape[1])%clip_size[1]),(0,0)), mode='reflect')
++    else:
++        im = utils.moduloclip(im, clip_size)
+     H, W, _ = im.shape
+     
+-    config.savedir = '../results/%s_%d'%(expname, H)
++    config.savedir = os.path.join(args.output, 'scales') if args.input else '../results/%s_%d'%(expname, H)
++    config.export_weights = bool(args.input)
+     os.makedirs(config.savedir, exist_ok=True)
+     
+     # Now run MINER
+@@ -56,6 +77,18 @@
+                                         config)
+     total_time = time.time() - tic
+     nparams = info['nparams']
++    if args.input:
++        h,w = shape_hw
++        rgb = np.ascontiguousarray(best_im[:h,:w,::-1])
++        Image.fromarray(np.rint(np.clip(rgb, 0, 1)*255).astype(np.uint8)).save(
++            os.path.join(args.output, 'reconstruction.png'))
++        with open(os.path.join(args.output, 'settings.json'), 'w') as stream:
++            json.dump(dict(config=vars(config), shape_hw=shape_hw, padded_shape_hw=[H,W],
++                           scales=nscales, color_order='BGR', padding_mode='reflect'), stream, indent=2)
++        with open(os.path.join(args.output, 'metrics.json'), 'w') as stream:
++            json.dump(dict(parameter_count=int(nparams),
++                checkpoint='best', prediction='official best native reconstruction',
++                snapshot_equivalence='Not asserted; native reconstruction is not re-decoded from final weights'), stream, indent=2)
+ 
+     im_labels = miner.drawblocks(info['learn_indices_list'],
+                                 im.shape[:2], config.ksize)
+@@ -65,7 +98,7 @@
+     
+     print('Total time %.2f minutes'%(total_time/60))
+     print('PSNR: ', utils.psnr(im, best_im))
+-    print('SSIM: ', ssim_func(im, best_im, multichannel=True))
++    print('SSIM: ', ssim_func(im, best_im, channel_axis=2, data_range=1))
+     print('Total pararmeters: %.2f million'%(nparams/1e6))    
+     
+     time_array = info['time_array']
+@@ -79,7 +112,7 @@
+              'memory_array': info['memory_array'],
+              'nparams_array': info['nparams_array']}
+     
+-    io.savemat('results/%s_miner.mat'%expname, mdict)
++    io.savemat(os.path.join(args.output, 'history.mat') if args.input else 'results/%s_miner.mat'%expname, mdict)
+     
+     plt.subplot(1, 2, 1)
+     plt.semilogy(time_array, mse_array)
+@@ -96,4 +129,5 @@
+     
+     plt.subplot(1, 2, 2)
+     plt.imshow(im_marked)
+-    plt.show()
++    if not args.input:
++        plt.show()
+--- a/modules/miner.py
++++ b/modules/miner.py
+@@ -17,14 +17,13 @@
+ from torch.nn import Parameter
+ 
+ import folding_utils as unfoldNd
+-import nvidia_smi
++import pynvml as nvidia_smi
+ 
+ import matplotlib.pyplot as plt
+ plt.gray()
+ 
+ import losses
+ import utils
+-import volutils
+ import siren
+ 
+ def load_config(configfile):
+@@ -353,6 +352,13 @@
+             for key in prev_params:
+                 prev_params[key] = prev_params[key][indices, ...]/2.0
+                                        
++        if getattr(config, 'export_weights', False):
++            torch.save(dict(state_dict={k:v.detach().cpu() for k,v in model.state_dict().items()},
++                master_indices=master_indices.detach().cpu(), scale_idx=scale_idx, shape_hw=[Ht,Wt],
++                nfeat=nfeat, config=vars(config), blocks_allocated=master_indices.numel(),
++                parameter_count=sum(p.numel() for p in model.parameters())),
++                '%s/scale%d.pt'%(config.savedir, scale_idx))
++
+         # Move tensors to CPU
+         im_estim = im_estim.cpu().squeeze()
+         
+@@ -407,6 +413,7 @@
+         TODO: Return all model parameters
+     '''
+     # Memory usage helpers
++    import volutils
+     if sys.platform != 'win32':
+         nvidia_smi.nvmlInit()
+         mem_handle = nvidia_smi.nvmlDeviceGetHandleByIndex(4)

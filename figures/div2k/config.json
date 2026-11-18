@@ -1,0 +1,47 @@
+{
+  "reference": "../../data/div2k/0188.png",
+  "models": [
+    {
+      "label": "Ours (500 epoch)",
+      "image": "../../results/div2k_500/0188/odie/reconstruction.png"
+    },
+    {
+      "label": "INGP (500 epoch)",
+      "image": "../../results/div2k_500/0188/ingp/reconstruction.png"
+    },
+    {
+      "label": "Ours",
+      "image": "../../results/div2k_50/0188/odie/reconstruction.png"
+    },
+    {
+      "label": "INGP",
+      "image": "../../results/div2k_50/0188/ingp/reconstruction.png"
+    },
+    {
+      "label": "SIREN",
+      "image": "../../results/div2k_50/0188/siren/reconstruction.png"
+    },
+    {
+      "label": "FINER",
+      "image": "../../results/div2k_50/0188/finer/reconstruction.png"
+    },
+    {
+      "label": "MINER",
+      "image": "../../results/div2k_50/0188/miner/reconstruction.png"
+    },
+    {
+      "label": "Neural Experts",
+      "image": "../../results/div2k_50/0188/neural_experts/reconstruction.png"
+    }
+  ],
+  "crop": [
+    1088,
+    144,
+    1216,
+    272
+  ],
+  "error_max": 20,
+  "output": "generated.svg",
+  "display_width_mm": 171.45,
+  "font_pt": 8.0
+}

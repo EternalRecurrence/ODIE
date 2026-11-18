@@ -1,0 +1,17 @@
+{
+  "experiment_group": "div2k-png50-50e",
+  "capacity": {
+    "budget": "png:0.5",
+    "basis": "parameter_payload_bytes",
+    "scope": "dataset_mean",
+    "image_ids": ["0028", "0036", "0063", "0188", "0337", "0374", "0394", "0460", "0545", "0767"]
+  },
+  "training": {
+    "epochs": 50,
+    "batch_size": 65536,
+    "seed": 1729
+  },
+  "evaluation": {
+    "interval": 5
+  }
+}

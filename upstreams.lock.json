@@ -1,0 +1,98 @@
+{
+  "siren": {
+    "url": "https://github.com/vsitzmann/siren.git",
+    "commit": "4df34baee3f0f9c8f351630992c1fe1f69114b5f",
+    "patches": {
+      "siren.patch": "6cb55f8229df4985866db81a60a4d553b8346d7c86fbbc1d80a7c2f8c3fb13e9"
+    },
+    "implementation_files": {
+      "dataio.py": "19541754105fbd5d6796f49564ea99004be138ec346e12d65be328e01586903c",
+      "experiment_scripts/train_img.py": "b698ce2d7f4728976d60f4668ee51bf1e9d52ba5fae7459ee0b52a699fc8d3c2",
+      "torchmeta/__init__.py": "424caa2db04f0557b8c5b994f2d11f1b4a87fa42eff5f95dba30475e508c763b",
+      "training.py": "6e360d541f02607d014d2e4b6da296fad129dc987e73f0ed45850e843b1fea3e",
+      "utils.py": "dffa94d7d162056b07ff049c528571ec4852658fad906b7370ce8d02422461ad"
+    }
+  },
+  "finer": {
+    "url": "https://github.com/liuzhen0212/FINER.git",
+    "commit": "07a9a922e5bc20323d080ba382f71d333e9c7482",
+    "patches": {
+      "finer.patch": "63bee6c5655817476a41588e5c0a47edd4b1c3cb459c65b5f98eee0c2ebf984f"
+    },
+    "implementation_files": {
+      "run_finer.sh": "bf66abb115d14f869a8ba4d395aee49fd57537399c6314f649e16247ebbaf449",
+      "train_image.py": "ddb47534014bbde9a90cd943f985bdca8e6dc4cde0959b86220cc145f5e30e8b"
+    }
+  },
+  "miner": {
+    "url": "https://github.com/vishwa91/MINER.git",
+    "commit": "f8f6ed442048f883cf70541117f0754ad437cc69",
+    "patches": {
+      "miner.patch": "f27a1bed2e7bfd740b17223a607c7f7698f1b66cd15a360908aa705080ff9a5d"
+    },
+    "implementation_files": {
+      "miner_image.py": "99e737a42d15d683ea8b7e400fa8c2c49748180bad32637e71185df446d28aae",
+      "modules/miner.py": "879432bdd09ce1d6046e55214ae2595d31ccaf579bd3aa80012132125b1b7c8c"
+    }
+  },
+  "neural_experts": {
+    "url": "https://github.com/sitzikbs/Neural-Experts.git",
+    "commit": "5ff5b59184db6cdeb2f7902e18786380c8652ba2",
+    "patches": {
+      "neural_experts.patch": "5b17b8b6cd5dd9a93dfae5ae842e0dfa2e260b06064a6386e80c76d9cefa0a26"
+    },
+    "implementation_files": {
+      "datasets/RGBImages.py": "3cefe34132fae01ed4f0657cb8c9b1755d599c3a47657b9f406dff1dee9148dc",
+      "datasets/__init__.py": "922ebde125ec424404104ac99140eb8461bb53eefcf2cb9866995617b99042b8",
+      "image_reconstruction/train_rgbimage.py": "227608af369ef17c26847c46fb6107c81daed8f44a3306f87e504afab5726689"
+    }
+  },
+  "ingp": {
+    "url": "https://github.com/NVlabs/instant-ngp.git",
+    "commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+    "submodules": "a664705dee0b1041096d1e21b539bf9fb2489f00 dependencies/OpenXR-SDK (a664705)\n a48e1f880813b367d2354963a58dedbf2b708584 dependencies/args (a48e1f8)\n b3559040f968d26b2edbe37e8e3ceda4b8d1275a dependencies/dlss (b355904)\n 4d3f6f1b421dda208b937f2ac78657c6753efccd dependencies/dlss/NVIDIAImageScaling (4d3f6f1)\n 71eb7036b47e2733c2f7b4c0010e2ce62557009d dependencies/glfw (71eb703)\n fa2b318dd6190852a6fe7ebc952b6551e93899e0 dependencies/imgui (fa2b318)\n 3262000195616afedaf95185f1fe965c7eb82be6 dependencies/pybind11 (3262000)\n 2e757bbe781db59c4980d389d7dccbf5edc09669 dependencies/tiny-cuda-nn (2e757bb)\n 952ffddba731fc110bd50409e8d2b8a06abbd237 dependencies/tiny-cuda-nn/dependencies/cmrc (heads/master)\n 1eb6355182a5124639ce9d3ff165732a94ed9a70 dependencies/tiny-cuda-nn/dependencies/cutlass (1eb6355)\n fa2eb2d2e3ec5c21629f8ccd88ae05ec40b963fa dependencies/tiny-cuda-nn/dependencies/fmt (fa2eb2d)\n aea07e21a3c0f0590513dd23f2ea7b2271312dfc dependencies/tinylogger (aea07e2)\n fafd714d8b3ce85a6decf566e3b5b611352eadea dependencies/zlib (heads/master)\n 007f97607865934fb52e08248f152712e428688a dependencies/zstr (heads/master)",
+    "patches": {
+      "ingp.patch": "a733697f8da1212a4f7d110bca9d8d23003f90e3e00f5ef3fbca28a3f0ee8e50"
+    },
+    "implementation_files": {
+      "scripts/convert_image.py": "dd4299a713df5926db0f1b45bce9a1d47431a9daa4cadff51647bc0c5b0b53c7",
+      "scripts/run.py": "3744412e9df8a6b6f9df8c22dd3ba23ae6d4c90d30b0bf4a23f97342f0e9bbc8"
+    }
+  },
+  "odie": {
+    "source_root": "odie",
+    "files": {
+      "__init__.py": "15586161572a378508bb2dd711a5d130613aeda0ac9f42a785296c298d458691",
+      "__main__.py": "cf77a20fd4c4f31ae3ff8c5cc74d28ef9025d816161a112ddc334c840a2ab473",
+      "build.py": "b25a78d4fcc951c1249105f4bc5bf74aa147444ba9cbfe931ed01a0d85987ebd",
+      "config.py": "326fc5b2e7a1897b815a67536b7ca0a675323c80c9196bdf365b1d150d2f65e8",
+      "data.py": "0b2ba095e42010c53ef5d75f28fb48286974c2ce73a1d1671556988f8a41814a",
+      "evaluation.py": "8e13dce482f7455c09720640a9b99b249c861e536cb96416cd8addf711f74cdc",
+      "gpu_residual.py": "b35f966f16b137c7ba717eb3293f3d23fef14d0f915c18e3cb1256dc98b34259",
+      "metrics.py": "f69549ceca6416412764089458e731a9cf8ba3ee131c6383d7c4b09116596ed0",
+      "model.py": "8990dbcd5c53571e4e76eb70345ba0359869892e68c8494b1f20200099206f7b",
+      "native/CMakeLists.txt": "f38dbc44d4f24e740369a6e7ee9b7a2b3349ed5272a0119a2339b38614a7e52c",
+      "native/kernels.cuh": "7210e8f98236bf603e2f2c553dab8cda26aecd501538445bc51afb2fe22484ac",
+      "native/runtime.cu": "d4bfa2b17cbb97e8e9c55b099c7c170a28d4813150eaa86556726f7793aaf6d8",
+      "native/selection_cuda.cu": "b89ece2494f240f0ba3aab3ed6e1f6a3936bc3f64cdc5eda809496c305ca0ad2",
+      "native_backend.py": "61339662e37adbb8a23c455c55aac406b1ebaaab95528e8978037a14b1b897d0",
+      "optimizer.py": "3cff3fc3c9389e259531301a55aac1821e974824cd41a3fab443386c665ddb00",
+      "packed_bindings.cpp": "d8df646fbcbdcc1df415afd68c85367019e098dfaaed49182add260da23aa383",
+      "packed_kernels.cu": "ffb8a2242ff64cad6fd01222888cea2ebd4048f6386a879ec32136f0252ee4ef",
+      "regions.py": "43f00b30aa30bad9d523ebe592c6ad3bb1ad9d437ae929607f8c043e43d685c6",
+      "residual_cuda.cu": "c086d4a6d28c4fea1bf79cb4c30062de645e5ff1299fe869c90e7e1ddd31ece8",
+      "runtime_env.py": "dbb2418cd4d33ecec80398a198d5a2732b708c0d66eacd465285cf6400878d33",
+      "schedule.py": "200b63fda9600ab739f43efe63fd0fc33f4106cb81720a7a1510994e48bf46d3",
+      "selection.py": "94597bd104904dfec13d3f2a9a946799ae6b118ff215caf1f82e04b2d3922b74",
+      "selection_cuda.py": "c3e756d801ee085652652ccab2970273e041b798397310ac13defc08f1fbf916",
+      "support_codec.py": "1015e3e124b9a32a276a49fc3fa246d4ab1e4a768dd37051583e57bab68d1682",
+      "support_jbig.cpp": "7e3196429e7579de1540b2c8a66c2d61a08739b187345e2dacb9278212d74d36",
+      "train.py": "22bd4400e539c0347c590257c5aeeec74bc5eb8d69415ea9178ccc9d049c7284",
+      "hash_grid.py": "d32c978d9ce1d08ad00a27d9e3b7df9c2f23ed49db0f5fa32bc50a906e63b61f"
+    },
+    "compression_files": {
+      "odie/support_codec.py": "1015e3e124b9a32a276a49fc3fa246d4ab1e4a768dd37051583e57bab68d1682",
+      "odie/support_jbig.cpp": "7e3196429e7579de1540b2c8a66c2d61a08739b187345e2dacb9278212d74d36"
+    }
+  }
+}

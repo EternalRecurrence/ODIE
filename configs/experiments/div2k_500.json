@@ -1,0 +1,152 @@
+[
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0028/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0028/odie",
+    "ingp_run": "../../reruns/div2k_500/0028/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0036/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0036/odie",
+    "ingp_run": "../../reruns/div2k_500/0036/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0063/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0063/odie",
+    "ingp_run": "../../reruns/div2k_500/0063/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0188/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0188/odie",
+    "ingp_run": "../../reruns/div2k_500/0188/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0337/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0337/odie",
+    "ingp_run": "../../reruns/div2k_500/0337/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0374/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0374/odie",
+    "ingp_run": "../../reruns/div2k_500/0374/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0394/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0394/odie",
+    "ingp_run": "../../reruns/div2k_500/0394/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0460/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0460/odie",
+    "ingp_run": "../../reruns/div2k_500/0460/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0545/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0545/odie",
+    "ingp_run": "../../reruns/div2k_500/0545/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/ingp_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0767/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/odie_div2k_500e.json",
+    "output": "../../reruns/div2k_500/0767/odie",
+    "ingp_run": "../../reruns/div2k_500/0767/ingp"
+  }
+]

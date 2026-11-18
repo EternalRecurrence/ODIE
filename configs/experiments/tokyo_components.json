@@ -1,0 +1,26 @@
+[
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/gigapixel/tokyo.jpg",
+    "config": "../ablations/tokyo_no_router.json",
+    "output": "../../reruns/tokyo_components/no_router",
+    "ingp_run": "../../reruns/gigapixel_50/tokyo/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/gigapixel/tokyo.jpg",
+    "config": "../ablations/tokyo_no_on_demand.json",
+    "output": "../../reruns/tokyo_components/no_on_demand",
+    "ingp_run": "../../reruns/gigapixel_50/tokyo/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "ablation",
+    "input": "../../data/gigapixel/tokyo.jpg",
+    "config": "../ablations/tokyo_no_router_no_on_demand.json",
+    "output": "../../reruns/tokyo_components/no_router_no_on_demand",
+    "ingp_run": "../../reruns/gigapixel_50/tokyo/ingp"
+  }
+]

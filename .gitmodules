@@ -1,0 +1,15 @@
+[submodule "vendor/siren"]
+	path = vendor/siren
+	url = https://github.com/vsitzmann/siren.git
+[submodule "vendor/finer"]
+	path = vendor/finer
+	url = https://github.com/liuzhen0212/FINER.git
+[submodule "vendor/miner"]
+	path = vendor/miner
+	url = https://github.com/vishwa91/MINER.git
+[submodule "vendor/neural_experts"]
+	path = vendor/neural_experts
+	url = https://github.com/sitzikbs/Neural-Experts.git
+[submodule "vendor/ingp"]
+	path = vendor/ingp
+	url = https://github.com/NVlabs/instant-ngp.git

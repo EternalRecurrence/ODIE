@@ -1,0 +1,6 @@
+* text=auto eol=lf whitespace=-blank-at-eof
+patches/*.patch -whitespace
+# Preserve checksum-bound experimental records and figure inputs byte for byte.
+results/** -text
+figures/** -text
+patches/licenses/** -text

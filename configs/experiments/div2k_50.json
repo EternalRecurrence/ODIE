@@ -1,0 +1,462 @@
+[
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0028/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0028/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0028/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0028/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0028/odie",
+    "ingp_run": "../../reruns/div2k_50/0028/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0028.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0028/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0036/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0036/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0036/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0036/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0036/odie",
+    "ingp_run": "../../reruns/div2k_50/0036/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0036.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0036/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0063/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0063/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0063/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0063/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0063/odie",
+    "ingp_run": "../../reruns/div2k_50/0063/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0063.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0063/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0188/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0188/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0188/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0188/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0188/odie",
+    "ingp_run": "../../reruns/div2k_50/0188/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0188.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0188/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0337/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0337/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0337/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0337/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0337/odie",
+    "ingp_run": "../../reruns/div2k_50/0337/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0337.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0337/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0374/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0374/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0374/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0374/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0374/odie",
+    "ingp_run": "../../reruns/div2k_50/0374/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0374.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0374/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0394/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0394/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0394/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0394/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0394/odie",
+    "ingp_run": "../../reruns/div2k_50/0394/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0394.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0394/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0460/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0460/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0460/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0460/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0460/odie",
+    "ingp_run": "../../reruns/div2k_50/0460/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0460.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0460/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0545/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0545/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0545/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0545/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0545/odie",
+    "ingp_run": "../../reruns/div2k_50/0545/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0545.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0545/siren"
+  },
+  {
+    "method": "ingp",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/ingp_div2k.json",
+    "output": "../../reruns/div2k_50/0767/ingp"
+  },
+  {
+    "method": "finer",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/finer_div2k.json",
+    "output": "../../reruns/div2k_50/0767/finer"
+  },
+  {
+    "method": "miner",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/miner_div2k.json",
+    "output": "../../reruns/div2k_50/0767/miner"
+  },
+  {
+    "method": "neural_experts",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/neural_experts_div2k.json",
+    "output": "../../reruns/div2k_50/0767/neural_experts",
+    "pretraining_input": "../../vendor/neural_experts/data/rgb_img/kodim19.png",
+    "pretraining_output": "../../reruns/shared-pretraining",
+    "budget_input_dir": "../../data/div2k"
+  },
+  {
+    "method": "odie",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/odie_div2k.json",
+    "output": "../../reruns/div2k_50/0767/odie",
+    "ingp_run": "../../reruns/div2k_50/0767/ingp"
+  },
+  {
+    "method": "siren",
+    "scene": "div2k",
+    "input": "../../data/div2k/0767.png",
+    "config": "../baselines/siren_div2k.json",
+    "output": "../../reruns/div2k_50/0767/siren"
+  }
+]

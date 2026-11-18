@@ -1,0 +1,50 @@
+{
+  "training": {
+    "epoch": 50,
+    "optimizer_steps": 2550,
+    "parameter_count": 584763,
+    "checkpoint": "latest"
+  },
+  "evaluation": {
+    "schema": "shared-image-evaluation-v1",
+    "checkpoint": "latest",
+    "input": "data/div2k/0374.png",
+    "prediction": "results/div2k_50/0374/siren/reconstruction.png",
+    "input_sha256": "3b9d7edbaa6a7c18ff384f45904a119102401425cd1f2800a8b985f5bc40488b",
+    "prediction_sha256": "48f5e90c6c662fa8402a4a2a80fcebc82b4f0f4009b169c296f752fe1d933034",
+    "shape_hwc": [
+      2040,
+      1632,
+      3
+    ],
+    "prediction_layout": "HWC",
+    "prediction_format": "rgb8",
+    "psnr_pixel_format": "rgb8",
+    "ssim_pixel_format": "rgb8",
+    "preprocessing": "RGB8: clip floating RGB to [0,1], rint(x*255) to uint8; original resolution; no resize, filtering or antialiasing",
+    "ssim_definition": "RGB channel mean; uniform window min(7, largest valid odd size); sample covariance; data_range=1",
+    "mse": 0.0017395179822990712,
+    "psnr_db": 27.595710773660084,
+    "perfect_reconstruction": false,
+    "ssim": 0.7693159819233477,
+    "ssim_window": 7,
+    "compression": {
+      "inference_files": [
+        {
+          "path": "results/div2k_50/0374/siren/model_latest.pt",
+          "bytes": 2343230,
+          "sha256": "d4d29582b8504a0a4f493cc0977ca19aa78a30e03b6d0864d709a02378cbfeb9"
+        }
+      ],
+      "complete_file_bytes": 2343230,
+      "source_file_bytes": 4681655,
+      "raw_rgb8_bytes": 9987840,
+      "cr_source_file": 1.997949411709478,
+      "cr_raw_rgb8": 4.262424089824729,
+      "storage_fraction_source": 0.5005131732261348,
+      "storage_fraction_raw_rgb8": 0.2346082836729463,
+      "definition": "CR = original bytes / complete inference bytes; larger is better",
+      "accounting": "One checkpoint plus all decode-required sidecars; exclude logs, reconstructions, caches and optimizer state"
+    }
+  }
+}

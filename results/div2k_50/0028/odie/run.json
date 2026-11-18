@@ -1,0 +1,639 @@
+{
+  "method": "odie",
+  "plan": {
+    "method": "odie",
+    "scene": "div2k",
+    "ablation": null,
+    "input": "data/div2k/0028.png",
+    "input_sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867",
+    "shape_hw": [
+      1992,
+      2040
+    ],
+    "experiment_group": "div2k-png50-50e",
+    "upstream_commit": null,
+    "output": "results/div2k_50/0028/odie",
+    "ingp_reference": {
+      "method": "ingp",
+      "experiment_group": "div2k-png50-50e",
+      "input_sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867",
+      "shape_hw": [
+        1992,
+        2040
+      ],
+      "parameter_count": 1543552,
+      "capacity_verified": true,
+      "capacity_basis": "parameter_payload_bytes",
+      "target_bytes": 3110811,
+      "allocation": {
+        "base_resolution": 14,
+        "log2_hashmap_size": 17,
+        "per_level_scale": 1.3309594038296806,
+        "parameter_count": 1543552,
+        "capacity_verified": true,
+        "target_bytes": 3110811,
+        "package_bytes": 3088379
+      },
+      "upstream_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+      "parameter_bytes": 3087104,
+      "native_module_sha256": "1afed8e01a176250c6df1ac98358c851f89e9f407a9ba39b519ea6327a163c8c",
+      "native_module": "code/vendor/ingp/build/pyngp.cpython-310-x86_64-linux-gnu.so",
+      "package_bytes": 3088379,
+      "calibration": {
+        "status": "calibrated",
+        "selected": {
+          "config": {
+            "loss": {
+              "otype": "L2"
+            },
+            "optimizer": {
+              "otype": "ExponentialDecay",
+              "decay_start": 1800,
+              "decay_interval": 900,
+              "decay_base": 0.33,
+              "nested": {
+                "otype": "Adam",
+                "learning_rate": 0.01,
+                "beta1": 0.9,
+                "beta2": 0.99,
+                "epsilon": 1e-15,
+                "l2_reg": 1e-06
+              }
+            },
+            "encoding": {
+              "otype": "HashGrid",
+              "n_levels": 16,
+              "n_features_per_level": 2,
+              "log2_hashmap_size": 17,
+              "base_resolution": 14
+            },
+            "network": {
+              "otype": "FullyFusedMLP",
+              "activation": "ReLU",
+              "output_activation": "None",
+              "n_neurons": 64,
+              "n_hidden_layers": 2
+            }
+          },
+          "parameter_count": 1543552,
+          "parameter_bytes": 3087104,
+          "encoding_parameters": 1536384,
+          "params_type": "__half",
+          "package_bytes": 3088379,
+          "optimizer_state": false,
+          "compression": false,
+          "required_sidecar": "image_metadata.json; dimensions and official Image color settings"
+        },
+        "shape_hwc": [
+          1992,
+          2040,
+          3
+        ],
+        "source_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+        "input_sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867",
+        "quality_based_selection": false,
+        "cpu_estimate": {
+          "base_resolution": 14,
+          "log2_hashmap_size": 17,
+          "per_level_scale": 1.3309594038296806,
+          "parameter_count": 1543552,
+          "capacity_verified": false,
+          "target_bytes": 3110811
+        },
+        "native_probes": [
+          {
+            "base_resolution": 14,
+            "parameter_count": 1543552,
+            "package_bytes": 3088379
+          }
+        ],
+        "resolution_policy": "official Image automatic max(H,W)/2; no per_level_scale input"
+      }
+    },
+    "capacity_basis": "ingp_parameters",
+    "allocation": {
+      "parameter_count": 1543552,
+      "target_bytes": 3087104,
+      "capacity_verified": false
+    },
+    "unified_configuration": {
+      "representation": "xy_planes",
+      "n_levels": 16,
+      "base_resolution": 8,
+      "max_resolution": 1020,
+      "resolutions": [
+        8,
+        11,
+        15,
+        21,
+        29,
+        40,
+        56,
+        77,
+        106,
+        147,
+        203,
+        280,
+        387,
+        534,
+        738,
+        1020
+      ],
+      "plane_feature_dimensions": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "feature_dim": 2,
+      "feature_init_std": 0.001,
+      "coarse_levels": 0,
+      "gate_coarse_levels_K": 0,
+      "gate_topology": "shared",
+      "gate_position": "feature",
+      "router_output_activation": "sigmoid",
+      "router_enabled": true,
+      "gate_hidden_width": 32,
+      "gate_hidden_layers": 1,
+      "decoder_hidden_width": 64,
+      "decoder_hidden_layers": 2,
+      "gate_parameters": 1536,
+      "decoder_parameters": 7168,
+      "final_epochs": 50,
+      "stage_epochs": [
+        1,
+        1,
+        1
+      ],
+      "initial_active_prefix": 13,
+      "unlock_epochs": 3,
+      "joint_epochs": 47,
+      "batch_size": 65536,
+      "seed": 1729,
+      "grid_lr": 0.01,
+      "gate_lr": 0.001,
+      "decoder_lr": 0.001,
+      "learning_rate_schedule": {
+        "type": "late_cosine",
+        "constant_through_epoch": 30,
+        "minimum_factor": 0.1,
+        "final_epoch": 50
+      },
+      "eval_interval": 10,
+      "eval_batch_size": 131072,
+      "cell_caps": [
+        64,
+        128,
+        232,
+        448,
+        848,
+        1600,
+        3136,
+        5936,
+        11240,
+        21616,
+        41216,
+        78400,
+        149776,
+        181112,
+        181112,
+        181120
+      ],
+      "full_cover_coarse_layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "dynamic_policy": "B2",
+      "selection_ranking": "error_per_parameter",
+      "region_backend": "cuda_device",
+      "support_policy": "online current-prefix RGB residual",
+      "parameter_budget": 1543552,
+      "fp16_parameter_budget": 3087104,
+      "allocated_parameters": 1543552,
+      "target_storage": "uint8",
+      "sampling": "stratified",
+      "chunk_pixels": 4194304,
+      "backend": "native",
+      "save_npy": false,
+      "ssim": "off",
+      "ssim_stripe_rows": 256
+    }
+  },
+  "requested_config": {
+    "experiment_group": "div2k-png50-50e",
+    "capacity": {
+      "basis": "ingp_parameters"
+    },
+    "model": {
+      "layers": 16,
+      "base_resolution": 8,
+      "max_resolution": "half_long_edge",
+      "features": 2,
+      "finest_features": 1
+    },
+    "training": {
+      "backend": "native",
+      "epochs": 50,
+      "batch_size": 65536,
+      "seed": 1729,
+      "epochs_per_stage": 1,
+      "learning_rates": {
+        "grid": 0.01,
+        "router": 0.001,
+        "decoder": 0.001
+      },
+      "lr_schedule": {
+        "type": "late_cosine",
+        "constant_through_epoch": 30,
+        "minimum_factor": 0.1
+      }
+    },
+    "regions": {
+      "selection": "error_per_parameter",
+      "backend": "cuda_device"
+    },
+    "evaluation": {
+      "interval": 10,
+      "batch_size": 131072,
+      "save_npy": false,
+      "ssim": "off"
+    },
+    "data": {
+      "sampling": "stratified",
+      "target_storage": "uint8"
+    }
+  },
+  "created_at": "2026-10-24T13:23:22.910647+00:00",
+  "state": "completed",
+  "pid": 32251,
+  "source": {
+    "source_root": ".",
+    "files": {
+      "__init__.py": "15586161572a378508bb2dd711a5d130613aeda0ac9f42a785296c298d458691",
+      "__main__.py": "388a388cf0fa58eea51f3dac61d70eafde5b0d976afeb26d441918d3bcb3c99f",
+      "build.py": "b25a78d4fcc951c1249105f4bc5bf74aa147444ba9cbfe931ed01a0d85987ebd",
+      "config.py": "5ae1bf7882e4c536baad4a6cdc1fe42de6b4237e146321e4e92c72266269c7a1",
+      "data.py": "0b2ba095e42010c53ef5d75f28fb48286974c2ce73a1d1671556988f8a41814a",
+      "evaluation.py": "8e13dce482f7455c09720640a9b99b249c861e536cb96416cd8addf711f74cdc",
+      "gpu_residual.py": "d99966fe7ace0c4648a1a6e2d68138c9c6c65975a8571f958b38278241504099",
+      "metrics.py": "f69549ceca6416412764089458e731a9cf8ba3ee131c6383d7c4b09116596ed0",
+      "model.py": "0fabeebae58750caf4bdc693d282fbaa52b85fbf25d6d77e45520be9e0afb758",
+      "native/CMakeLists.txt": "f38dbc44d4f24e740369a6e7ee9b7a2b3349ed5272a0119a2339b38614a7e52c",
+      "native/kernels.cuh": "7210e8f98236bf603e2f2c553dab8cda26aecd501538445bc51afb2fe22484ac",
+      "native/runtime.cu": "025c9f053becc851a594a9109abd2bc814c6bc8aca2bd407108f647dafe88b66",
+      "native/selection_cuda.cu": "dde97ad86326aa88d6b8048fac1d20b05b9357c503e1e52b9309ecd757d28bd2",
+      "native_backend.py": "19eb0e10e601343f53af1f30fc94417ea603dfe65b1aa9ca498bf906a17cdfc0",
+      "optimizer.py": "cf8bd18445b8e5725b040f77b0aa2ba32eff718a13d380cc3ff83ad86352009a",
+      "packed_bindings.cpp": "d8df646fbcbdcc1df415afd68c85367019e098dfaaed49182add260da23aa383",
+      "packed_kernels.cu": "ffb8a2242ff64cad6fd01222888cea2ebd4048f6386a879ec32136f0252ee4ef",
+      "regions.py": "993668b2e3199ada720c74632b482881534041793d6d83e36f7805a3c2cc999f",
+      "residual_cuda.cu": "abd0e33b0b8cc718359ba99a387447566f3237cd0fcb81e5cfcf7397d1662a2a",
+      "runtime_env.py": "dbb2418cd4d33ecec80398a198d5a2732b708c0d66eacd465285cf6400878d33",
+      "schedule.py": "200b63fda9600ab739f43efe63fd0fc33f4106cb81720a7a1510994e48bf46d3",
+      "selection.py": "b322b0be6c80b035623854135c6168851add739aff7fa65a01ebac833ddc3e06",
+      "selection_cuda.py": "c3e756d801ee085652652ccab2970273e041b798397310ac13defc08f1fbf916",
+      "support_codec.py": "f5e89ba605823d292d62615d60336f882dbb38a256ac91cf95f34ed0425efb4b",
+      "support_jbig.cpp": "7e3196429e7579de1540b2c8a66c2d61a08739b187345e2dacb9278212d74d36",
+      "train.py": "803ac5f05afc5b1bc033c549182bc8c73a31ec1dbc7da82334e185bc1acbb9e0"
+    },
+    "entry_sha256": "e66977e2857d6836d7f6913cb2ad1086b93a70d403c72ba1219eb1078bc11c80",
+    "ingp_reference_sha256": "15f311571a1227cb1256614d67437cbb7f95243092653dcd8b8ff1f401d18d59"
+  },
+  "commands": {
+    "train": {
+      "argv": [
+        "<runtime-home>/projects/miner/.venv-tcnn-grid/bin/python",
+        "-u",
+        "-m",
+        "odie",
+        "run",
+        "--input",
+        "data/div2k/0028.png",
+        "--config",
+        "results/div2k_50/0028/odie/config.json",
+        "--output",
+        "results/div2k_50/0028/odie"
+      ],
+      "cwd": "code",
+      "returncode": 0
+    }
+  },
+  "configuration": {
+    "representation": "xy_planes",
+    "n_levels": 16,
+    "base_resolution": 8,
+    "max_resolution": 1020,
+    "resolutions": [
+      8,
+      11,
+      15,
+      21,
+      29,
+      40,
+      56,
+      77,
+      106,
+      147,
+      203,
+      280,
+      387,
+      534,
+      738,
+      1020
+    ],
+    "plane_feature_dimensions": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1
+    ],
+    "feature_dim": 2,
+    "feature_init_std": 0.001,
+    "coarse_levels": 0,
+    "gate_coarse_levels_K": 0,
+    "gate_topology": "shared",
+    "gate_position": "feature",
+    "router_output_activation": "sigmoid",
+    "router_enabled": true,
+    "gate_hidden_width": 32,
+    "gate_hidden_layers": 1,
+    "decoder_hidden_width": 64,
+    "decoder_hidden_layers": 2,
+    "gate_parameters": 1536,
+    "decoder_parameters": 7168,
+    "final_epochs": 50,
+    "stage_epochs": [
+      1,
+      1,
+      1
+    ],
+    "initial_active_prefix": 13,
+    "unlock_epochs": 3,
+    "joint_epochs": 47,
+    "batch_size": 65536,
+    "seed": 1729,
+    "grid_lr": 0.01,
+    "gate_lr": 0.001,
+    "decoder_lr": 0.001,
+    "learning_rate_schedule": {
+      "type": "late_cosine",
+      "constant_through_epoch": 30,
+      "minimum_factor": 0.1,
+      "final_epoch": 50
+    },
+    "eval_interval": 10,
+    "eval_batch_size": 131072,
+    "cell_caps": [
+      64,
+      128,
+      232,
+      448,
+      848,
+      1600,
+      3136,
+      5936,
+      11240,
+      21616,
+      41216,
+      78400,
+      149776,
+      181112,
+      181112,
+      181120
+    ],
+    "full_cover_coarse_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "dynamic_policy": "B2",
+    "selection_ranking": "error_per_parameter",
+    "region_backend": "cuda_device",
+    "support_policy": "online current-prefix RGB residual",
+    "parameter_budget": 1543552,
+    "fp16_parameter_budget": 3087104,
+    "allocated_parameters": 1543552,
+    "target_storage": "uint8",
+    "sampling": "stratified",
+    "chunk_pixels": 4194304,
+    "backend": "native",
+    "save_npy": false,
+    "ssim": "off",
+    "ssim_stripe_rows": 256,
+    "input_sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867",
+    "shape_hw": [
+      1992,
+      2040
+    ]
+  },
+  "runtime": {
+    "input_sha256": "3001a82078238b2436a6ce8be9a5d7b5125d7fd7ce94c4a3c9b4ab1051df6867",
+    "source_sha256": {
+      "__main__.py": "388a388cf0fa58eea51f3dac61d70eafde5b0d976afeb26d441918d3bcb3c99f",
+      "gpu_residual.py": "d99966fe7ace0c4648a1a6e2d68138c9c6c65975a8571f958b38278241504099",
+      "support_codec.py": "f5e89ba605823d292d62615d60336f882dbb38a256ac91cf95f34ed0425efb4b",
+      "residual_cuda.cu": "abd0e33b0b8cc718359ba99a387447566f3237cd0fcb81e5cfcf7397d1662a2a",
+      "train.py": "803ac5f05afc5b1bc033c549182bc8c73a31ec1dbc7da82334e185bc1acbb9e0",
+      "regions.py": "993668b2e3199ada720c74632b482881534041793d6d83e36f7805a3c2cc999f",
+      "packed_kernels.cu": "ffb8a2242ff64cad6fd01222888cea2ebd4048f6386a879ec32136f0252ee4ef",
+      "runtime_env.py": "dbb2418cd4d33ecec80398a198d5a2732b708c0d66eacd465285cf6400878d33",
+      "packed_bindings.cpp": "d8df646fbcbdcc1df415afd68c85367019e098dfaaed49182add260da23aa383",
+      "support_jbig.cpp": "7e3196429e7579de1540b2c8a66c2d61a08739b187345e2dacb9278212d74d36",
+      "evaluation.py": "8e13dce482f7455c09720640a9b99b249c861e536cb96416cd8addf711f74cdc",
+      "metrics.py": "f69549ceca6416412764089458e731a9cf8ba3ee131c6383d7c4b09116596ed0",
+      "config.py": "5ae1bf7882e4c536baad4a6cdc1fe42de6b4237e146321e4e92c72266269c7a1",
+      "optimizer.py": "cf8bd18445b8e5725b040f77b0aa2ba32eff718a13d380cc3ff83ad86352009a",
+      "data.py": "0b2ba095e42010c53ef5d75f28fb48286974c2ce73a1d1671556988f8a41814a",
+      "native_backend.py": "19eb0e10e601343f53af1f30fc94417ea603dfe65b1aa9ca498bf906a17cdfc0",
+      "schedule.py": "200b63fda9600ab739f43efe63fd0fc33f4106cb81720a7a1510994e48bf46d3",
+      "build.py": "b25a78d4fcc951c1249105f4bc5bf74aa147444ba9cbfe931ed01a0d85987ebd",
+      "__init__.py": "15586161572a378508bb2dd711a5d130613aeda0ac9f42a785296c298d458691",
+      "model.py": "0fabeebae58750caf4bdc693d282fbaa52b85fbf25d6d77e45520be9e0afb758",
+      "selection.py": "b322b0be6c80b035623854135c6168851add739aff7fa65a01ebac833ddc3e06",
+      "selection_cuda.py": "c3e756d801ee085652652ccab2970273e041b798397310ac13defc08f1fbf916",
+      "native/CMakeLists.txt": "f38dbc44d4f24e740369a6e7ee9b7a2b3349ed5272a0119a2339b38614a7e52c",
+      "native/runtime.cu": "025c9f053becc851a594a9109abd2bc814c6bc8aca2bd407108f647dafe88b66",
+      "native/kernels.cuh": "7210e8f98236bf603e2f2c553dab8cda26aecd501538445bc51afb2fe22484ac",
+      "native/selection_cuda.cu": "dde97ad86326aa88d6b8048fac1d20b05b9357c503e1e52b9309ecd757d28bd2"
+    },
+    "python": "3.10.20 (main, Mar 24 2026, 22:50:29) [Clang 22.1.1 ]",
+    "torch": "2.5.1+cu118",
+    "cuda": "11.8"
+  },
+  "native_build": {
+    "definitions": {
+      "ODIE_LEVELS": 16,
+      "ODIE_RAW_WIDTH": 31,
+      "ODIE_ROUTER_ENABLED": 1,
+      "ODIE_RGB8": 1,
+      "ODIE_GATE_K": 0,
+      "ODIE_SOFTPLUS": 0
+    },
+    "source": {
+      "CMakeLists.txt": "f38dbc44d4f24e740369a6e7ee9b7a2b3349ed5272a0119a2339b38614a7e52c",
+      "kernels.cuh": "7210e8f98236bf603e2f2c553dab8cda26aecd501538445bc51afb2fe22484ac",
+      "runtime.cu": "025c9f053becc851a594a9109abd2bc814c6bc8aca2bd407108f647dafe88b66",
+      "selection_cuda.cu": "dde97ad86326aa88d6b8048fac1d20b05b9357c503e1e52b9309ecd757d28bd2"
+    },
+    "external": {
+      "code/vendor/ingp/dependencies/tiny-cuda-nn/include/tiny-cuda-nn/optimizers/adam.h": "995b359c975d75b5d64902fd9524f6999b3595eff0c54419718b0bdb3b1273bd",
+      "code/vendor/ingp/build/dependencies/tiny-cuda-nn/libtiny-cuda-nn.a": "9fb71ffb7234ba449f172649dd278509bd8ac33c31b7f78facffcf52adbec892",
+      "code/vendor/ingp/build/dependencies/tiny-cuda-nn/libtiny-cuda-nn-resources.a": "3048dc034103f427131296cb6c6ff9be79a79729c30c77e5c54f8101897aeca6",
+      "code/vendor/ingp/build/dependencies/tiny-cuda-nn/dependencies/fmt/libfmt.a": "7a1aeaedf2d2df890136250185f93cd28622eb45730fa4a20b36502511f2d2a0"
+    },
+    "architecture": "86",
+    "compiler": {
+      "CC": "/usr/bin/gcc-11",
+      "CXX": "/usr/bin/g++-11",
+      "CUDA_HOME": "/usr/local/cuda-11.8"
+    }
+  },
+  "settings": {
+    "plane_dims": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1
+    ],
+    "plane_node_caps": [
+      64,
+      128,
+      232,
+      448,
+      848,
+      1600,
+      3136,
+      5936,
+      11240,
+      21616,
+      41216,
+      78400,
+      149776,
+      181112,
+      181112,
+      181120
+    ],
+    "axis_mode": "none",
+    "kernel_a": 0.0,
+    "kernel_omega": 4.71238898038469,
+    "external_loss_scale": 128.0,
+    "adam_eps": 1e-15,
+    "sampling_seed": 1729,
+    "per_batch_finite_gradient_check": false,
+    "representation": "xy_planes",
+    "unlock_epochs": 3,
+    "joint_epochs": 47,
+    "passes_per_prefix": [
+      1,
+      1,
+      1
+    ],
+    "prefix_schedule": [
+      13,
+      14,
+      15
+    ],
+    "joint_prefix": 16,
+    "initial_active_prefix": 13,
+    "gate_coarse_levels_K": 0,
+    "router_enabled": true,
+    "learning_rate_schedule": {
+      "type": "late_cosine",
+      "constant_through_epoch": 30,
+      "minimum_factor": 0.1,
+      "final_epoch": 50
+    },
+    "full_cover_coarse_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "full_cover_detection": [],
+    "support_policy": "online current-prefix RGB residual",
+    "model_options": {},
+    "region_selection": "B2",
+    "grid_adam_state": "TCNN persistent per-parameter state; zero-gradient skip; new parameters start at age zero",
+    "training_backend": "native",
+    "optimizer_change": "TCNN epsilon placement and per-parameter zero-gradient skip differ from historical PyTorch Adam",
+    "target_storage": "uint8",
+    "sampling": "stratified",
+    "permutation_device": null,
+    "tail_batch": "fixed full random batch; no traversal tail",
+    "sampling_rule": "one random pixel per square spatial stratum per step",
+    "strata_per_axis": 256,
+    "epoch_semantics": "ceil(image pixels / batch size) steps; sampling with replacement"
+  },
+  "finished_at": "2026-10-24T13:23:38.648212+00:00",
+  "serial": {
+    "returncode": 0,
+    "cache_absent": true,
+    "finished_at": "2026-10-24T13:23:38.666792+00:00"
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/Tokyo.jpg",
+    "config": "ingp_gigapixel_50mib.json",
+    "output": "../../results/tokyo/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/Tokyo.jpg",
+    "config": "odie_gigapixel_50mib.json",
+    "output": "../../results/tokyo/odie",
+    "ingp_run": "../../results/tokyo/ingp"
+  }
+]

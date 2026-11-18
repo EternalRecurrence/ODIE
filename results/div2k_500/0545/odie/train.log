@@ -1,0 +1,559 @@
+Starting train: <runtime-home>/projects/miner/.venv-tcnn-grid/bin/python -u -m odie run --input data/div2k/0545.png --config results/div2k_500/0545/odie/config.json --output results/div2k_500/0545/odie
+Epoch 1/500 | steps 63/31500 | experts 14/16 | loss 0.049871 | elapsed 0.1s | ETA 65.1s
+Expert 15: selected coverage 57.02% | selection 3.468s
+{"dynamic_selection": "B2", "completed_epoch": 1, "opening_epoch": 2, "new_prefix": 15, "live_psnr_before_opening": 19.59507241852569, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 306258, "closure_nodes": 352176, "node_capacity": 352176, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 352176, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 306258, "cuda_end_to_end_seconds": 2.8234759508632123, "launches": 599, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 2, "normalize_by_cost": true}, "selection_seconds": 3.46774485707283}
+Opened expert 15/16 at epoch 2
+Epoch 2/500 | steps 126/31500 | experts 15/16 | loss 0.00782688 | elapsed 3.7s | ETA 932.9s
+Expert 16: selected coverage 25.47% | selection 3.079s
+{"dynamic_selection": "B2", "completed_epoch": 2, "opening_epoch": 3, "new_prefix": 16, "live_psnr_before_opening": 22.18161324151029, "selection": {"policy": "B2 GPU residual / exact newly added closure-node parameters", "selected_cells": 263062, "closure_nodes": 352176, "node_capacity": 352176, "unused_allocated_node_slots": 0, "aligned_used_node_slots": 352176, "node_capacity_utilization": 1.0, "aligned_capacity_utilization": 1.0, "complete_interpolation_closure": true, "tie_order": "descending score, ascending native cell ID", "iterations": 263062, "cuda_end_to_end_seconds": 2.6486255689524114, "launches": 514, "score_gpu_to_cpu_copies": 0, "score_cpu_to_gpu_copies": 0, "selection_backend": "cuda_device_residual_exact_greedy", "plane_dim": 1, "normalize_by_cost": true}, "selection_seconds": 3.078929408919066}
+Opened expert 16/16 at epoch 3
+Epoch 3/500 | steps 189/31500 | experts 16/16 | loss 0.00524796 | elapsed 7.0s | ETA 1155.8s
+Epoch 4/500 | steps 252/31500 | experts 16/16 | loss 0.00401164 | elapsed 7.1s | ETA 878.0s
+Epoch 5/500 | steps 315/31500 | experts 16/16 | loss 0.00326887 | elapsed 7.2s | ETA 711.2s
+Epoch 6/500 | steps 378/31500 | experts 16/16 | loss 0.00292791 | elapsed 7.3s | ETA 600.1s
+Epoch 7/500 | steps 441/31500 | experts 16/16 | loss 0.00271111 | elapsed 7.4s | ETA 520.6s
+Epoch 8/500 | steps 504/31500 | experts 16/16 | loss 0.00255396 | elapsed 7.5s | ETA 461.0s
+Epoch 9/500 | steps 567/31500 | experts 16/16 | loss 0.00243903 | elapsed 7.6s | ETA 414.6s
+Eval epoch 10 | PSNR 26.40071374250839 dB
+Epoch 10/500 | steps 630/31500 | experts 16/16 | loss 0.00234074 | elapsed 7.8s | ETA 380.2s
+Epoch 11/500 | steps 693/31500 | experts 16/16 | loss 0.00224748 | elapsed 7.9s | ETA 349.6s
+Epoch 12/500 | steps 756/31500 | experts 16/16 | loss 0.00217343 | elapsed 8.0s | ETA 324.0s
+Epoch 13/500 | steps 819/31500 | experts 16/16 | loss 0.00210572 | elapsed 8.1s | ETA 302.4s
+Epoch 14/500 | steps 882/31500 | experts 16/16 | loss 0.00203902 | elapsed 8.2s | ETA 283.8s
+Epoch 15/500 | steps 945/31500 | experts 16/16 | loss 0.001979 | elapsed 8.3s | ETA 267.7s
+Epoch 16/500 | steps 1008/31500 | experts 16/16 | loss 0.0019257 | elapsed 8.4s | ETA 253.6s
+Epoch 17/500 | steps 1071/31500 | experts 16/16 | loss 0.00187337 | elapsed 8.5s | ETA 241.1s
+Epoch 18/500 | steps 1134/31500 | experts 16/16 | loss 0.00182686 | elapsed 8.6s | ETA 230.1s
+Epoch 19/500 | steps 1197/31500 | experts 16/16 | loss 0.00178446 | elapsed 8.7s | ETA 220.1s
+Eval epoch 20 | PSNR 27.641031642784235 dB
+Epoch 20/500 | steps 1260/31500 | experts 16/16 | loss 0.00174178 | elapsed 8.9s | ETA 212.5s
+Epoch 21/500 | steps 1323/31500 | experts 16/16 | loss 0.00170241 | elapsed 9.0s | ETA 204.3s
+Epoch 22/500 | steps 1386/31500 | experts 16/16 | loss 0.00166941 | elapsed 9.1s | ETA 196.9s
+Epoch 23/500 | steps 1449/31500 | experts 16/16 | loss 0.00163528 | elapsed 9.2s | ETA 190.1s
+Epoch 24/500 | steps 1512/31500 | experts 16/16 | loss 0.00160191 | elapsed 9.3s | ETA 183.9s
+Epoch 25/500 | steps 1575/31500 | experts 16/16 | loss 0.00157523 | elapsed 9.4s | ETA 178.1s
+Epoch 26/500 | steps 1638/31500 | experts 16/16 | loss 0.00154579 | elapsed 9.5s | ETA 172.8s
+Epoch 27/500 | steps 1701/31500 | experts 16/16 | loss 0.00151985 | elapsed 9.6s | ETA 167.9s
+Epoch 28/500 | steps 1764/31500 | experts 16/16 | loss 0.00149428 | elapsed 9.7s | ETA 163.3s
+Epoch 29/500 | steps 1827/31500 | experts 16/16 | loss 0.00147304 | elapsed 9.8s | ETA 159.0s
+Eval epoch 30 | PSNR 28.415464567143122 dB
+Epoch 30/500 | steps 1890/31500 | experts 16/16 | loss 0.00144999 | elapsed 9.9s | ETA 155.9s
+Epoch 31/500 | steps 1953/31500 | experts 16/16 | loss 0.00142601 | elapsed 10.1s | ETA 152.1s
+Epoch 32/500 | steps 2016/31500 | experts 16/16 | loss 0.00140995 | elapsed 10.2s | ETA 148.6s
+Epoch 33/500 | steps 2079/31500 | experts 16/16 | loss 0.00139035 | elapsed 10.3s | ETA 145.2s
+Epoch 34/500 | steps 2142/31500 | experts 16/16 | loss 0.00137245 | elapsed 10.4s | ETA 142.1s
+Epoch 35/500 | steps 2205/31500 | experts 16/16 | loss 0.00135361 | elapsed 10.5s | ETA 139.1s
+Epoch 36/500 | steps 2268/31500 | experts 16/16 | loss 0.00134272 | elapsed 10.6s | ETA 136.3s
+Epoch 37/500 | steps 2331/31500 | experts 16/16 | loss 0.00132941 | elapsed 10.7s | ETA 133.6s
+Epoch 38/500 | steps 2394/31500 | experts 16/16 | loss 0.00131241 | elapsed 10.8s | ETA 131.1s
+Epoch 39/500 | steps 2457/31500 | experts 16/16 | loss 0.00129632 | elapsed 10.9s | ETA 128.7s
+Eval epoch 40 | PSNR 28.9313905805424 dB
+Epoch 40/500 | steps 2520/31500 | experts 16/16 | loss 0.00128437 | elapsed 11.0s | ETA 127.0s
+Epoch 41/500 | steps 2583/31500 | experts 16/16 | loss 0.00127416 | elapsed 11.1s | ETA 124.8s
+Epoch 42/500 | steps 2646/31500 | experts 16/16 | loss 0.00126221 | elapsed 11.3s | ETA 122.7s
+Epoch 43/500 | steps 2709/31500 | experts 16/16 | loss 0.0012522 | elapsed 11.4s | ETA 120.7s
+Epoch 44/500 | steps 2772/31500 | experts 16/16 | loss 0.0012389 | elapsed 11.5s | ETA 118.8s
+Epoch 45/500 | steps 2835/31500 | experts 16/16 | loss 0.00122959 | elapsed 11.6s | ETA 116.9s
+Epoch 46/500 | steps 2898/31500 | experts 16/16 | loss 0.00121921 | elapsed 11.7s | ETA 115.2s
+Epoch 47/500 | steps 2961/31500 | experts 16/16 | loss 0.00120735 | elapsed 11.8s | ETA 113.5s
+Epoch 48/500 | steps 3024/31500 | experts 16/16 | loss 0.00119903 | elapsed 11.9s | ETA 111.8s
+Epoch 49/500 | steps 3087/31500 | experts 16/16 | loss 0.00118979 | elapsed 12.0s | ETA 110.3s
+Eval epoch 50 | PSNR 29.28132108374789 dB
+Epoch 50/500 | steps 3150/31500 | experts 16/16 | loss 0.00118464 | elapsed 12.1s | ETA 109.3s
+Epoch 51/500 | steps 3213/31500 | experts 16/16 | loss 0.00117355 | elapsed 12.2s | ETA 107.8s
+Epoch 52/500 | steps 3276/31500 | experts 16/16 | loss 0.00116628 | elapsed 12.3s | ETA 106.4s
+Epoch 53/500 | steps 3339/31500 | experts 16/16 | loss 0.0011541 | elapsed 12.5s | ETA 105.0s
+Epoch 54/500 | steps 3402/31500 | experts 16/16 | loss 0.00114987 | elapsed 12.6s | ETA 103.7s
+Epoch 55/500 | steps 3465/31500 | experts 16/16 | loss 0.00114429 | elapsed 12.7s | ETA 102.4s
+Epoch 56/500 | steps 3528/31500 | experts 16/16 | loss 0.00113579 | elapsed 12.8s | ETA 101.2s
+Epoch 57/500 | steps 3591/31500 | experts 16/16 | loss 0.00112823 | elapsed 12.9s | ETA 100.0s
+Epoch 58/500 | steps 3654/31500 | experts 16/16 | loss 0.00112339 | elapsed 13.0s | ETA 98.9s
+Epoch 59/500 | steps 3717/31500 | experts 16/16 | loss 0.0011146 | elapsed 13.1s | ETA 97.7s
+Eval epoch 60 | PSNR 29.559065174689007 dB
+Epoch 60/500 | steps 3780/31500 | experts 16/16 | loss 0.00111323 | elapsed 13.2s | ETA 97.1s
+Epoch 61/500 | steps 3843/31500 | experts 16/16 | loss 0.00110293 | elapsed 13.3s | ETA 96.0s
+Epoch 62/500 | steps 3906/31500 | experts 16/16 | loss 0.00109644 | elapsed 13.4s | ETA 95.0s
+Epoch 63/500 | steps 3969/31500 | experts 16/16 | loss 0.00109239 | elapsed 13.5s | ETA 94.0s
+Epoch 64/500 | steps 4032/31500 | experts 16/16 | loss 0.00108822 | elapsed 13.7s | ETA 93.0s
+Epoch 65/500 | steps 4095/31500 | experts 16/16 | loss 0.00108257 | elapsed 13.8s | ETA 92.1s
+Epoch 66/500 | steps 4158/31500 | experts 16/16 | loss 0.00108057 | elapsed 13.9s | ETA 91.1s
+Epoch 67/500 | steps 4221/31500 | experts 16/16 | loss 0.00106979 | elapsed 14.0s | ETA 90.3s
+Epoch 68/500 | steps 4284/31500 | experts 16/16 | loss 0.00106564 | elapsed 14.1s | ETA 89.4s
+Epoch 69/500 | steps 4347/31500 | experts 16/16 | loss 0.00106027 | elapsed 14.2s | ETA 88.5s
+Eval epoch 70 | PSNR 29.778918054989866 dB
+Epoch 70/500 | steps 4410/31500 | experts 16/16 | loss 0.00105479 | elapsed 14.3s | ETA 88.0s
+Epoch 71/500 | steps 4473/31500 | experts 16/16 | loss 0.00105446 | elapsed 14.4s | ETA 87.2s
+Epoch 72/500 | steps 4536/31500 | experts 16/16 | loss 0.00105094 | elapsed 14.5s | ETA 86.4s
+Epoch 73/500 | steps 4599/31500 | experts 16/16 | loss 0.00104315 | elapsed 14.6s | ETA 85.7s
+Epoch 74/500 | steps 4662/31500 | experts 16/16 | loss 0.00103822 | elapsed 14.7s | ETA 84.9s
+Epoch 75/500 | steps 4725/31500 | experts 16/16 | loss 0.00103886 | elapsed 14.9s | ETA 84.2s
+Epoch 76/500 | steps 4788/31500 | experts 16/16 | loss 0.00103189 | elapsed 15.0s | ETA 83.4s
+Epoch 77/500 | steps 4851/31500 | experts 16/16 | loss 0.00102675 | elapsed 15.1s | ETA 82.7s
+Epoch 78/500 | steps 4914/31500 | experts 16/16 | loss 0.00102137 | elapsed 15.2s | ETA 82.0s
+Epoch 79/500 | steps 4977/31500 | experts 16/16 | loss 0.00101705 | elapsed 15.3s | ETA 81.4s
+Eval epoch 80 | PSNR 29.94476883130698 dB
+Epoch 80/500 | steps 5040/31500 | experts 16/16 | loss 0.00102098 | elapsed 15.4s | ETA 81.0s
+Epoch 81/500 | steps 5103/31500 | experts 16/16 | loss 0.00101258 | elapsed 15.5s | ETA 80.3s
+Epoch 82/500 | steps 5166/31500 | experts 16/16 | loss 0.00100716 | elapsed 15.6s | ETA 79.7s
+Epoch 83/500 | steps 5229/31500 | experts 16/16 | loss 0.00100737 | elapsed 15.7s | ETA 79.1s
+Epoch 84/500 | steps 5292/31500 | experts 16/16 | loss 0.00100528 | elapsed 15.8s | ETA 78.5s
+Epoch 85/500 | steps 5355/31500 | experts 16/16 | loss 0.000997424 | elapsed 15.9s | ETA 77.9s
+Epoch 86/500 | steps 5418/31500 | experts 16/16 | loss 0.000993284 | elapsed 16.1s | ETA 77.3s
+Epoch 87/500 | steps 5481/31500 | experts 16/16 | loss 0.000993361 | elapsed 16.2s | ETA 76.7s
+Epoch 88/500 | steps 5544/31500 | experts 16/16 | loss 0.000987366 | elapsed 16.3s | ETA 76.1s
+Epoch 89/500 | steps 5607/31500 | experts 16/16 | loss 0.000987695 | elapsed 16.4s | ETA 75.6s
+Eval epoch 90 | PSNR 30.097107224371964 dB
+Epoch 90/500 | steps 5670/31500 | experts 16/16 | loss 0.000983414 | elapsed 16.5s | ETA 75.3s
+Epoch 91/500 | steps 5733/31500 | experts 16/16 | loss 0.000981182 | elapsed 16.6s | ETA 74.7s
+Epoch 92/500 | steps 5796/31500 | experts 16/16 | loss 0.000974501 | elapsed 16.7s | ETA 74.2s
+Epoch 93/500 | steps 5859/31500 | experts 16/16 | loss 0.000976809 | elapsed 16.8s | ETA 73.7s
+Epoch 94/500 | steps 5922/31500 | experts 16/16 | loss 0.000975434 | elapsed 16.9s | ETA 73.2s
+Epoch 95/500 | steps 5985/31500 | experts 16/16 | loss 0.000968133 | elapsed 17.0s | ETA 72.7s
+Epoch 96/500 | steps 6048/31500 | experts 16/16 | loss 0.000965484 | elapsed 17.2s | ETA 72.2s
+Epoch 97/500 | steps 6111/31500 | experts 16/16 | loss 0.000964913 | elapsed 17.3s | ETA 71.7s
+Epoch 98/500 | steps 6174/31500 | experts 16/16 | loss 0.000967233 | elapsed 17.4s | ETA 71.2s
+Epoch 99/500 | steps 6237/31500 | experts 16/16 | loss 0.000960074 | elapsed 17.5s | ETA 70.7s
+Eval epoch 100 | PSNR 30.110999064151493 dB
+Epoch 100/500 | steps 6300/31500 | experts 16/16 | loss 0.000957069 | elapsed 17.6s | ETA 70.5s
+Epoch 101/500 | steps 6363/31500 | experts 16/16 | loss 0.00095473 | elapsed 17.7s | ETA 70.0s
+Epoch 102/500 | steps 6426/31500 | experts 16/16 | loss 0.000950025 | elapsed 17.8s | ETA 69.6s
+Epoch 103/500 | steps 6489/31500 | experts 16/16 | loss 0.000953569 | elapsed 17.9s | ETA 69.1s
+Epoch 104/500 | steps 6552/31500 | experts 16/16 | loss 0.000945324 | elapsed 18.0s | ETA 68.7s
+Epoch 105/500 | steps 6615/31500 | experts 16/16 | loss 0.000942341 | elapsed 18.1s | ETA 68.3s
+Epoch 106/500 | steps 6678/31500 | experts 16/16 | loss 0.000944045 | elapsed 18.2s | ETA 67.8s
+Epoch 107/500 | steps 6741/31500 | experts 16/16 | loss 0.000937709 | elapsed 18.4s | ETA 67.4s
+Epoch 108/500 | steps 6804/31500 | experts 16/16 | loss 0.000941068 | elapsed 18.5s | ETA 67.0s
+Epoch 109/500 | steps 6867/31500 | experts 16/16 | loss 0.000934918 | elapsed 18.6s | ETA 66.6s
+Eval epoch 110 | PSNR 30.327201599801356 dB
+Epoch 110/500 | steps 6930/31500 | experts 16/16 | loss 0.00093263 | elapsed 18.7s | ETA 66.4s
+Epoch 111/500 | steps 6993/31500 | experts 16/16 | loss 0.00092899 | elapsed 18.8s | ETA 66.0s
+Epoch 112/500 | steps 7056/31500 | experts 16/16 | loss 0.000927788 | elapsed 18.9s | ETA 65.6s
+Epoch 113/500 | steps 7119/31500 | experts 16/16 | loss 0.000930139 | elapsed 19.0s | ETA 65.2s
+Epoch 114/500 | steps 7182/31500 | experts 16/16 | loss 0.000928326 | elapsed 19.1s | ETA 64.8s
+Epoch 115/500 | steps 7245/31500 | experts 16/16 | loss 0.000921033 | elapsed 19.2s | ETA 64.4s
+Epoch 116/500 | steps 7308/31500 | experts 16/16 | loss 0.000921119 | elapsed 19.3s | ETA 64.0s
+Epoch 117/500 | steps 7371/31500 | experts 16/16 | loss 0.000919711 | elapsed 19.4s | ETA 63.7s
+Epoch 118/500 | steps 7434/31500 | experts 16/16 | loss 0.000914196 | elapsed 19.6s | ETA 63.3s
+Epoch 119/500 | steps 7497/31500 | experts 16/16 | loss 0.00091462 | elapsed 19.7s | ETA 62.9s
+Eval epoch 120 | PSNR 30.401100226079922 dB
+Epoch 120/500 | steps 7560/31500 | experts 16/16 | loss 0.00091279 | elapsed 19.8s | ETA 62.8s
+Epoch 121/500 | steps 7623/31500 | experts 16/16 | loss 0.00091656 | elapsed 19.9s | ETA 62.4s
+Epoch 122/500 | steps 7686/31500 | experts 16/16 | loss 0.000910213 | elapsed 20.0s | ETA 62.0s
+Epoch 123/500 | steps 7749/31500 | experts 16/16 | loss 0.000910664 | elapsed 20.1s | ETA 61.7s
+Epoch 124/500 | steps 7812/31500 | experts 16/16 | loss 0.00090577 | elapsed 20.2s | ETA 61.4s
+Epoch 125/500 | steps 7875/31500 | experts 16/16 | loss 0.000902414 | elapsed 20.3s | ETA 61.0s
+Epoch 126/500 | steps 7938/31500 | experts 16/16 | loss 0.000903464 | elapsed 20.4s | ETA 60.7s
+Epoch 127/500 | steps 8001/31500 | experts 16/16 | loss 0.000901731 | elapsed 20.5s | ETA 60.3s
+Epoch 128/500 | steps 8064/31500 | experts 16/16 | loss 0.000896896 | elapsed 20.7s | ETA 60.0s
+Epoch 129/500 | steps 8127/31500 | experts 16/16 | loss 0.000903678 | elapsed 20.8s | ETA 59.7s
+Eval epoch 130 | PSNR 30.496644683963765 dB
+Epoch 130/500 | steps 8190/31500 | experts 16/16 | loss 0.000895915 | elapsed 20.9s | ETA 59.5s
+Epoch 131/500 | steps 8253/31500 | experts 16/16 | loss 0.000897337 | elapsed 21.0s | ETA 59.2s
+Epoch 132/500 | steps 8316/31500 | experts 16/16 | loss 0.000893208 | elapsed 21.1s | ETA 58.9s
+Epoch 133/500 | steps 8379/31500 | experts 16/16 | loss 0.000890688 | elapsed 21.2s | ETA 58.6s
+Epoch 134/500 | steps 8442/31500 | experts 16/16 | loss 0.000888705 | elapsed 21.3s | ETA 58.3s
+Epoch 135/500 | steps 8505/31500 | experts 16/16 | loss 0.000890409 | elapsed 21.4s | ETA 58.0s
+Epoch 136/500 | steps 8568/31500 | experts 16/16 | loss 0.000891904 | elapsed 21.5s | ETA 57.7s
+Epoch 137/500 | steps 8631/31500 | experts 16/16 | loss 0.000885322 | elapsed 21.6s | ETA 57.4s
+Epoch 138/500 | steps 8694/31500 | experts 16/16 | loss 0.00088479 | elapsed 21.7s | ETA 57.1s
+Epoch 139/500 | steps 8757/31500 | experts 16/16 | loss 0.000890046 | elapsed 21.9s | ETA 56.8s
+Eval epoch 140 | PSNR 30.571953317260395 dB
+Epoch 140/500 | steps 8820/31500 | experts 16/16 | loss 0.000880736 | elapsed 22.0s | ETA 56.6s
+Epoch 141/500 | steps 8883/31500 | experts 16/16 | loss 0.000877672 | elapsed 22.1s | ETA 56.3s
+Epoch 142/500 | steps 8946/31500 | experts 16/16 | loss 0.000878256 | elapsed 22.2s | ETA 56.0s
+Epoch 143/500 | steps 9009/31500 | experts 16/16 | loss 0.000876988 | elapsed 22.3s | ETA 55.7s
+Epoch 144/500 | steps 9072/31500 | experts 16/16 | loss 0.000875972 | elapsed 22.4s | ETA 55.5s
+Epoch 145/500 | steps 9135/31500 | experts 16/16 | loss 0.000876556 | elapsed 22.5s | ETA 55.2s
+Epoch 146/500 | steps 9198/31500 | experts 16/16 | loss 0.000873907 | elapsed 22.6s | ETA 54.9s
+Epoch 147/500 | steps 9261/31500 | experts 16/16 | loss 0.000872924 | elapsed 22.7s | ETA 54.6s
+Epoch 148/500 | steps 9324/31500 | experts 16/16 | loss 0.00086849 | elapsed 22.8s | ETA 54.3s
+Epoch 149/500 | steps 9387/31500 | experts 16/16 | loss 0.000872747 | elapsed 23.0s | ETA 54.1s
+Eval epoch 150 | PSNR 30.642760465990975 dB
+Epoch 150/500 | steps 9450/31500 | experts 16/16 | loss 0.000866993 | elapsed 23.1s | ETA 53.9s
+Epoch 151/500 | steps 9513/31500 | experts 16/16 | loss 0.000868074 | elapsed 23.2s | ETA 53.7s
+Epoch 152/500 | steps 9576/31500 | experts 16/16 | loss 0.000866486 | elapsed 23.3s | ETA 53.4s
+Epoch 153/500 | steps 9639/31500 | experts 16/16 | loss 0.000865391 | elapsed 23.4s | ETA 53.1s
+Epoch 154/500 | steps 9702/31500 | experts 16/16 | loss 0.000863816 | elapsed 23.5s | ETA 52.9s
+Epoch 155/500 | steps 9765/31500 | experts 16/16 | loss 0.000864257 | elapsed 23.6s | ETA 52.6s
+Epoch 156/500 | steps 9828/31500 | experts 16/16 | loss 0.000857792 | elapsed 23.7s | ETA 52.3s
+Epoch 157/500 | steps 9891/31500 | experts 16/16 | loss 0.000862585 | elapsed 23.8s | ETA 52.1s
+Epoch 158/500 | steps 9954/31500 | experts 16/16 | loss 0.000859432 | elapsed 23.9s | ETA 51.8s
+Epoch 159/500 | steps 10017/31500 | experts 16/16 | loss 0.000854863 | elapsed 24.0s | ETA 51.6s
+Eval epoch 160 | PSNR 30.682756532866556 dB
+Epoch 160/500 | steps 10080/31500 | experts 16/16 | loss 0.000859954 | elapsed 24.2s | ETA 51.4s
+Epoch 161/500 | steps 10143/31500 | experts 16/16 | loss 0.000852895 | elapsed 24.3s | ETA 51.2s
+Epoch 162/500 | steps 10206/31500 | experts 16/16 | loss 0.000854781 | elapsed 24.4s | ETA 50.9s
+Epoch 163/500 | steps 10269/31500 | experts 16/16 | loss 0.000851476 | elapsed 24.5s | ETA 50.7s
+Epoch 164/500 | steps 10332/31500 | experts 16/16 | loss 0.000857138 | elapsed 24.6s | ETA 50.5s
+Epoch 165/500 | steps 10395/31500 | experts 16/16 | loss 0.000849904 | elapsed 24.7s | ETA 50.2s
+Epoch 166/500 | steps 10458/31500 | experts 16/16 | loss 0.000854092 | elapsed 24.8s | ETA 50.0s
+Epoch 167/500 | steps 10521/31500 | experts 16/16 | loss 0.000846899 | elapsed 24.9s | ETA 49.7s
+Epoch 168/500 | steps 10584/31500 | experts 16/16 | loss 0.000844905 | elapsed 25.0s | ETA 49.5s
+Epoch 169/500 | steps 10647/31500 | experts 16/16 | loss 0.00084624 | elapsed 25.1s | ETA 49.3s
+Eval epoch 170 | PSNR 30.742382692885997 dB
+Epoch 170/500 | steps 10710/31500 | experts 16/16 | loss 0.000847978 | elapsed 25.3s | ETA 49.1s
+Epoch 171/500 | steps 10773/31500 | experts 16/16 | loss 0.000842345 | elapsed 25.4s | ETA 48.9s
+Epoch 172/500 | steps 10836/31500 | experts 16/16 | loss 0.000847722 | elapsed 25.5s | ETA 48.7s
+Epoch 173/500 | steps 10899/31500 | experts 16/16 | loss 0.000841492 | elapsed 25.6s | ETA 48.4s
+Epoch 174/500 | steps 10962/31500 | experts 16/16 | loss 0.000845638 | elapsed 25.7s | ETA 48.2s
+Epoch 175/500 | steps 11025/31500 | experts 16/16 | loss 0.000838353 | elapsed 25.8s | ETA 48.0s
+Epoch 176/500 | steps 11088/31500 | experts 16/16 | loss 0.000840059 | elapsed 25.9s | ETA 47.7s
+Epoch 177/500 | steps 11151/31500 | experts 16/16 | loss 0.000841653 | elapsed 26.0s | ETA 47.5s
+Epoch 178/500 | steps 11214/31500 | experts 16/16 | loss 0.000837067 | elapsed 26.1s | ETA 47.3s
+Epoch 179/500 | steps 11277/31500 | experts 16/16 | loss 0.000839973 | elapsed 26.2s | ETA 47.1s
+Eval epoch 180 | PSNR 30.76720391886813 dB
+Epoch 180/500 | steps 11340/31500 | experts 16/16 | loss 0.000834139 | elapsed 26.4s | ETA 46.9s
+Epoch 181/500 | steps 11403/31500 | experts 16/16 | loss 0.000836934 | elapsed 26.5s | ETA 46.7s
+Epoch 182/500 | steps 11466/31500 | experts 16/16 | loss 0.000834608 | elapsed 26.6s | ETA 46.5s
+Epoch 183/500 | steps 11529/31500 | experts 16/16 | loss 0.000829508 | elapsed 26.7s | ETA 46.3s
+Epoch 184/500 | steps 11592/31500 | experts 16/16 | loss 0.000835284 | elapsed 26.8s | ETA 46.1s
+Epoch 185/500 | steps 11655/31500 | experts 16/16 | loss 0.000832038 | elapsed 26.9s | ETA 45.9s
+Epoch 186/500 | steps 11718/31500 | experts 16/16 | loss 0.000832679 | elapsed 27.0s | ETA 45.6s
+Epoch 187/500 | steps 11781/31500 | experts 16/16 | loss 0.000828263 | elapsed 27.1s | ETA 45.4s
+Epoch 188/500 | steps 11844/31500 | experts 16/16 | loss 0.000831032 | elapsed 27.2s | ETA 45.2s
+Epoch 189/500 | steps 11907/31500 | experts 16/16 | loss 0.000826294 | elapsed 27.3s | ETA 45.0s
+Eval epoch 190 | PSNR 30.827625920416132 dB
+Epoch 190/500 | steps 11970/31500 | experts 16/16 | loss 0.000829409 | elapsed 27.5s | ETA 44.9s
+Epoch 191/500 | steps 12033/31500 | experts 16/16 | loss 0.000829974 | elapsed 27.6s | ETA 44.7s
+Epoch 192/500 | steps 12096/31500 | experts 16/16 | loss 0.000822399 | elapsed 27.7s | ETA 44.5s
+Epoch 193/500 | steps 12159/31500 | experts 16/16 | loss 0.000827023 | elapsed 27.8s | ETA 44.2s
+Epoch 194/500 | steps 12222/31500 | experts 16/16 | loss 0.000823147 | elapsed 27.9s | ETA 44.0s
+Epoch 195/500 | steps 12285/31500 | experts 16/16 | loss 0.000823052 | elapsed 28.0s | ETA 43.8s
+Epoch 196/500 | steps 12348/31500 | experts 16/16 | loss 0.000824765 | elapsed 28.1s | ETA 43.6s
+Epoch 197/500 | steps 12411/31500 | experts 16/16 | loss 0.000819846 | elapsed 28.2s | ETA 43.4s
+Epoch 198/500 | steps 12474/31500 | experts 16/16 | loss 0.000817247 | elapsed 28.3s | ETA 43.2s
+Epoch 199/500 | steps 12537/31500 | experts 16/16 | loss 0.000818887 | elapsed 28.4s | ETA 43.0s
+Eval epoch 200 | PSNR 30.881321195361814 dB
+Epoch 200/500 | steps 12600/31500 | experts 16/16 | loss 0.000827279 | elapsed 28.6s | ETA 42.9s
+Epoch 201/500 | steps 12663/31500 | experts 16/16 | loss 0.000818809 | elapsed 28.7s | ETA 42.7s
+Epoch 202/500 | steps 12726/31500 | experts 16/16 | loss 0.000816655 | elapsed 28.8s | ETA 42.5s
+Epoch 203/500 | steps 12789/31500 | experts 16/16 | loss 0.000817343 | elapsed 28.9s | ETA 42.3s
+Epoch 204/500 | steps 12852/31500 | experts 16/16 | loss 0.0008137 | elapsed 29.0s | ETA 42.1s
+Epoch 205/500 | steps 12915/31500 | experts 16/16 | loss 0.000816002 | elapsed 29.1s | ETA 41.9s
+Epoch 206/500 | steps 12978/31500 | experts 16/16 | loss 0.000816622 | elapsed 29.2s | ETA 41.7s
+Epoch 207/500 | steps 13041/31500 | experts 16/16 | loss 0.000813689 | elapsed 29.3s | ETA 41.5s
+Epoch 208/500 | steps 13104/31500 | experts 16/16 | loss 0.000810291 | elapsed 29.4s | ETA 41.3s
+Epoch 209/500 | steps 13167/31500 | experts 16/16 | loss 0.000815156 | elapsed 29.5s | ETA 41.1s
+Eval epoch 210 | PSNR 30.840037539047977 dB
+Epoch 210/500 | steps 13230/31500 | experts 16/16 | loss 0.000812816 | elapsed 29.7s | ETA 41.0s
+Epoch 211/500 | steps 13293/31500 | experts 16/16 | loss 0.000811166 | elapsed 29.8s | ETA 40.8s
+Epoch 212/500 | steps 13356/31500 | experts 16/16 | loss 0.000810732 | elapsed 29.9s | ETA 40.6s
+Epoch 213/500 | steps 13419/31500 | experts 16/16 | loss 0.00080857 | elapsed 30.0s | ETA 40.4s
+Epoch 214/500 | steps 13482/31500 | experts 16/16 | loss 0.000811171 | elapsed 30.1s | ETA 40.3s
+Epoch 215/500 | steps 13545/31500 | experts 16/16 | loss 0.000808096 | elapsed 30.2s | ETA 40.1s
+Epoch 216/500 | steps 13608/31500 | experts 16/16 | loss 0.00081081 | elapsed 30.3s | ETA 39.9s
+Epoch 217/500 | steps 13671/31500 | experts 16/16 | loss 0.000811453 | elapsed 30.4s | ETA 39.7s
+Epoch 218/500 | steps 13734/31500 | experts 16/16 | loss 0.000803678 | elapsed 30.5s | ETA 39.5s
+Epoch 219/500 | steps 13797/31500 | experts 16/16 | loss 0.000802503 | elapsed 30.6s | ETA 39.3s
+Eval epoch 220 | PSNR 30.971785346107538 dB
+Epoch 220/500 | steps 13860/31500 | experts 16/16 | loss 0.00080411 | elapsed 30.8s | ETA 39.2s
+Epoch 221/500 | steps 13923/31500 | experts 16/16 | loss 0.000805388 | elapsed 30.9s | ETA 39.0s
+Epoch 222/500 | steps 13986/31500 | experts 16/16 | loss 0.000803886 | elapsed 31.0s | ETA 38.8s
+Epoch 223/500 | steps 14049/31500 | experts 16/16 | loss 0.000803045 | elapsed 31.1s | ETA 38.6s
+Epoch 224/500 | steps 14112/31500 | experts 16/16 | loss 0.000799117 | elapsed 31.2s | ETA 38.5s
+Epoch 225/500 | steps 14175/31500 | experts 16/16 | loss 0.00080503 | elapsed 31.3s | ETA 38.3s
+Epoch 226/500 | steps 14238/31500 | experts 16/16 | loss 0.000800096 | elapsed 31.4s | ETA 38.1s
+Epoch 227/500 | steps 14301/31500 | experts 16/16 | loss 0.00080168 | elapsed 31.5s | ETA 37.9s
+Epoch 228/500 | steps 14364/31500 | experts 16/16 | loss 0.000801985 | elapsed 31.6s | ETA 37.7s
+Epoch 229/500 | steps 14427/31500 | experts 16/16 | loss 0.00079885 | elapsed 31.7s | ETA 37.6s
+Eval epoch 230 | PSNR 31.001955370764932 dB
+Epoch 230/500 | steps 14490/31500 | experts 16/16 | loss 0.000800128 | elapsed 31.9s | ETA 37.4s
+Epoch 231/500 | steps 14553/31500 | experts 16/16 | loss 0.000797478 | elapsed 32.0s | ETA 37.3s
+Epoch 232/500 | steps 14616/31500 | experts 16/16 | loss 0.000793574 | elapsed 32.1s | ETA 37.1s
+Epoch 233/500 | steps 14679/31500 | experts 16/16 | loss 0.000797718 | elapsed 32.2s | ETA 36.9s
+Epoch 234/500 | steps 14742/31500 | experts 16/16 | loss 0.000798456 | elapsed 32.3s | ETA 36.7s
+Epoch 235/500 | steps 14805/31500 | experts 16/16 | loss 0.000799812 | elapsed 32.4s | ETA 36.6s
+Epoch 236/500 | steps 14868/31500 | experts 16/16 | loss 0.000794002 | elapsed 32.5s | ETA 36.4s
+Epoch 237/500 | steps 14931/31500 | experts 16/16 | loss 0.000791061 | elapsed 32.6s | ETA 36.2s
+Epoch 238/500 | steps 14994/31500 | experts 16/16 | loss 0.000792763 | elapsed 32.7s | ETA 36.0s
+Epoch 239/500 | steps 15057/31500 | experts 16/16 | loss 0.000794613 | elapsed 32.8s | ETA 35.9s
+Eval epoch 240 | PSNR 31.025505017562796 dB
+Epoch 240/500 | steps 15120/31500 | experts 16/16 | loss 0.000790927 | elapsed 33.0s | ETA 35.8s
+Epoch 241/500 | steps 15183/31500 | experts 16/16 | loss 0.000790456 | elapsed 33.1s | ETA 35.6s
+Epoch 242/500 | steps 15246/31500 | experts 16/16 | loss 0.000794284 | elapsed 33.2s | ETA 35.4s
+Epoch 243/500 | steps 15309/31500 | experts 16/16 | loss 0.000790247 | elapsed 33.3s | ETA 35.2s
+Epoch 244/500 | steps 15372/31500 | experts 16/16 | loss 0.000790721 | elapsed 33.4s | ETA 35.1s
+Epoch 245/500 | steps 15435/31500 | experts 16/16 | loss 0.000788802 | elapsed 33.5s | ETA 34.9s
+Epoch 246/500 | steps 15498/31500 | experts 16/16 | loss 0.000794143 | elapsed 33.6s | ETA 34.7s
+Epoch 247/500 | steps 15561/31500 | experts 16/16 | loss 0.000787863 | elapsed 33.7s | ETA 34.6s
+Epoch 248/500 | steps 15624/31500 | experts 16/16 | loss 0.000784257 | elapsed 33.8s | ETA 34.4s
+Epoch 249/500 | steps 15687/31500 | experts 16/16 | loss 0.000793498 | elapsed 33.9s | ETA 34.2s
+Eval epoch 250 | PSNR 31.02814746906128 dB
+Epoch 250/500 | steps 15750/31500 | experts 16/16 | loss 0.000786055 | elapsed 34.1s | ETA 34.1s
+Epoch 251/500 | steps 15813/31500 | experts 16/16 | loss 0.000787033 | elapsed 34.2s | ETA 33.9s
+Epoch 252/500 | steps 15876/31500 | experts 16/16 | loss 0.000784874 | elapsed 34.3s | ETA 33.8s
+Epoch 253/500 | steps 15939/31500 | experts 16/16 | loss 0.000791909 | elapsed 34.4s | ETA 33.6s
+Epoch 254/500 | steps 16002/31500 | experts 16/16 | loss 0.000782292 | elapsed 34.5s | ETA 33.4s
+Epoch 255/500 | steps 16065/31500 | experts 16/16 | loss 0.000784897 | elapsed 34.6s | ETA 33.3s
+Epoch 256/500 | steps 16128/31500 | experts 16/16 | loss 0.000781658 | elapsed 34.7s | ETA 33.1s
+Epoch 257/500 | steps 16191/31500 | experts 16/16 | loss 0.000783147 | elapsed 34.8s | ETA 32.9s
+Epoch 258/500 | steps 16254/31500 | experts 16/16 | loss 0.000785531 | elapsed 34.9s | ETA 32.8s
+Epoch 259/500 | steps 16317/31500 | experts 16/16 | loss 0.000784761 | elapsed 35.0s | ETA 32.6s
+Eval epoch 260 | PSNR 31.096564810604104 dB
+Epoch 260/500 | steps 16380/31500 | experts 16/16 | loss 0.000782848 | elapsed 35.2s | ETA 32.5s
+Epoch 261/500 | steps 16443/31500 | experts 16/16 | loss 0.000778006 | elapsed 35.3s | ETA 32.3s
+Epoch 262/500 | steps 16506/31500 | experts 16/16 | loss 0.000782132 | elapsed 35.4s | ETA 32.2s
+Epoch 263/500 | steps 16569/31500 | experts 16/16 | loss 0.000781284 | elapsed 35.5s | ETA 32.0s
+Epoch 264/500 | steps 16632/31500 | experts 16/16 | loss 0.000776699 | elapsed 35.6s | ETA 31.8s
+Epoch 265/500 | steps 16695/31500 | experts 16/16 | loss 0.000779385 | elapsed 35.7s | ETA 31.7s
+Epoch 266/500 | steps 16758/31500 | experts 16/16 | loss 0.0007813 | elapsed 35.8s | ETA 31.5s
+Epoch 267/500 | steps 16821/31500 | experts 16/16 | loss 0.000777007 | elapsed 35.9s | ETA 31.4s
+Epoch 268/500 | steps 16884/31500 | experts 16/16 | loss 0.000777577 | elapsed 36.0s | ETA 31.2s
+Epoch 269/500 | steps 16947/31500 | experts 16/16 | loss 0.000781516 | elapsed 36.1s | ETA 31.0s
+Eval epoch 270 | PSNR 31.116402261923195 dB
+Epoch 270/500 | steps 17010/31500 | experts 16/16 | loss 0.000777756 | elapsed 36.3s | ETA 30.9s
+Epoch 271/500 | steps 17073/31500 | experts 16/16 | loss 0.000773941 | elapsed 36.4s | ETA 30.8s
+Epoch 272/500 | steps 17136/31500 | experts 16/16 | loss 0.000776633 | elapsed 36.5s | ETA 30.6s
+Epoch 273/500 | steps 17199/31500 | experts 16/16 | loss 0.000773325 | elapsed 36.6s | ETA 30.4s
+Epoch 274/500 | steps 17262/31500 | experts 16/16 | loss 0.000777767 | elapsed 36.7s | ETA 30.3s
+Epoch 275/500 | steps 17325/31500 | experts 16/16 | loss 0.00077297 | elapsed 36.8s | ETA 30.1s
+Epoch 276/500 | steps 17388/31500 | experts 16/16 | loss 0.000775331 | elapsed 36.9s | ETA 30.0s
+Epoch 277/500 | steps 17451/31500 | experts 16/16 | loss 0.000777756 | elapsed 37.0s | ETA 29.8s
+Epoch 278/500 | steps 17514/31500 | experts 16/16 | loss 0.000778372 | elapsed 37.1s | ETA 29.7s
+Epoch 279/500 | steps 17577/31500 | experts 16/16 | loss 0.000769639 | elapsed 37.2s | ETA 29.5s
+Eval epoch 280 | PSNR 31.143952972031705 dB
+Epoch 280/500 | steps 17640/31500 | experts 16/16 | loss 0.000769367 | elapsed 37.4s | ETA 29.4s
+Epoch 281/500 | steps 17703/31500 | experts 16/16 | loss 0.000768102 | elapsed 37.5s | ETA 29.2s
+Epoch 282/500 | steps 17766/31500 | experts 16/16 | loss 0.000770107 | elapsed 37.6s | ETA 29.1s
+Epoch 283/500 | steps 17829/31500 | experts 16/16 | loss 0.000778766 | elapsed 37.7s | ETA 28.9s
+Epoch 284/500 | steps 17892/31500 | experts 16/16 | loss 0.000771402 | elapsed 37.8s | ETA 28.8s
+Epoch 285/500 | steps 17955/31500 | experts 16/16 | loss 0.000767422 | elapsed 37.9s | ETA 28.6s
+Epoch 286/500 | steps 18018/31500 | experts 16/16 | loss 0.000769218 | elapsed 38.0s | ETA 28.5s
+Epoch 287/500 | steps 18081/31500 | experts 16/16 | loss 0.000772575 | elapsed 38.1s | ETA 28.3s
+Epoch 288/500 | steps 18144/31500 | experts 16/16 | loss 0.000770558 | elapsed 38.2s | ETA 28.2s
+Epoch 289/500 | steps 18207/31500 | experts 16/16 | loss 0.000766864 | elapsed 38.3s | ETA 28.0s
+Eval epoch 290 | PSNR 31.12634280436009 dB
+Epoch 290/500 | steps 18270/31500 | experts 16/16 | loss 0.000773113 | elapsed 38.5s | ETA 27.9s
+Epoch 291/500 | steps 18333/31500 | experts 16/16 | loss 0.000763955 | elapsed 38.6s | ETA 27.7s
+Epoch 292/500 | steps 18396/31500 | experts 16/16 | loss 0.000763712 | elapsed 38.7s | ETA 27.6s
+Epoch 293/500 | steps 18459/31500 | experts 16/16 | loss 0.000770656 | elapsed 38.8s | ETA 27.4s
+Epoch 294/500 | steps 18522/31500 | experts 16/16 | loss 0.00076899 | elapsed 38.9s | ETA 27.3s
+Epoch 295/500 | steps 18585/31500 | experts 16/16 | loss 0.000762872 | elapsed 39.0s | ETA 27.1s
+Epoch 296/500 | steps 18648/31500 | experts 16/16 | loss 0.000763581 | elapsed 39.1s | ETA 27.0s
+Epoch 297/500 | steps 18711/31500 | experts 16/16 | loss 0.000772083 | elapsed 39.2s | ETA 26.8s
+Epoch 298/500 | steps 18774/31500 | experts 16/16 | loss 0.000766308 | elapsed 39.3s | ETA 26.7s
+Epoch 299/500 | steps 18837/31500 | experts 16/16 | loss 0.000771036 | elapsed 39.4s | ETA 26.5s
+Eval epoch 300 | PSNR 31.19913004856172 dB
+Epoch 300/500 | steps 18900/31500 | experts 16/16 | loss 0.000762972 | elapsed 39.6s | ETA 26.4s
+Epoch 301/500 | steps 18963/31500 | experts 16/16 | loss 0.000759745 | elapsed 39.8s | ETA 26.3s
+Epoch 302/500 | steps 19026/31500 | experts 16/16 | loss 0.000765658 | elapsed 39.9s | ETA 26.2s
+Epoch 303/500 | steps 19089/31500 | experts 16/16 | loss 0.00076027 | elapsed 40.1s | ETA 26.0s
+Epoch 304/500 | steps 19152/31500 | experts 16/16 | loss 0.00076048 | elapsed 40.2s | ETA 25.9s
+Epoch 305/500 | steps 19215/31500 | experts 16/16 | loss 0.000766068 | elapsed 40.3s | ETA 25.8s
+Epoch 306/500 | steps 19278/31500 | experts 16/16 | loss 0.000763121 | elapsed 40.5s | ETA 25.7s
+Epoch 307/500 | steps 19341/31500 | experts 16/16 | loss 0.000761645 | elapsed 40.6s | ETA 25.5s
+Epoch 308/500 | steps 19404/31500 | experts 16/16 | loss 0.000756411 | elapsed 40.8s | ETA 25.4s
+Epoch 309/500 | steps 19467/31500 | experts 16/16 | loss 0.000758583 | elapsed 40.9s | ETA 25.3s
+Eval epoch 310 | PSNR 31.226158515147077 dB
+Epoch 310/500 | steps 19530/31500 | experts 16/16 | loss 0.000757392 | elapsed 41.1s | ETA 25.2s
+Epoch 311/500 | steps 19593/31500 | experts 16/16 | loss 0.000758731 | elapsed 41.3s | ETA 25.1s
+Epoch 312/500 | steps 19656/31500 | experts 16/16 | loss 0.00075948 | elapsed 41.4s | ETA 25.0s
+Epoch 313/500 | steps 19719/31500 | experts 16/16 | loss 0.000757423 | elapsed 41.6s | ETA 24.8s
+Epoch 314/500 | steps 19782/31500 | experts 16/16 | loss 0.00076161 | elapsed 41.7s | ETA 24.7s
+Epoch 315/500 | steps 19845/31500 | experts 16/16 | loss 0.000755731 | elapsed 41.9s | ETA 24.6s
+Epoch 316/500 | steps 19908/31500 | experts 16/16 | loss 0.000757504 | elapsed 42.0s | ETA 24.5s
+Epoch 317/500 | steps 19971/31500 | experts 16/16 | loss 0.000754193 | elapsed 42.2s | ETA 24.3s
+Epoch 318/500 | steps 20034/31500 | experts 16/16 | loss 0.00075513 | elapsed 42.3s | ETA 24.2s
+Epoch 319/500 | steps 20097/31500 | experts 16/16 | loss 0.000753337 | elapsed 42.5s | ETA 24.1s
+Eval epoch 320 | PSNR 31.1576153763103 dB
+Epoch 320/500 | steps 20160/31500 | experts 16/16 | loss 0.000753665 | elapsed 42.7s | ETA 24.0s
+Epoch 321/500 | steps 20223/31500 | experts 16/16 | loss 0.000752771 | elapsed 42.8s | ETA 23.9s
+Epoch 322/500 | steps 20286/31500 | experts 16/16 | loss 0.000754393 | elapsed 43.0s | ETA 23.7s
+Epoch 323/500 | steps 20349/31500 | experts 16/16 | loss 0.000751247 | elapsed 43.1s | ETA 23.6s
+Epoch 324/500 | steps 20412/31500 | experts 16/16 | loss 0.000748834 | elapsed 43.3s | ETA 23.5s
+Epoch 325/500 | steps 20475/31500 | experts 16/16 | loss 0.00074956 | elapsed 43.4s | ETA 23.4s
+Epoch 326/500 | steps 20538/31500 | experts 16/16 | loss 0.000749522 | elapsed 43.5s | ETA 23.2s
+Epoch 327/500 | steps 20601/31500 | experts 16/16 | loss 0.000747657 | elapsed 43.7s | ETA 23.1s
+Epoch 328/500 | steps 20664/31500 | experts 16/16 | loss 0.000748389 | elapsed 43.8s | ETA 23.0s
+Epoch 329/500 | steps 20727/31500 | experts 16/16 | loss 0.000746485 | elapsed 44.0s | ETA 22.9s
+Eval epoch 330 | PSNR 31.262840163591235 dB
+Epoch 330/500 | steps 20790/31500 | experts 16/16 | loss 0.000749891 | elapsed 44.2s | ETA 22.8s
+Epoch 331/500 | steps 20853/31500 | experts 16/16 | loss 0.000745297 | elapsed 44.3s | ETA 22.6s
+Epoch 332/500 | steps 20916/31500 | experts 16/16 | loss 0.000744756 | elapsed 44.5s | ETA 22.5s
+Epoch 333/500 | steps 20979/31500 | experts 16/16 | loss 0.000741571 | elapsed 44.6s | ETA 22.4s
+Epoch 334/500 | steps 21042/31500 | experts 16/16 | loss 0.000739823 | elapsed 44.8s | ETA 22.3s
+Epoch 335/500 | steps 21105/31500 | experts 16/16 | loss 0.000741686 | elapsed 44.9s | ETA 22.1s
+Epoch 336/500 | steps 21168/31500 | experts 16/16 | loss 0.000740054 | elapsed 45.1s | ETA 22.0s
+Epoch 337/500 | steps 21231/31500 | experts 16/16 | loss 0.00074443 | elapsed 45.2s | ETA 21.9s
+Epoch 338/500 | steps 21294/31500 | experts 16/16 | loss 0.000743123 | elapsed 45.4s | ETA 21.7s
+Epoch 339/500 | steps 21357/31500 | experts 16/16 | loss 0.000738074 | elapsed 45.5s | ETA 21.6s
+Eval epoch 340 | PSNR 31.327886594051073 dB
+Epoch 340/500 | steps 21420/31500 | experts 16/16 | loss 0.000739345 | elapsed 45.7s | ETA 21.5s
+Epoch 341/500 | steps 21483/31500 | experts 16/16 | loss 0.000735664 | elapsed 45.9s | ETA 21.4s
+Epoch 342/500 | steps 21546/31500 | experts 16/16 | loss 0.000735731 | elapsed 46.0s | ETA 21.3s
+Epoch 343/500 | steps 21609/31500 | experts 16/16 | loss 0.000737608 | elapsed 46.2s | ETA 21.1s
+Epoch 344/500 | steps 21672/31500 | experts 16/16 | loss 0.000733583 | elapsed 46.3s | ETA 21.0s
+Epoch 345/500 | steps 21735/31500 | experts 16/16 | loss 0.000734422 | elapsed 46.4s | ETA 20.9s
+Epoch 346/500 | steps 21798/31500 | experts 16/16 | loss 0.000733736 | elapsed 46.6s | ETA 20.7s
+Epoch 347/500 | steps 21861/31500 | experts 16/16 | loss 0.000733079 | elapsed 46.7s | ETA 20.6s
+Epoch 348/500 | steps 21924/31500 | experts 16/16 | loss 0.000728908 | elapsed 46.9s | ETA 20.5s
+Epoch 349/500 | steps 21987/31500 | experts 16/16 | loss 0.000730181 | elapsed 47.0s | ETA 20.4s
+Eval epoch 350 | PSNR 31.395137356325357 dB
+Epoch 350/500 | steps 22050/31500 | experts 16/16 | loss 0.000730793 | elapsed 47.2s | ETA 20.2s
+Epoch 351/500 | steps 22113/31500 | experts 16/16 | loss 0.00072881 | elapsed 47.4s | ETA 20.1s
+Epoch 352/500 | steps 22176/31500 | experts 16/16 | loss 0.000728075 | elapsed 47.5s | ETA 20.0s
+Epoch 353/500 | steps 22239/31500 | experts 16/16 | loss 0.000723644 | elapsed 47.7s | ETA 19.9s
+Epoch 354/500 | steps 22302/31500 | experts 16/16 | loss 0.000726551 | elapsed 47.8s | ETA 19.7s
+Epoch 355/500 | steps 22365/31500 | experts 16/16 | loss 0.00072699 | elapsed 48.0s | ETA 19.6s
+Epoch 356/500 | steps 22428/31500 | experts 16/16 | loss 0.000723141 | elapsed 48.1s | ETA 19.5s
+Epoch 357/500 | steps 22491/31500 | experts 16/16 | loss 0.000725025 | elapsed 48.3s | ETA 19.3s
+Epoch 358/500 | steps 22554/31500 | experts 16/16 | loss 0.000722309 | elapsed 48.4s | ETA 19.2s
+Epoch 359/500 | steps 22617/31500 | experts 16/16 | loss 0.000723103 | elapsed 48.6s | ETA 19.1s
+Eval epoch 360 | PSNR 31.424280246490245 dB
+Epoch 360/500 | steps 22680/31500 | experts 16/16 | loss 0.000719488 | elapsed 48.8s | ETA 19.0s
+Epoch 361/500 | steps 22743/31500 | experts 16/16 | loss 0.000718087 | elapsed 48.9s | ETA 18.8s
+Epoch 362/500 | steps 22806/31500 | experts 16/16 | loss 0.000717832 | elapsed 49.1s | ETA 18.7s
+Epoch 363/500 | steps 22869/31500 | experts 16/16 | loss 0.000718618 | elapsed 49.2s | ETA 18.6s
+Epoch 364/500 | steps 22932/31500 | experts 16/16 | loss 0.000718121 | elapsed 49.4s | ETA 18.4s
+Epoch 365/500 | steps 22995/31500 | experts 16/16 | loss 0.000715409 | elapsed 49.5s | ETA 18.3s
+Epoch 366/500 | steps 23058/31500 | experts 16/16 | loss 0.000714311 | elapsed 49.6s | ETA 18.2s
+Epoch 367/500 | steps 23121/31500 | experts 16/16 | loss 0.000714919 | elapsed 49.8s | ETA 18.0s
+Epoch 368/500 | steps 23184/31500 | experts 16/16 | loss 0.000712103 | elapsed 49.9s | ETA 17.9s
+Epoch 369/500 | steps 23247/31500 | experts 16/16 | loss 0.000713986 | elapsed 50.1s | ETA 17.8s
+Eval epoch 370 | PSNR 31.470986950165347 dB
+Epoch 370/500 | steps 23310/31500 | experts 16/16 | loss 0.000711357 | elapsed 50.3s | ETA 17.7s
+Epoch 371/500 | steps 23373/31500 | experts 16/16 | loss 0.000711294 | elapsed 50.4s | ETA 17.5s
+Epoch 372/500 | steps 23436/31500 | experts 16/16 | loss 0.000708191 | elapsed 50.6s | ETA 17.4s
+Epoch 373/500 | steps 23499/31500 | experts 16/16 | loss 0.000710045 | elapsed 50.7s | ETA 17.3s
+Epoch 374/500 | steps 23562/31500 | experts 16/16 | loss 0.000709569 | elapsed 50.9s | ETA 17.1s
+Epoch 375/500 | steps 23625/31500 | experts 16/16 | loss 0.000706304 | elapsed 51.0s | ETA 17.0s
+Epoch 376/500 | steps 23688/31500 | experts 16/16 | loss 0.000707522 | elapsed 51.2s | ETA 16.9s
+Epoch 377/500 | steps 23751/31500 | experts 16/16 | loss 0.000705692 | elapsed 51.3s | ETA 16.7s
+Epoch 378/500 | steps 23814/31500 | experts 16/16 | loss 0.000704768 | elapsed 51.5s | ETA 16.6s
+Epoch 379/500 | steps 23877/31500 | experts 16/16 | loss 0.000702024 | elapsed 51.6s | ETA 16.5s
+Eval epoch 380 | PSNR 31.54698494334754 dB
+Epoch 380/500 | steps 23940/31500 | experts 16/16 | loss 0.000702118 | elapsed 51.8s | ETA 16.4s
+Epoch 381/500 | steps 24003/31500 | experts 16/16 | loss 0.000703222 | elapsed 52.0s | ETA 16.2s
+Epoch 382/500 | steps 24066/31500 | experts 16/16 | loss 0.000701324 | elapsed 52.1s | ETA 16.1s
+Epoch 383/500 | steps 24129/31500 | experts 16/16 | loss 0.000700028 | elapsed 52.3s | ETA 16.0s
+Epoch 384/500 | steps 24192/31500 | experts 16/16 | loss 0.000700912 | elapsed 52.4s | ETA 15.8s
+Epoch 385/500 | steps 24255/31500 | experts 16/16 | loss 0.000699557 | elapsed 52.5s | ETA 15.7s
+Epoch 386/500 | steps 24318/31500 | experts 16/16 | loss 0.000695886 | elapsed 52.7s | ETA 15.6s
+Epoch 387/500 | steps 24381/31500 | experts 16/16 | loss 0.000695018 | elapsed 52.8s | ETA 15.4s
+Epoch 388/500 | steps 24444/31500 | experts 16/16 | loss 0.000695689 | elapsed 53.0s | ETA 15.3s
+Epoch 389/500 | steps 24507/31500 | experts 16/16 | loss 0.000696751 | elapsed 53.1s | ETA 15.2s
+Eval epoch 390 | PSNR 31.598664657907214 dB
+Epoch 390/500 | steps 24570/31500 | experts 16/16 | loss 0.000695508 | elapsed 53.3s | ETA 15.0s
+Epoch 391/500 | steps 24633/31500 | experts 16/16 | loss 0.000694156 | elapsed 53.5s | ETA 14.9s
+Epoch 392/500 | steps 24696/31500 | experts 16/16 | loss 0.000692524 | elapsed 53.6s | ETA 14.8s
+Epoch 393/500 | steps 24759/31500 | experts 16/16 | loss 0.000690262 | elapsed 53.8s | ETA 14.6s
+Epoch 394/500 | steps 24822/31500 | experts 16/16 | loss 0.000691426 | elapsed 53.9s | ETA 14.5s
+Epoch 395/500 | steps 24885/31500 | experts 16/16 | loss 0.000689213 | elapsed 54.1s | ETA 14.4s
+Epoch 396/500 | steps 24948/31500 | experts 16/16 | loss 0.000688608 | elapsed 54.2s | ETA 14.2s
+Epoch 397/500 | steps 25011/31500 | experts 16/16 | loss 0.000686925 | elapsed 54.4s | ETA 14.1s
+Epoch 398/500 | steps 25074/31500 | experts 16/16 | loss 0.000686508 | elapsed 54.5s | ETA 14.0s
+Epoch 399/500 | steps 25137/31500 | experts 16/16 | loss 0.000684807 | elapsed 54.7s | ETA 13.8s
+Eval epoch 400 | PSNR 31.64748732081691 dB
+Epoch 400/500 | steps 25200/31500 | experts 16/16 | loss 0.00068581 | elapsed 54.9s | ETA 13.7s
+Epoch 401/500 | steps 25263/31500 | experts 16/16 | loss 0.000686104 | elapsed 55.0s | ETA 13.6s
+Epoch 402/500 | steps 25326/31500 | experts 16/16 | loss 0.000684462 | elapsed 55.2s | ETA 13.4s
+Epoch 403/500 | steps 25389/31500 | experts 16/16 | loss 0.000683008 | elapsed 55.3s | ETA 13.3s
+Epoch 404/500 | steps 25452/31500 | experts 16/16 | loss 0.000682892 | elapsed 55.5s | ETA 13.2s
+Epoch 405/500 | steps 25515/31500 | experts 16/16 | loss 0.000681907 | elapsed 55.6s | ETA 13.0s
+Epoch 406/500 | steps 25578/31500 | experts 16/16 | loss 0.000681987 | elapsed 55.7s | ETA 12.9s
+Epoch 407/500 | steps 25641/31500 | experts 16/16 | loss 0.000680795 | elapsed 55.9s | ETA 12.8s
+Epoch 408/500 | steps 25704/31500 | experts 16/16 | loss 0.000678598 | elapsed 56.0s | ETA 12.6s
+Epoch 409/500 | steps 25767/31500 | experts 16/16 | loss 0.000678835 | elapsed 56.2s | ETA 12.5s
+Eval epoch 410 | PSNR 31.693703596883594 dB
+Epoch 410/500 | steps 25830/31500 | experts 16/16 | loss 0.000678203 | elapsed 56.4s | ETA 12.4s
+Epoch 411/500 | steps 25893/31500 | experts 16/16 | loss 0.000676499 | elapsed 56.5s | ETA 12.2s
+Epoch 412/500 | steps 25956/31500 | experts 16/16 | loss 0.000676056 | elapsed 56.7s | ETA 12.1s
+Epoch 413/500 | steps 26019/31500 | experts 16/16 | loss 0.000675245 | elapsed 56.8s | ETA 12.0s
+Epoch 414/500 | steps 26082/31500 | experts 16/16 | loss 0.000677295 | elapsed 57.0s | ETA 11.8s
+Epoch 415/500 | steps 26145/31500 | experts 16/16 | loss 0.000676128 | elapsed 57.1s | ETA 11.7s
+Epoch 416/500 | steps 26208/31500 | experts 16/16 | loss 0.000674806 | elapsed 57.3s | ETA 11.6s
+Epoch 417/500 | steps 26271/31500 | experts 16/16 | loss 0.000673141 | elapsed 57.4s | ETA 11.4s
+Epoch 418/500 | steps 26334/31500 | experts 16/16 | loss 0.000672252 | elapsed 57.6s | ETA 11.3s
+Epoch 419/500 | steps 26397/31500 | experts 16/16 | loss 0.000670711 | elapsed 57.7s | ETA 11.2s
+Eval epoch 420 | PSNR 31.736801921710693 dB
+Epoch 420/500 | steps 26460/31500 | experts 16/16 | loss 0.00067142 | elapsed 57.9s | ETA 11.0s
+Epoch 421/500 | steps 26523/31500 | experts 16/16 | loss 0.000670045 | elapsed 58.1s | ETA 10.9s
+Epoch 422/500 | steps 26586/31500 | experts 16/16 | loss 0.000668961 | elapsed 58.2s | ETA 10.8s
+Epoch 423/500 | steps 26649/31500 | experts 16/16 | loss 0.000668518 | elapsed 58.4s | ETA 10.6s
+Epoch 424/500 | steps 26712/31500 | experts 16/16 | loss 0.000668328 | elapsed 58.5s | ETA 10.5s
+Epoch 425/500 | steps 26775/31500 | experts 16/16 | loss 0.000668004 | elapsed 58.7s | ETA 10.4s
+Epoch 426/500 | steps 26838/31500 | experts 16/16 | loss 0.000667193 | elapsed 58.8s | ETA 10.2s
+Epoch 427/500 | steps 26901/31500 | experts 16/16 | loss 0.000665952 | elapsed 58.9s | ETA 10.1s
+Epoch 428/500 | steps 26964/31500 | experts 16/16 | loss 0.000665817 | elapsed 59.1s | ETA 9.9s
+Epoch 429/500 | steps 27027/31500 | experts 16/16 | loss 0.000665515 | elapsed 59.2s | ETA 9.8s
+Eval epoch 430 | PSNR 31.78005777112226 dB
+Epoch 430/500 | steps 27090/31500 | experts 16/16 | loss 0.000664111 | elapsed 59.4s | ETA 9.7s
+Epoch 431/500 | steps 27153/31500 | experts 16/16 | loss 0.000663354 | elapsed 59.6s | ETA 9.5s
+Epoch 432/500 | steps 27216/31500 | experts 16/16 | loss 0.000662773 | elapsed 59.7s | ETA 9.4s
+Epoch 433/500 | steps 27279/31500 | experts 16/16 | loss 0.000662424 | elapsed 59.9s | ETA 9.3s
+Epoch 434/500 | steps 27342/31500 | experts 16/16 | loss 0.000661139 | elapsed 60.0s | ETA 9.1s
+Epoch 435/500 | steps 27405/31500 | experts 16/16 | loss 0.00066132 | elapsed 60.2s | ETA 9.0s
+Epoch 436/500 | steps 27468/31500 | experts 16/16 | loss 0.000660339 | elapsed 60.3s | ETA 8.9s
+Epoch 437/500 | steps 27531/31500 | experts 16/16 | loss 0.000660713 | elapsed 60.5s | ETA 8.7s
+Epoch 438/500 | steps 27594/31500 | experts 16/16 | loss 0.000660033 | elapsed 60.6s | ETA 8.6s
+Epoch 439/500 | steps 27657/31500 | experts 16/16 | loss 0.000658982 | elapsed 60.8s | ETA 8.4s
+Eval epoch 440 | PSNR 31.817412858941992 dB
+Epoch 440/500 | steps 27720/31500 | experts 16/16 | loss 0.000658847 | elapsed 61.0s | ETA 8.3s
+Epoch 441/500 | steps 27783/31500 | experts 16/16 | loss 0.000657596 | elapsed 61.1s | ETA 8.2s
+Epoch 442/500 | steps 27846/31500 | experts 16/16 | loss 0.00065754 | elapsed 61.3s | ETA 8.0s
+Epoch 443/500 | steps 27909/31500 | experts 16/16 | loss 0.000657083 | elapsed 61.4s | ETA 7.9s
+Epoch 444/500 | steps 27972/31500 | experts 16/16 | loss 0.000656774 | elapsed 61.6s | ETA 7.8s
+Epoch 445/500 | steps 28035/31500 | experts 16/16 | loss 0.000656418 | elapsed 61.7s | ETA 7.6s
+Epoch 446/500 | steps 28098/31500 | experts 16/16 | loss 0.000655443 | elapsed 61.9s | ETA 7.5s
+Epoch 447/500 | steps 28161/31500 | experts 16/16 | loss 0.00065528 | elapsed 62.0s | ETA 7.4s
+Epoch 448/500 | steps 28224/31500 | experts 16/16 | loss 0.000654807 | elapsed 62.1s | ETA 7.2s
+Epoch 449/500 | steps 28287/31500 | experts 16/16 | loss 0.000653746 | elapsed 62.3s | ETA 7.1s
+Eval epoch 450 | PSNR 31.84129569225709 dB
+Epoch 450/500 | steps 28350/31500 | experts 16/16 | loss 0.000653713 | elapsed 62.5s | ETA 6.9s
+Epoch 451/500 | steps 28413/31500 | experts 16/16 | loss 0.000652876 | elapsed 62.6s | ETA 6.8s
+Epoch 452/500 | steps 28476/31500 | experts 16/16 | loss 0.000653075 | elapsed 62.8s | ETA 6.7s
+Epoch 453/500 | steps 28539/31500 | experts 16/16 | loss 0.000652685 | elapsed 62.9s | ETA 6.5s
+Epoch 454/500 | steps 28602/31500 | experts 16/16 | loss 0.000651814 | elapsed 63.1s | ETA 6.4s
+Epoch 455/500 | steps 28665/31500 | experts 16/16 | loss 0.000651639 | elapsed 63.2s | ETA 6.3s
+Epoch 456/500 | steps 28728/31500 | experts 16/16 | loss 0.000651888 | elapsed 63.4s | ETA 6.1s
+Epoch 457/500 | steps 28791/31500 | experts 16/16 | loss 0.000650756 | elapsed 63.5s | ETA 6.0s
+Epoch 458/500 | steps 28854/31500 | experts 16/16 | loss 0.000649646 | elapsed 63.7s | ETA 5.8s
+Epoch 459/500 | steps 28917/31500 | experts 16/16 | loss 0.000649793 | elapsed 63.8s | ETA 5.7s
+Eval epoch 460 | PSNR 31.8587232064894 dB
+Epoch 460/500 | steps 28980/31500 | experts 16/16 | loss 0.00065014 | elapsed 64.0s | ETA 5.6s
+Epoch 461/500 | steps 29043/31500 | experts 16/16 | loss 0.000649683 | elapsed 64.2s | ETA 5.4s
+Epoch 462/500 | steps 29106/31500 | experts 16/16 | loss 0.000648824 | elapsed 64.3s | ETA 5.3s
+Epoch 463/500 | steps 29169/31500 | experts 16/16 | loss 0.000648006 | elapsed 64.5s | ETA 5.2s
+Epoch 464/500 | steps 29232/31500 | experts 16/16 | loss 0.000647714 | elapsed 64.6s | ETA 5.0s
+Epoch 465/500 | steps 29295/31500 | experts 16/16 | loss 0.00064759 | elapsed 64.8s | ETA 4.9s
+Epoch 466/500 | steps 29358/31500 | experts 16/16 | loss 0.000647458 | elapsed 64.9s | ETA 4.7s
+Epoch 467/500 | steps 29421/31500 | experts 16/16 | loss 0.000646563 | elapsed 65.1s | ETA 4.6s
+Epoch 468/500 | steps 29484/31500 | experts 16/16 | loss 0.000646642 | elapsed 65.2s | ETA 4.5s
+Epoch 469/500 | steps 29547/31500 | experts 16/16 | loss 0.000646168 | elapsed 65.3s | ETA 4.3s
+Eval epoch 470 | PSNR 31.896041993280903 dB
+Epoch 470/500 | steps 29610/31500 | experts 16/16 | loss 0.000646273 | elapsed 65.6s | ETA 4.2s
+Epoch 471/500 | steps 29673/31500 | experts 16/16 | loss 0.000646128 | elapsed 65.7s | ETA 4.0s
+Epoch 472/500 | steps 29736/31500 | experts 16/16 | loss 0.000646208 | elapsed 65.8s | ETA 3.9s
+Epoch 473/500 | steps 29799/31500 | experts 16/16 | loss 0.000646003 | elapsed 66.0s | ETA 3.8s
+Epoch 474/500 | steps 29862/31500 | experts 16/16 | loss 0.000645772 | elapsed 66.1s | ETA 3.6s
+Epoch 475/500 | steps 29925/31500 | experts 16/16 | loss 0.000645272 | elapsed 66.3s | ETA 3.5s
+Epoch 476/500 | steps 29988/31500 | experts 16/16 | loss 0.000644924 | elapsed 66.4s | ETA 3.3s
+Epoch 477/500 | steps 30051/31500 | experts 16/16 | loss 0.000643765 | elapsed 66.6s | ETA 3.2s
+Epoch 478/500 | steps 30114/31500 | experts 16/16 | loss 0.000644158 | elapsed 66.7s | ETA 3.1s
+Epoch 479/500 | steps 30177/31500 | experts 16/16 | loss 0.000644457 | elapsed 66.9s | ETA 2.9s
+Eval epoch 480 | PSNR 31.912400348972678 dB
+Epoch 480/500 | steps 30240/31500 | experts 16/16 | loss 0.000643136 | elapsed 67.1s | ETA 2.8s
+Epoch 481/500 | steps 30303/31500 | experts 16/16 | loss 0.000643244 | elapsed 67.2s | ETA 2.7s
+Epoch 482/500 | steps 30366/31500 | experts 16/16 | loss 0.0006435 | elapsed 67.4s | ETA 2.5s
+Epoch 483/500 | steps 30429/31500 | experts 16/16 | loss 0.000643991 | elapsed 67.5s | ETA 2.4s
+Epoch 484/500 | steps 30492/31500 | experts 16/16 | loss 0.000643231 | elapsed 67.7s | ETA 2.2s
+Epoch 485/500 | steps 30555/31500 | experts 16/16 | loss 0.000643537 | elapsed 67.8s | ETA 2.1s
+Epoch 486/500 | steps 30618/31500 | experts 16/16 | loss 0.000643199 | elapsed 68.0s | ETA 2.0s
+Epoch 487/500 | steps 30681/31500 | experts 16/16 | loss 0.000642766 | elapsed 68.1s | ETA 1.8s
+Epoch 488/500 | steps 30744/31500 | experts 16/16 | loss 0.000642901 | elapsed 68.3s | ETA 1.7s
+Epoch 489/500 | steps 30807/31500 | experts 16/16 | loss 0.000643517 | elapsed 68.4s | ETA 1.5s
+Eval epoch 490 | PSNR 31.923191971068384 dB
+Epoch 490/500 | steps 30870/31500 | experts 16/16 | loss 0.0006417 | elapsed 68.6s | ETA 1.4s
+Epoch 491/500 | steps 30933/31500 | experts 16/16 | loss 0.000642592 | elapsed 68.8s | ETA 1.3s
+Epoch 492/500 | steps 30996/31500 | experts 16/16 | loss 0.000641457 | elapsed 68.9s | ETA 1.1s
+Epoch 493/500 | steps 31059/31500 | experts 16/16 | loss 0.000642643 | elapsed 69.0s | ETA 1.0s
+Epoch 494/500 | steps 31122/31500 | experts 16/16 | loss 0.000641726 | elapsed 69.2s | ETA 0.8s
+Epoch 495/500 | steps 31185/31500 | experts 16/16 | loss 0.000641585 | elapsed 69.3s | ETA 0.7s
+Epoch 496/500 | steps 31248/31500 | experts 16/16 | loss 0.000642545 | elapsed 69.5s | ETA 0.6s
+Epoch 497/500 | steps 31311/31500 | experts 16/16 | loss 0.000641131 | elapsed 69.6s | ETA 0.4s
+Epoch 498/500 | steps 31374/31500 | experts 16/16 | loss 0.000641373 | elapsed 69.8s | ETA 0.3s
+Epoch 499/500 | steps 31437/31500 | experts 16/16 | loss 0.000641018 | elapsed 69.9s | ETA 0.1s
+Eval epoch 500 | PSNR 31.926742780818216 dB
+Epoch 500/500 | steps 31500/31500 | experts 16/16 | loss 0.000641471 | elapsed 70.1s | ETA 0.0s
+{"run_id": "odie", "checkpoint": "latest", "psnr": 31.926742780818216, "seconds": 71.26958194607869}
+RGB8 evaluation: PSNR 31.92265969187325 dB | SSIM 0.9394891176544874

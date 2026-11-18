@@ -1,0 +1,92 @@
+[
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/dobeln.png",
+    "config": "../baselines/ingp_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/dobeln/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/dobeln.png",
+    "config": "../baselines/odie_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/dobeln/odie",
+    "ingp_run": "../../reruns/gigapixel_50/dobeln/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/london.jpg",
+    "config": "../baselines/ingp_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/london/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/london.jpg",
+    "config": "../baselines/odie_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/london/odie",
+    "ingp_run": "../../reruns/gigapixel_50/london/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/mars.png",
+    "config": "../baselines/ingp_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/mars/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/mars.png",
+    "config": "../baselines/odie_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/mars/odie",
+    "ingp_run": "../../reruns/gigapixel_50/mars/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/pearl.png",
+    "config": "../baselines/ingp_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/pearl/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/pearl.png",
+    "config": "../baselines/odie_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/pearl/odie",
+    "ingp_run": "../../reruns/gigapixel_50/pearl/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/tokyo.jpg",
+    "config": "../baselines/ingp_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/tokyo/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/tokyo.jpg",
+    "config": "../baselines/odie_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/tokyo/odie",
+    "ingp_run": "../../reruns/gigapixel_50/tokyo/ingp"
+  },
+  {
+    "method": "ingp",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/vela.tif",
+    "config": "../baselines/ingp_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/vela/ingp"
+  },
+  {
+    "method": "odie",
+    "scene": "gigapixel",
+    "input": "../../data/gigapixel/vela.tif",
+    "config": "../baselines/odie_gigapixel_50mib.json",
+    "output": "../../reruns/gigapixel_50/vela/odie",
+    "ingp_run": "../../reruns/gigapixel_50/vela/ingp"
+  }
+]

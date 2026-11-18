@@ -1,0 +1,220 @@
+{
+  "method": "ingp",
+  "plan": {
+    "method": "ingp",
+    "scene": "div2k",
+    "experiment_group": "div2k-png50-50e",
+    "input": "data/div2k/0374.png",
+    "input_sha256": "3b9d7edbaa6a7c18ff384f45904a119102401425cd1f2800a8b985f5bc40488b",
+    "shape_hw": [
+      2040,
+      1632
+    ],
+    "input_bytes": 4681655,
+    "requested_config": {
+      "experiment_group": "div2k-png50-50e",
+      "capacity": {
+        "budget": "png:0.5",
+        "basis": "parameter_payload_bytes"
+      },
+      "training": {
+        "epochs": 50,
+        "batch_size": 65536
+      },
+      "evaluation": {
+        "interval": 10
+      }
+    },
+    "official_defaults": {
+      "entry": "scripts/run.py -> configs/image/base.json",
+      "config": {
+        "loss": {
+          "otype": "L2"
+        },
+        "optimizer": {
+          "otype": "ExponentialDecay",
+          "decay_start": 20000,
+          "decay_interval": 10000,
+          "decay_base": 0.33,
+          "nested": {
+            "otype": "Adam",
+            "learning_rate": 0.01,
+            "beta1": 0.9,
+            "beta2": 0.99,
+            "epsilon": 1e-15,
+            "l2_reg": 1e-06
+          }
+        },
+        "encoding": {
+          "otype": "HashGrid",
+          "n_levels": 16,
+          "n_features_per_level": 2,
+          "log2_hashmap_size": 24,
+          "base_resolution": 16
+        },
+        "network": {
+          "otype": "FullyFusedMLP",
+          "activation": "ReLU",
+          "output_activation": "None",
+          "n_neurons": 64,
+          "n_hidden_layers": 2
+        }
+      }
+    },
+    "upstream_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+    "output": "results/div2k_50/0374/ingp",
+    "training": {
+      "epochs": 50,
+      "batch_size": 65536
+    },
+    "evaluation": {
+      "interval": 10
+    },
+    "vendor_root": "code/vendor",
+    "capacity_basis": "parameter_payload_bytes",
+    "capacity_input": "png:0.5",
+    "finest_resolution": 1020.0,
+    "native_config": {
+      "loss": {
+        "otype": "L2"
+      },
+      "optimizer": {
+        "otype": "ExponentialDecay",
+        "decay_start": 1457,
+        "decay_interval": 729,
+        "decay_base": 0.33,
+        "nested": {
+          "otype": "Adam",
+          "learning_rate": 0.01,
+          "beta1": 0.9,
+          "beta2": 0.99,
+          "epsilon": 1e-15,
+          "l2_reg": 1e-06
+        }
+      },
+      "encoding": {
+        "otype": "HashGrid",
+        "n_levels": 16,
+        "n_features_per_level": 2,
+        "log2_hashmap_size": 16,
+        "base_resolution": 35
+      },
+      "network": {
+        "otype": "FullyFusedMLP",
+        "activation": "ReLU",
+        "output_activation": "None",
+        "n_neurons": 64,
+        "n_hidden_layers": 2
+      }
+    },
+    "pyngp_build": "code/vendor/ingp/build",
+    "pyngp_expected_sha256": null,
+    "allocation": {
+      "base_resolution": 35,
+      "log2_hashmap_size": 16,
+      "per_level_scale": 1.252089792872106,
+      "parameter_count": 1168576,
+      "capacity_verified": true,
+      "target_bytes": 2340827,
+      "package_bytes": 2338427
+    },
+    "expected_updates": 2550,
+    "automatic_retry": false
+  },
+  "source": {
+    "files": {
+      "scripts/_common/cache.py": "c0f65a7b8735ce599aea801129903c242d3c89e2a8c73426d52f94f651a5cb27",
+      "scripts/_common/defaults.py": "f7c7746d5a1471a0801707e14ae1e6f9241373ac278e00dc3447964d10f04923",
+      "scripts/_common/io.py": "d6762ac1e5b1c3aabcde0b64ff437a01a1d1db566868d4000c80e1602a9f96fd",
+      "scripts/_common/capacity.py": "1c87c32edfcff363cd61eeb139c4011ffbc4095c7e5f95661ed8e548637446f0",
+      "scripts/_common/run.py": "249b68ae288ae1962eb82e510e82aa28bb68d5f0ce13a02ab10cf9ce23087874",
+      "scripts/_common/__init__.py": "366c4cf234bc69386477fdf0494f04789cc57fd5c5cdc0bc79a1fdd5b0aaff7b",
+      "scripts/_common/vendor.py": "0aaad88117d6503af701a088131608a0caca69024fa29f3fdcb4fcfea12b28c1",
+      "scripts/_common/native_baselines.py": "e2a9e109c30e9e9acc321cfc232cd3a5f339c862293539cabfe72c66ffa7265b",
+      "scripts/_common/odie.py": "e66977e2857d6836d7f6913cb2ad1086b93a70d403c72ba1219eb1078bc11c80",
+      "scripts/_common/execute.py": "e190301e9d53430102f46864dbf334546600ec1c3534c77890a5793ea121da00",
+      "scripts/run_baselines.py": "e8e1863fb5112c6931797f8668dd9cfe7c34cd55707c8801b3c774546590d521",
+      "scripts/run_ingp_div2k.py": "a5c9d4c9fa5af080397b13eab55bc852dd23bf7c54c23f6f0ae85933212f089f",
+      "scripts/run_odie_gigapixel.py": "529e01a3d235f42bfb722f5ec8e29346a7bb9021e2556c947145ed7d6ae12609",
+      "scripts/run_finer_div2k.py": "e421b4484f5fa319313068fb978f36fe4396f3d8804b6935c6272794140b5651",
+      "scripts/reconstruct.py": "8f6f486feb645bbb9df574cab5a4839bdc141b358b37e756846228e24d024dcc",
+      "scripts/run_ablations.py": "cc380043e471bc142f3630272eadc96830b4d2a3be593198f585f1612f381b79",
+      "scripts/evaluate_reconstruction.py": "98712f565b61d5dada82ad36b2bd99c3f3a7eef2a970a0b3371eaa5b010737b2",
+      "scripts/run_miner_div2k.py": "3617bb2b71b3501530bd1ffd8f5c5469d82e77ac5e30c684d8a113e29cad088a",
+      "scripts/run_ingp_gigapixel.py": "ee4c64263c76563637fadeeb285201b5aee442cd4f1cd789b624697f4b22cca7",
+      "scripts/run_siren_div2k.py": "559b82036989b5c2553fb2659943b8c7b0bc0ddc065a72f4ccc79a9e5e9c97a7",
+      "scripts/run_odie_div2k.py": "f6da6c4143426ae2561c3fcd21684cb6d9988d386cab0357dc40708495e991ce",
+      "scripts/run_odie_ablation.py": "309c5a7a776fedf09ec1b4f8cf38b85da9bf054b35b1ff8f75386a63127f1cb6",
+      "scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scripts/run_ingp_gigapixel_50mib.py": "32884f3974429c7b48f52c8043c94aaaf46008d2467384610407c54b85d05d5c",
+      "scripts/build_native.py": "514cf6d4c465c4ef4f3c80263b5a31b9a24275b3f0990a1b212951d9f42ee51b",
+      "scripts/run_neural_experts_div2k.py": "ed1c388f0b6458c30f5ef7af17bd70cc213cf55d92e9d0ae1b7aac280137e405",
+      "scripts/prepare_vendor.py": "b852c813c47ab2d77c300356e6f0b85be14c77796da3cdb86be291099f8670d8",
+      "scripts/run_odie_gigapixel_50mib.py": "5d875c25c70a5e96c61671676fe150a8a29272d6af152e6838074026a0897448"
+    },
+    "argv": [
+      "code/scripts/run_ingp_div2k.py",
+      "--vendor-root",
+      "code/vendor",
+      "--input",
+      "data/div2k/0374.png",
+      "--config",
+      "code/configs/baselines/ingp_div2k.json",
+      "--output",
+      "results/div2k_50/0374/ingp"
+    ],
+    "python": "<runtime-home>/projects/instant-ngp-official/.venv/bin/python",
+    "upstream_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a"
+  },
+  "created_at": "2026-10-24T15:14:18.702390+00:00",
+  "state": "completed",
+  "pid": 15548,
+  "vendor": {
+    "upstream_commit": "abe236ee00cf90cfca6e36e65c00435d5b21f50a",
+    "url": "https://github.com/NVlabs/instant-ngp.git",
+    "patches": {
+      "ingp.patch": "01dfb6dbce3fdffb732e9d7250fbbe1f0f4f3f6aee8d713ceb4b3d2cef2fc869"
+    },
+    "implementation_files": {
+      "scripts/convert_image.py": "dd4299a713df5926db0f1b45bce9a1d47431a9daa4cadff51647bc0c5b0b53c7",
+      "scripts/run.py": "de1b303b4b6eacec70c685d37249c2d5a85b1561af79fa06ba09af70f34727f3"
+    }
+  },
+  "entry": "scripts/run.py",
+  "patch_sha256": "01dfb6dbce3fdffb732e9d7250fbbe1f0f4f3f6aee8d713ceb4b3d2cef2fc869",
+  "commands": {
+    "train": {
+      "argv": [
+        "<runtime-home>/projects/instant-ngp-official/.venv/bin/python",
+        "-u",
+        "code/vendor/ingp/scripts/run.py",
+        "--scene",
+        "data/div2k/0374.png",
+        "--network",
+        "results/div2k_50/0374/ingp/config.json",
+        "--n_steps",
+        "2550",
+        "--width",
+        "1632",
+        "--height",
+        "2040",
+        "--save_snapshot",
+        "results/div2k_50/0374/ingp/model_latest.msgpack",
+        "--training_batch_size",
+        "65536",
+        "--screenshot_dir",
+        "results/div2k_50/0374/ingp",
+        "--screenshot_spp",
+        "1"
+      ],
+      "cwd": "code/vendor/ingp",
+      "returncode": 0
+    }
+  },
+  "finished_at": "2026-10-24T15:14:23.252994+00:00",
+  "serial": {
+    "returncode": 0,
+    "cache_absent": true,
+    "finished_at": "2026-10-24T15:14:23.285791+00:00"
+  }
+}

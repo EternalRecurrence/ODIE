@@ -1,0 +1,152 @@
+--- a/run_finer.sh
++++ b/run_finer.sh
+@@ -9,12 +9,12 @@
+ 
+ 
+ ### train single image
+-CUDA_VISIBLE_DEVICES=1 python train_image.py \
++CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0} python train_image.py \
+     --model_type $MODELTYPE --exp_name $EXPNAME \
+     --first_omega $FIRSTOMEGA --hidden_omega $HIDDENOMEGA \
+     --hidden_layers $HIDDENLAYERS --hidden_features $HIDDENFEATURES \
+     --lr $LR \
+-    --img_id 0 
++    --img_id 0 "$@"
+ 
+ ### train multi image
+ # GPUID_TUPLE=(0 1 3 4)
+--- a/train_image.py
++++ b/train_image.py
+@@ -58,6 +58,10 @@
+     return model
+ 
+ 
++import json
++from PIL import Image
++
++
+ def get_opts():
+     parser = configargparse.ArgumentParser()
+     parser.add_argument('--logdir', type=str, default='logs', help='logdir')
+@@ -87,13 +91,21 @@
+     # finer
+     parser.add_argument('--first_bias_scale', type=float, default=None, help='bias_scale of the first layer')    
+     parser.add_argument('--scale_req_grad', action='store_true') 
++    parser.add_argument('--input', help='Original-size image to fit')
++    parser.add_argument('--batch_size', type=int, default=None)
++    parser.add_argument('--seed', type=int, default=3407)
+     return parser.parse_args()
+ 
+ 
+-def train(model, coords, gt, size, zero_mean=True, loss_fn=mse_fn, lr=1e-3, num_epochs=2000, steps_til_summary = 10):
++def train(model, coords, gt, size, zero_mean=True, loss_fn=mse_fn, lr=1e-3, num_epochs=2000, steps_til_summary = 10, batch_size=None):
+ 
+     optimizer = torch.optim.Adam(lr=lr, params=model.parameters())
+-    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda iter: 0.1 ** min(iter / num_epochs, 1))
++    batch_size = batch_size or len(coords)
++    n_batches = (len(coords)+batch_size-1)//batch_size
++    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda iter: 0.1 ** min(iter / (num_epochs*n_batches), 1))
++
++    def predict_image():
++        return torch.cat([model(c.to(device)).cpu() for c in coords.split(batch_size)])
+         
+     train_iter = []
+     train_psnr = []
+@@ -103,13 +115,14 @@
+     for epoch in trange(1, num_epochs + 1):      
+         time_start = time.time()
+ 
+-        pred = model(coords)
+-        loss = loss_fn(pred, gt)
+-        
+-        optimizer.zero_grad()
+-        loss.backward()
+-        optimizer.step()
+-        scheduler.step()
++        order = torch.randperm(len(coords)) if n_batches > 1 else torch.arange(len(coords))
++        for ids in order.split(batch_size):
++            pred = model(coords[ids].to(device))
++            loss = loss_fn(pred, gt[ids].to(device))
++            optimizer.zero_grad()
++            loss.backward()
++            optimizer.step()
++            scheduler.step()
+ 
+         torch.cuda.synchronize()
+         total_time += time.time() - time_start
+@@ -118,16 +131,18 @@
+         if not epoch % steps_til_summary:
+             with torch.no_grad():
+                 train_iter.append(epoch)
++                prediction = predict_image()
+                 if zero_mean:
+-                    train_psnr.append((psnr_fn(model(coords)/2+0.5, gt/2+0.5)).item())
++                    train_psnr.append((psnr_fn(prediction/2+0.5, gt.cpu()/2+0.5)).item())
+                 else:
+-                    train_psnr.append((psnr_fn(model(coords), gt)).item())
++                    train_psnr.append((psnr_fn(prediction, gt.cpu())).item())
++
+         
+     with torch.no_grad():
+         if zero_mean:
+-            pred_img = model(coords).reshape(size)/2+0.5
++            pred_img = predict_image().reshape(size)/2+0.5
+         else:
+-            pred_img = model(coords).reshape(size)
++            pred_img = predict_image().reshape(size)
+         
+     ret_dict = {
+         'train_iter': train_iter,
+@@ -142,6 +157,7 @@
+ 
+ if __name__ == '__main__':
+     opts = get_opts()
++    setup_seed(opts.seed)
+     
+     print('--- Run Configuration ---')
+     for k, v in vars(opts).items():
+@@ -153,9 +169,10 @@
+     os.makedirs(logdir, exist_ok=True)
+     
+     # image path
+-    coords, gt, size = get_train_data(os.path.join(opts.dataset_dir, f'%02d.png'%(opts.img_id)), not opts.not_zero_mean)
+-    coords = coords.to(device)
+-    gt = gt.to(device)
++    coords, gt, size = get_train_data(opts.input or os.path.join(opts.dataset_dir, f'%02d.png'%(opts.img_id)), not opts.not_zero_mean)
++    if not opts.batch_size:
++        coords = coords.to(device)
++        gt = gt.to(device)
+     print(coords.shape, gt.shape, gt.max(), gt.min())
+     
+     # model
+@@ -163,12 +180,25 @@
+     print(model)
+     
+     # train
+-    ret_dict = train(model, coords, gt, size, not opts.not_zero_mean, mse_fn, lr=opts.lr, num_epochs=opts.num_epochs, steps_til_summary=opts.steps_til_summary)
++    ret_dict = train(model, coords, gt, size, not opts.not_zero_mean, mse_fn, lr=opts.lr, num_epochs=opts.num_epochs, steps_til_summary=opts.steps_til_summary,
++                     batch_size=opts.batch_size)
+     
+     # save 
+-    torch.save(ret_dict, os.path.join(logdir, 'outputs_%02d.pt'%((opts.img_id))))
+-    
+-    print('Train PSNR: %.4f'%(ret_dict['train_psnr'][-1]))
++    if opts.input:
++        count = sum(p.numel() for p in model.parameters())
++        torch.save(dict(state_dict=ret_dict['model_state'], shape_hw=size[:2], parameter_count=count,
++                        checkpoint='latest', epoch=opts.num_epochs), os.path.join(logdir, 'model_latest.pt'))
++        rgb = ret_dict['pred_img'].cpu().numpy()
++        Image.fromarray(np.rint(np.clip(rgb, 0, 1)*255).astype(np.uint8)).save(
++            os.path.join(logdir, 'reconstruction.png'))
++        with open(os.path.join(logdir, 'metrics.json'), 'w') as stream:
++            json.dump(dict(epoch=opts.num_epochs, checkpoint='latest',
++                parameter_count=count, optimizer_steps=opts.num_epochs*((len(coords)+(opts.batch_size or len(coords))-1)//(opts.batch_size or len(coords)))), stream, indent=2)
++    else:
++        torch.save(ret_dict, os.path.join(logdir, 'outputs_%02d.pt'%((opts.img_id))))
++    
++    if ret_dict['train_psnr']:
++        print('Train PSNR: %.4f'%(ret_dict['train_psnr'][-1]))
+     
+     # [option]
+     # Logger.write(f'{opts.exp_name}      %.4f'%(ret_dict['total_time']))
+\ No newline at end of file

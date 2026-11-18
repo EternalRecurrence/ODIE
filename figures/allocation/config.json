@@ -1,0 +1,45 @@
+{
+  "reference": {
+    "crops": {
+      "D": "reference.png"
+    }
+  },
+  "regions": {
+    "D": [
+      41472,
+      6144,
+      41856,
+      6528
+    ]
+  },
+  "models": [
+    {
+      "label": "w/o On-demand",
+      "crops": {
+        "D": "without-allocation.png"
+      },
+      "metrics": "../../results/tokyo_components/no_on_demand/metrics.json"
+    },
+    {
+      "label": "Full",
+      "crops": {
+        "D": "full.png"
+      },
+      "metrics": "../../results/gigapixel_50/tokyo/odie/metrics.json"
+    }
+  ],
+  "support": {
+    "D": {
+      "values": "support.npz",
+      "experts": [
+        14,
+        15,
+        16
+      ],
+      "label": "Fine-level activation"
+    }
+  },
+  "error_max": 20,
+  "display_width_mm": 178,
+  "output": "generated.svg"
+}

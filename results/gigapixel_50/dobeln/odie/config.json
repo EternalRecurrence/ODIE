@@ -1,0 +1,50 @@
+{
+  "model": {
+    "layers": 16,
+    "base_resolution": 8,
+    "max_resolution": 8192,
+    "features": 2,
+    "finest_features": 2,
+    "router_unscaled_levels": 0,
+    "router_activation": "sigmoid",
+    "router_enabled": true,
+    "resolution_rounding": "round",
+    "budget_remainder": "finest"
+  },
+  "data": {
+    "target_storage": "uint8",
+    "sampling": "stratified",
+    "chunk_pixels": 4194304
+  },
+  "training": {
+    "backend": "native",
+    "epochs": 50,
+    "epochs_per_stage": 1,
+    "batch_size": 65536,
+    "seed": 1729,
+    "learning_rates": {
+      "grid": 0.01,
+      "router": 0.001,
+      "decoder": 0.001
+    },
+    "lr_schedule": {
+      "type": "late_cosine",
+      "constant_through_epoch": 30,
+      "minimum_factor": 0.1
+    }
+  },
+  "regions": {
+    "selection": "error_per_parameter",
+    "backend": "cuda_device"
+  },
+  "budget": {
+    "trainable_parameters": 25597280
+  },
+  "evaluation": {
+    "interval": 5,
+    "batch_size": 131072,
+    "save_npy": false,
+    "ssim": "off",
+    "ssim_stripe_rows": 256
+  }
+}
